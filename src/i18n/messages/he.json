@@ -1,0 +1,3219 @@
+{
+  "app": {
+    "name": "Equi",
+    "tagline": "קופיילוט AI לתיק ההשקעות שלך"
+  },
+  "nav": {
+    "dashboard": "לוח בקרה",
+    "portfolio": "תיק השקעות",
+    "watchlist": "רשימת מעקב",
+    "nextMoves": "המהלכים הבאים",
+    "reports": "דוחות",
+    "news": "חדשות",
+    "fundamentalAnalysis": "ניתוח פונדמנטלי",
+    "stockAnalysis": "ניתוח מניה",
+    "smartReplace": "החלפה חכמה",
+    "alerts": "מרכז התראות",
+    "settings": "הגדרות"
+  },
+  "topBar": {
+    "searchPlaceholder": "חיפוש מניות, אחזקות…",
+    "refresh": "רענון נתונים",
+    "userMenu": "תפריט משתמש"
+  },
+  "auth": {
+    "signIn": "התחברות",
+    "signUp": "הרשמה",
+    "signOut": "התנתקות",
+    "createAccount": "יצירת חשבון",
+    "email": "אימייל",
+    "password": "סיסמה",
+    "confirmPassword": "אימות סיסמה",
+    "loading": "טוען…",
+    "signingIn": "מתחבר…",
+    "signingUp": "יוצר חשבון…",
+    "alreadyHaveAccount": "כבר יש לך חשבון?",
+    "noAccount": "אין לך חשבון?",
+    "openAuth": "פתיחת התחברות",
+    "close": "סגירה",
+    "signedInAs": "מחובר כ-{email}",
+    "localMode": "מצב מקומי",
+    "authenticatedMode": "מסונכרן",
+    "syncedMode": "מסונכרן",
+    "profile": "פרופיל",
+    "openProfile": "פתיחת תפריט פרופיל",
+    "errors": {
+      "emailRequired": "נדרש אימייל.",
+      "passwordRequired": "נדרשת סיסמה.",
+      "passwordTooShort": "הסיסמה חייבת להכיל לפחות 6 תווים.",
+      "passwordMismatch": "הסיסמאות אינן תואמות.",
+      "invalidCredentials": "אימייל או סיסמה שגויים.",
+      "default": "משהו השתבש. נסה שוב."
+    },
+    "success": {
+      "signedIn": "התחברת בהצלחה.",
+      "signedUp": "החשבון נוצר. בדוק את האימייל אם נדרש אימות.",
+      "confirmEmail": "החשבון נוצר. אשר את האימייל ולאחר מכן התחבר כדי לסנכרן את הנתונים.",
+      "signedOut": "התנתקת.",
+      "dataSynced": "הנתונים שלך מסונכרנים."
+    }
+  },
+  "authWelcome": {
+    "title": "התיק שלך, מסודר",
+    "subtitle": "סביבת עבודה רגועה למעקב אחר אחזקות, ניטור שינויים וסקירת תובנות לתמיכה בהחלטות.",
+    "signInTitle": "ברוך שובך",
+    "signUpTitle": "יצירת חשבון",
+    "signInDescription": "התחבר כדי לפתוח את התיק, רשימת המעקב, ההערות וההתראות המסונכרנים שלך.",
+    "signUpDescription": "צור חשבון כדי לשמור את נתוני התיק שלך מסונכרנים בצורה מאובטחת בין הפעלות.",
+    "featurePortfolio": "עקוב אחר התיק האמיתי שלך",
+    "featureWatchlist": "סנכרן רשימת מעקב, הערות והתראות",
+    "featureAnalysis": "נתח מניות עם כלי תמיכה בהחלטות ברורים",
+    "secureSync": "הנתונים שלך מסונכרנים בצורה מאובטחת לחשבון שלך. Equi תומך בהחלטות — הוא לא סוחר עבורך.",
+    "loading": "בודק את ההפעלה…",
+    "loadingDescription": "אנא המתן בזמן שאנו מאמתים את מצב ההתחברות.",
+    "mockPreview": {
+      "portfolio": "תיק",
+      "watchlist": "רשימת מעקב",
+      "alerts": "התראות",
+      "notes": "הערות",
+      "synced": "מסונכרן"
+    },
+    "visual": {
+      "portfolioValue": "₪124,580",
+      "todayChange": "+1.2% היום",
+      "watchlistReady": "רשימת מעקב מוכנה",
+      "alertsActive": "התראות פעילות",
+      "notesSecured": "הערות מאובטחות",
+      "watchlistChange1": "+1.2%",
+      "watchlistChange2": "-0.4%",
+      "watchlistChange3": "+2.1%",
+      "alertsCount": "3 פעילות",
+      "alertItemPrice": "מעקב מחיר NVDA",
+      "alertItemPortfolio": "בדיקת סטייה בתיק",
+      "notePreviewLine1": "תזת הוצאות ענן — לעקוב אחר מגמת השוליים",
+      "notePreviewLine2": "לבחון גודל פוזיציה לפני דוחות"
+    }
+  },
+  "profile": {
+    "title": "פרופיל",
+    "subtitle": "החשבון והנתונים המסונכרנים שלך",
+    "accountStatus": "סטטוס חשבון",
+    "synced": "מסונכרן",
+    "localMode": "מצב מקומי",
+    "localModeDescription": "התחבר כדי לסנכרן תיק, רשימת מעקב, הערות, התראות והגדרות בין מכשירים.",
+    "signInPrompt": "התחברות",
+    "loading": "טוען חשבון…",
+    "email": "אימייל",
+    "userId": "מזהה משתמש",
+    "provider": "ספק",
+    "providerEmail": "אימייל",
+    "joinedAt": "הצטרפות",
+    "lastSignIn": "התחברות אחרונה",
+    "authenticated": "מאומת",
+    "yes": "כן",
+    "no": "לא",
+    "notAvailable": "לא זמין",
+    "accountDetails": "פרטי חשבון",
+    "dataSync": "סנכרון נתונים",
+    "portfolioHoldings": "אחזקות בתיק",
+    "watchlistItems": "פריטי רשימת מעקב",
+    "notes": "הערות",
+    "alerts": "התראות",
+    "settings": "הגדרות",
+    "quickActions": "פעולות מהירות",
+    "goToPortfolio": "מעבר לתיק",
+    "goToSettings": "מעבר להגדרות",
+    "signOut": "התנתקות"
+  },
+  "stockSearch": {
+    "mockBadge": "Mock",
+    "mockNotice": "מוצגים נתוני חיפוש מדומים לצורכי בדיקה.",
+    "searchPlaceholder": "חיפוש מניות, אחזקות…",
+    "noResultsTitle": "לא נמצאו מניות",
+    "noResultsDescription": "נסו שם חברה אחר, סימול מניה או מילת מפתח.",
+    "loading": "מחפש…",
+    "minQuery": "הקלידו לפחות 2 תווים כדי לחפש."
+  },
+  "topSearch": {
+    "mockBadge": "Mock",
+    "viewStock": "צפייה במניה",
+    "sheetTitle": "חיפוש מניות",
+    "closeSheet": "סגירת חיפוש",
+    "recentSearches": "חיפושים אחרונים",
+    "suggestions": "הצעות",
+    "clearRecent": "ניקוי חיפושים אחרונים",
+    "noRecentSearches": "חיפושי המניות האחרונים שלך יופיעו כאן."
+  },
+  "language": {
+    "current": "שפה נוכחית",
+    "selectLanguage": "בחירת שפה",
+    "english": "English",
+    "hebrew": "עברית",
+    "changeLanguage": "שינוי שפה",
+    "close": "סגירה"
+  },
+  "currency": {
+    "selectCurrency": "בחירת מטבע",
+    "displayCurrency": "מטבע תצוגה",
+    "changeCurrency": "שינוי מטבע תצוגה",
+    "close": "סגירה",
+    "usd": "דולר (USD)",
+    "ils": "שקל (ILS)",
+    "eur": "אירו (EUR)",
+    "originalValue": "ערך מקורי",
+    "convertedValue": "ערך מומר",
+    "fxRatesEstimated": "שערי חליפין משוערים.",
+    "fxRatesSource": "מקור: {source}",
+    "fxRatesLastUpdated": "עודכן: {date}"
+  },
+  "scoring": {
+    "status": {
+      "veryStrong": "חזק מאוד",
+      "strong": "חזק",
+      "average": "ממוצע",
+      "weak": "חלש",
+      "veryWeak": "חלש מאוד"
+    },
+    "actions": {
+      "buyMore": "קנה עוד",
+      "hold": "החזק",
+      "watch": "עקוב",
+      "reduce": "צמצם",
+      "avoid": "הימנע"
+    },
+    "confidence": {
+      "high": "ביטחון גבוה",
+      "medium": "ביטחון בינוני",
+      "low": "ביטחון נמוך"
+    },
+    "categories": {
+      "growth": "צמיחה",
+      "profitability": "רווחיות",
+      "valuation": "הערכת שווי",
+      "financialHealth": "בריאות פיננסית",
+      "momentum": "מומנטום",
+      "analystSentiment": "סנטימנט אנליסטים"
+    },
+    "reasons": {
+      "strongGrowth": "פרופיל צמיחה חזק",
+      "strongProfitability": "רווחיות חזקה ואיכות שוליים",
+      "healthyBalanceSheet": "מאזן בריא ובריאות פיננסית טובה",
+      "positiveMomentum": "מומנטום מחיר חיובי",
+      "strongAnalystSentiment": "סנטימנט אנליסטים חזק",
+      "attractiveValuation": "הערכת שווי אטרקטיבית ביחס לפונדמנטלים"
+    },
+    "risks": {
+      "weakGrowth": "פרופיל הצמיחה עלול להיחלש",
+      "lowProfitability": "יש לבחון רווחיות ושוליים",
+      "stretchedValuation": "הערכת השווי נראית גבוהה או לא אטרקטיבית",
+      "weakFinancialHealth": "יש לבחון את הבריאות הפיננסית",
+      "negativeMomentum": "המומנטום חלש",
+      "weakAnalystSentiment": "סנטימנט האנליסטים זהיר",
+      "missingData": "נתוני הציון אינם שלמים עבור סימבול זה"
+    }
+  },
+  "smartReplace": {
+    "eyebrow": "מעבדת איכות לתיק",
+    "title": "החלפה חכמה",
+    "subtitle": "מציאת חלופות חזקות יותר לאחזקות עם ציון נמוך בתיק",
+    "units": {
+      "points": "נק׳"
+    },
+    "metrics": {
+      "positionsToReview": "אחזקות לבדיקה",
+      "bestReplacementMatches": "התאמות החלפה מובילות",
+      "potentialScoreImprovement": "שיפור ציון פוטנציאלי",
+      "estimatedUpsideDifference": "פער אפסייד משוער",
+      "helpers": {
+        "needsAttention": "דורשות תשומת לב",
+        "highQualityOptions": "אפשרויות איכותיות",
+        "averageImprovement": "שיפור ממוצע",
+        "averageUpsideLift": "עליית אפסייד ממוצעת"
+      }
+    },
+    "main": {
+      "positionToReview": "אחזקה לבדיקה",
+      "bestMatch": "התאמה מובילה",
+      "currentHolding": "אחזקה נוכחית",
+      "replacementCandidate": "מועמד להחלפה",
+      "simulateSwap": "סימולציית החלפה",
+      "previewSwapImpact": "תצוגת השפעת החלפה",
+      "resetPreview": "איפוס תצוגה",
+      "previewOnly": "תצוגה בלבד",
+      "doesNotChangePortfolio": "לא משנה את תיק ההשקעות",
+      "decisionSupportEstimate": "אומדן תומך החלטה על בסיס הנחות דמה נוכחיות.",
+      "replaceThisWithThat": "להחליף את זה בזה",
+      "afterSwapPreview": "תצוגה לאחר החלפה"
+    },
+    "labels": {
+      "sector": "סקטור",
+      "currentWeight": "משקל נוכחי",
+      "estimatedWeight": "משקל משוער לאחר החלפה",
+      "avgCost": "עלות ממוצעת",
+      "marketValue": "שווי שוק",
+      "unrealizedPl": "רווח/הפסד לא ממומש",
+      "currentPrice": "מחיר נוכחי",
+      "upsidePotential": "פוטנציאל אפסייד",
+      "analystConsensus": "קונצנזוס אנליסטים",
+      "score": "ציון",
+      "scoreAria": "ציון {score} מתוך 100",
+      "action": "פעולה",
+      "risk": "סיכון",
+      "beta": "בטא"
+    },
+    "sectors": {
+      "consumerDiscretionary": "צריכה מחזורית",
+      "technology": "טכנולוגיה",
+      "communicationServices": "שירותי תקשורת"
+    },
+    "concerns": {
+      "highVolatility": "תנודתיות גבוהה",
+      "weakMomentum": "מומנטום חלש",
+      "premiumValuation": "תמחור פרמיה"
+    },
+    "positives": {
+      "higherProfitability": "רווחיות גבוהה יותר",
+      "aiInfrastructureExposure": "חשיפה לתשתיות AI",
+      "strongerEarningsTrend": "מגמת רווחים חזקה יותר",
+      "betterRiskReward": "יחס סיכון/סיכוי טוב יותר"
+    },
+    "consensus": {
+      "strongBuy": "קנייה חזקה",
+      "buy": "קנייה"
+    },
+    "reasons": {
+      "strongAiExposure": "רווחים חזקים וחשיפה ל-AI",
+      "aiDemandImproving": "ביקוש AI ושיפור מרווחים",
+      "adGrowthCashFlow": "צמיחת פרסום ותזרים מזומנים חזק",
+      "cloudCommerceScale": "קנה מידה בענן ובמסחר מקוון",
+      "stableCashGeneration": "צמיחה יציבה ויצירת מזומנים"
+    },
+    "matchTypes": {
+      "sameSector": "אותו סקטור",
+      "similarBusiness": "עסק דומה",
+      "qualityUpgrade": "שדרוג איכות",
+      "lowerRisk": "סיכון נמוך יותר"
+    },
+    "table": {
+      "replacementCandidates": "מועמדי החלפה",
+      "matchByBalanced": "התאמה מאוזנת",
+      "symbol": "סימול",
+      "company": "חברה",
+      "matchType": "סוג התאמה",
+      "score": "ציון",
+      "upside": "אפסייד %",
+      "riskBeta": "סיכון / בטא",
+      "keyReason": "סיבה מרכזית",
+      "action": "פעולה"
+    },
+    "actions": {
+      "buy": "קנייה",
+      "buyMore": "קנייה נוספת",
+      "hold": "החזקה",
+      "watch": "מעקב",
+      "reduce": "הפחתה",
+      "avoid": "להימנע",
+      "bestMatch": "התאמה מובילה",
+      "consider": "לשקול",
+      "review": "בדיקה",
+      "compare": "השוואה",
+      "selected": "נבחר",
+      "applySwap": "החלפת מניה"
+    },
+    "confirm": {
+      "previewOnlyTitle": "תצוגה מקדימה בלבד",
+      "previewOnlyDescription": "תצוגה מקדימה בלבד — שינויים בתיק לא נשמרים עדיין. סימולציה לבדיקת השפעה לפני יישום עתידי.",
+      "close": "הבנתי",
+      "cancel": "ביטול"
+    },
+    "sidebar": {
+      "whyRecommendation": "למה זו ההמלצה?",
+      "swapImpactEstimate": "אומדן השפעת החלפה",
+      "aiNote": "הערת AI",
+      "howItWorks": "איך זה עובד",
+      "otherWeakPositions": "אחזקות חלשות נוספות",
+      "recentSignals": "שדרוגים / הורדות דירוג אחרונים",
+      "impactAssumption": "האומדנים מבוססים על אופק של 6-12 חודשים.",
+      "reasons": {
+        "sameSector": "מנועי צמיחה דומים עם פרופיל ביצוע נקי יותר",
+        "higherScore": "ציון כולל גבוה משמעותית",
+        "earningsQuality": "יסודות ואיכות רווחים חזקים יותר",
+        "lowerDownside": "אפסייד אטרקטיבי עם סיכון ירידה נמוך יותר"
+      }
+    },
+    "impact": {
+      "portfolioScore": "ציון התיק",
+      "technologyExposure": "חשיפה לטכנולוגיה",
+      "expectedUpside": "אפסייד צפוי",
+      "annualizedReturnEstimate": "אומדן תשואה שנתית",
+      "riskScore": "ציון סיכון / תנודתיות",
+      "before": "לפני",
+      "after": "אחרי",
+      "lowerRisk": "סיכון נמוך יותר"
+    },
+    "aiNote": {
+      "body": "AVGO מציגה רווחיות חזקה יותר וביצוע עקבי יותר מ-TSLA, תוך שמירה על חשיפה לנושאי צמיחה ארוכי טווח כמו תשתיות AI וביקוש לשבבים. ההחלפה עשויה לשפר את איכות התיק ואת הנחות התשואה המתואמת לסיכון.",
+      "disclaimer": "מידע בלבד, לא ייעוץ פיננסי."
+    },
+    "howItWorks": {
+      "description": "ציונים ואומדנים הם כלי תמיכה בהחלטה בלבד.",
+      "noTradePlaced": "לא מתבצעת עסקה בפועל.",
+      "simulationOnly": "זוהי סימולציה המבוססת על הנחות דמה."
+    },
+    "signals": {
+      "upgrade": "שדרוג",
+      "downgrade": "הורדה",
+      "avgoUpgrade": "שודרגה לקנייה חזקה על ידי Morgan Stanley",
+      "amdUpgrade": "שודרגה לקנייה על ידי J.P. Morgan",
+      "tslaDowngrade": "הורדה להחזקה על ידי Wells Fargo",
+      "twoHoursAgo": "לפני שעתיים",
+      "fiveHoursAgo": "לפני 5 שעות",
+      "oneDayAgo": "לפני יום"
+    }
+  },
+  "addStock": {
+    "title": "הוספת מניה",
+    "subtitle": "חיפוש והוספת מניות לתיק ההשקעות או לרשימת המעקב",
+    "search": {
+      "stepLabel": "שלב 1",
+      "title": "חיפוש מניה",
+      "helper": "חפש לפי שם חברה, סימול מניה או מילת מפתח",
+      "placeholder": "חיפוש מניה...",
+      "popularSearches": "חיפושים פופולריים",
+      "results": "תוצאות חיפוש",
+      "trendingResults": "הצעות מובילות",
+      "resultsFound": "נמצאו {count} תוצאות",
+      "noResultsTitle": "לא נמצאו מניות",
+      "noResultsDescription": "נסה שם חברה, סימול מניה או מילת מפתח אחרת.",
+      "sparklineLabel": "מגמת מחיר אחרונה עבור {symbol}",
+      "fallbackNotice": "מציג תוצאות לא מקוונות. התחבר לראות נתונים חיים."
+    },
+    "destination": {
+      "title": "הוספה אל",
+      "helper": "בחר לאן להוסיף את המניה",
+      "portfolio": {
+        "title": "תיק השקעות",
+        "description": "הוספה לאחזקות בתיק",
+        "secondary": "מעקב אחר ביצועים וניתוחים"
+      },
+      "watchlist": {
+        "title": "רשימת מעקב",
+        "description": "הוספה לרשימת המעקב",
+        "secondary": "מעקב אחר הזדמנויות"
+      },
+      "createNewWatchlist": "יצירת רשימת מעקב חדשה"
+    },
+    "overview": {
+      "title": "סקירה מהירה של המניה",
+      "empty": "בחר מניה כדי לראות מדדים מרכזיים לפני ההוספה.",
+      "currentPrice": "מחיר נוכחי",
+      "marketCap": "שווי שוק",
+      "sector": "סקטור",
+      "weekRange": "טווח 52 שבועות",
+      "analystRating": "דירוג אנליסטים",
+      "equiScore": "ציון Equi",
+      "market": "שוק",
+      "assetType": "סוג נכס",
+      "priceUnavailable": "מחיר לא זמין עדיין",
+      "notAvailable": "לא זמין",
+      "scoreUnavailable": "הציון יתווסף כשנתוני מחיר יהיו זמינים",
+      "ratingAverage": "ממוצע {value}",
+      "scoreSummary": "חזק באופן כללי",
+      "ratings": {
+        "buy": "קנייה",
+        "hold": "החזקה",
+        "watch": "מעקב"
+      }
+    },
+    "actions": {
+      "addToPortfolio": "הוסף לתיק",
+      "addToWatchlist": "הוסף לרשימת מעקב",
+      "cancel": "ביטול",
+      "close": "סגירת הוספת מניה",
+      "search": "חיפוש מניות",
+      "selectStock": "בחירת {symbol}",
+      "searchSymbol": "חיפוש {symbol}"
+    },
+    "success": {
+      "title": "המניה נוספה",
+      "addedToPortfolio": "{symbol} נוספה לתיק ההשקעות שלך",
+      "addedToWatchlist": "{symbol} נוספה לרשימת המעקב שלך",
+      "alreadyInWatchlistTitle": "כבר ברשימת המעקב",
+      "alreadyInWatchlistMessage": "{symbol} כבר נמצאת ברשימת המעקב שלך.",
+      "done": "סיום"
+    },
+    "mockPreviewNotice": "התצוגה המקדימה משתמשת בנתוני fallback מדומים לצורכי בדיקה.",
+    "addedSuccess": "המניה נוספה בהצלחה.",
+    "symbolAlreadyExists": "המניה הזו כבר קיימת בתיק ההשקעות שלך.",
+    "editExisting": "עריכת אחזקה קיימת",
+    "addSeparate": "הוספה כאחזקה נפרדת",
+    "cancel": "ביטול",
+    "table": {
+      "symbol": "סימול",
+      "company": "חברה",
+      "exchange": "בורסה",
+      "sector": "סקטור",
+      "price": "מחיר",
+      "priceUnavailable": "מחיר לא זמין עדיין",
+      "dayChange": "שינוי יומי",
+      "score": "ציון",
+      "taseLabel": "TASE"
+    }
+  },
+  "shell": {
+    "marketOpen": "השוק פתוח",
+    "marketClosed": "השוק סגור",
+    "lastUpdated": "עודכן לאחרונה: {time}",
+    "openMenu": "פתיחת תפריט ניווט",
+    "closeMenu": "סגירת תפריט ניווט",
+    "resizeSidebar": "שינוי רוחב תפריט הניווט",
+    "upgradeCard": {
+      "title": "שדרוג ל-Pro",
+      "description": "פתח ניתוחים מתקדמים, תובנות AI ועוד.",
+      "cta": "שדרג עכשיו"
+    },
+    "marketCard": {
+      "statusOpen": "השוק פתוח",
+      "statusClosed": "השוק סגור",
+      "closesIn": "השוק בארה״ב נסגר בעוד",
+      "opensIn": "השוק בארה״ב נפתח בעוד",
+      "timestamp": "{time} ET"
+    }
+  },
+  "common": {
+    "loading": "טוען…",
+    "error": "משהו השתבש",
+    "retry": "נסה שוב",
+    "comingSoon": "החלק הזה יגיע בקרוב.",
+    "buyMore": "קנה עוד",
+    "hold": "החזק",
+    "watch": "עקוב",
+    "reduce": "הפחת",
+    "avoid": "הימנע",
+    "high": "גבוה",
+    "medium": "בינוני",
+    "low": "נמוך"
+  },
+  "ai": {
+    "output": {
+      "disclaimer": "מידע זה לתמיכה בהחלטות בלבד ואינו ייעוץ פיננסי.",
+      "contextTitles": {
+        "dashboard": "תובנת AI לתיק",
+        "portfolio": "תובנת AI לתיק",
+        "stockAnalysis": "תובנת AI למניה",
+        "fundamentals": "תובנת AI ליסודות",
+        "watchlist": "תובנת AI לרשימת מעקב",
+        "smartReplace": "הערת AI להחלפה חכמה",
+        "nextMoves": "סיכום AI לצעדים הבאים",
+        "alerts": "הסבר AI להתראה",
+        "settingsPreview": "תצוגה מקדימה של תגובת AI"
+      },
+      "sections": {
+        "summary": "סיכום",
+        "whatsStrong": "מה חזק",
+        "riskToWatch": "סיכון למעקב",
+        "whatChanged": "מה השתנה",
+        "suggestedNextStep": "צעד מוצע הבא",
+        "confidence": "רמת ביטחון",
+        "dataFreshness": "רעננות נתונים",
+        "disclaimer": "הבהרה"
+      },
+      "actions": {
+        "reviewPortfolio": "סקור תיק",
+        "viewStock": "צפה בניתוח מניה",
+        "viewWatchlist": "צפה ברשימת מעקב",
+        "openSmartReplace": "פתח החלפה חכמה",
+        "viewNextMoves": "צפה בצעדים הבאים",
+        "viewAlerts": "צפה במרכז התראות",
+        "reviewFundamentals": "סקור יסודות"
+      }
+    }
+  },
+  "calendar": {
+    "earnings": {
+      "title": "יומן דוחות",
+      "subtitle": "אירועי דוחות קרובים לתיק ולרשימת המעקב שלך",
+      "today": "היום",
+      "selectedDay": "היום שנבחר",
+      "upcomingEvents": "אירועים קרובים",
+      "noEvents": "אין אירועי דוחות",
+      "noEventsDescription": "אין אירועי דוחות לדוגמה לתאריך או למסנן הזה.",
+      "reviewStock": "סקור מניה",
+      "beforeMarket": "לפני המסחר",
+      "afterMarket": "אחרי המסחר",
+      "portfolio": "תיק",
+      "watchlist": "רשימת מעקב",
+      "highImpact": "השפעה גבוהה",
+      "mediumImpact": "השפעה בינונית",
+      "lowImpact": "השפעה נמוכה",
+      "eventDetails": "פרטי אירוע",
+      "considerReviewing": "כדאי לשקול סקירה של הפוזיציה לפני הדוחות.",
+      "moreEvents": "+{count} נוספים"
+    },
+    "filters": {
+      "label": "מסנני יומן דוחות",
+      "all": "הכול",
+      "portfolio": "תיק",
+      "watchlist": "רשימת מעקב",
+      "highImpact": "השפעה גבוהה"
+    },
+    "actions": {
+      "previousMonth": "החודש הקודם",
+      "nextMonth": "החודש הבא",
+      "close": "סגירת היומן",
+      "showCalendar": "הצג יומן",
+      "viewCalendar": "הצג יומן"
+    },
+    "details": {
+      "earningsDate": "תאריך הדוחות",
+      "timing": "עיתוי",
+      "source": "מקור",
+      "portfolioWeight": "משקל בתיק",
+      "notInPortfolio": "לא בתיק"
+    },
+    "weekdays": {
+      "sun": "א׳",
+      "mon": "ב׳",
+      "tue": "ג׳",
+      "wed": "ד׳",
+      "thu": "ה׳",
+      "fri": "ו׳",
+      "sat": "ש׳"
+    },
+    "months": {
+      "january": "ינואר",
+      "february": "פברואר",
+      "march": "מרץ",
+      "april": "אפריל",
+      "may": "מאי",
+      "june": "יוני",
+      "july": "יולי",
+      "august": "אוגוסט",
+      "september": "ספטמבר",
+      "october": "אוקטובר",
+      "november": "נובמבר",
+      "december": "דצמבר"
+    }
+  },
+  "dashboard": {
+    "title": "לוח בקרה",
+    "subtitle": "סקירה מבוססת AI של תיק ההשקעות שלך",
+    "metrics": {
+      "totalValue": "שווי תיק כולל",
+      "todayChange": "שינוי היום",
+      "totalGainLoss": "רווח / הפסד כולל",
+      "cashAvailable": "מזומן זמין",
+      "portfolioScore": "ציון ממוצע",
+      "availableToInvest": "זמין להשקעה",
+      "scoreBase": "/100",
+      "portfolioHealth": "בריאות התיק",
+      "scoreLegend": {
+        "great": "מעולה",
+        "good": "טוב",
+        "watch": "מעקב",
+        "avoid": "להימנע"
+      }
+    },
+    "holdings": {
+      "title": "התיק שלי",
+      "viewAll": "הצג הכל",
+      "viewMode": "מצב תצוגת אחזקות",
+      "cardAria": "פתיחת ניתוח מניה עבור {symbol}",
+      "table": "טבלה",
+      "cards": "כרטיסים",
+      "priceUnavailable": "מחיר לא זמין עדיין",
+      "columns": {
+        "symbol": "סימול",
+        "company": "חברה",
+        "shares": "מניות",
+        "avgCost": "עלות ממוצעת",
+        "currentPrice": "מחיר נוכחי",
+        "dayChange": "שינוי יומי %",
+        "marketValue": "שווי שוק",
+        "gainLoss": "רווח / הפסד %",
+        "score": "ציון",
+        "action": "פעולה",
+        "recentDayChanges": "5 ימים אחרונים %",
+        "trend": "מגמה",
+        "more": "פעולות נוספות"
+      }
+    },
+    "cards": {
+      "assetAllocation": "הקצאת נכסים",
+      "sectorExposure": "חשיפה סקטוריאלית",
+      "performance": "ביצועי תיק",
+      "recentActivity": "פעילות אחרונה",
+      "aiInsight": "תובנת תיק AI",
+      "topMovers": "מובילות היום",
+      "scoreDistribution": "התפלגות ציונים",
+      "upcomingEarnings": "דוחות קרובים"
+    },
+    "charts": {
+      "labels": {
+        "stocks": "מניות",
+        "etfs": "קרנות סל",
+        "cash": "מזומן",
+        "crypto": "קריפטו",
+        "technology": "טכנולוגיה",
+        "communication": "תקשורת",
+        "consumerCyclical": "צריכה מחזורית",
+        "consumerDefensive": "צריכה בסיסית",
+        "other": "אחר"
+      },
+      "tooltip": {
+        "valueLabel": "ערך",
+        "percentLabel": "{percent}"
+      }
+    },
+    "performance": {
+      "rangeLabel": "טווח ביצועים",
+      "currentValue": "שווי נוכחי: {value}",
+      "currentValueLabel": "שווי נוכחי",
+      "emptyDescription": "הוסף אחזקות כדי לעקוב אחר ביצועי התיק לאורך זמן.",
+      "ranges": {
+        "oneDay": "יום",
+        "oneWeek": "שבוע",
+        "oneMonth": "חודש",
+        "threeMonths": "3 חודשים",
+        "oneYear": "שנה",
+        "all": "הכל"
+      }
+    },
+    "activity": {
+      "mockTimestamp": "פעילות לדוגמה",
+      "emptyDescription": "אין עדיין פעילות בתיק. עסקאות ועדכונים יופיעו כאן.",
+      "types": {
+        "buy": "קניית {symbol}",
+        "dividend": "דיבידנד {symbol}",
+        "sell": "מכירת {symbol}",
+        "added": "{symbol} נוספה"
+      }
+    },
+    "scoreDistribution": {
+      "total": "סה״כ",
+      "labels": {
+        "great": "מעולה ({min}-{max})",
+        "good": "טוב ({min}-{max})",
+        "watch": "מעקב ({min}-{max})",
+        "avoid": "להימנע ({min}-{max})"
+      }
+    },
+    "earnings": {
+      "viewCalendar": "הצג יומן",
+      "emptyDescription": "אין עדיין דוחות רווח קרובים לאחזקות שלך.",
+      "timing": {
+        "beforeMarket": "לפני המסחר",
+        "afterMarket": "אחרי המסחר"
+      }
+    },
+    "ai": {
+      "summary": "התיק מציג ביצועים טובים היום, עם תרומה חזקה במיוחד מ-NVDA ומ-AAPL.",
+      "keyPositive": "נקודה חיובית",
+      "keyPositiveText": "NVDA ו-AAPL הן התורמות החזקות ביותר בציון, במומנטום ובשינוי היומי.",
+      "potentialConcern": "נקודה למעקב",
+      "potentialConcernText": "ייתכן שכדאי לבחון את TSLA בגלל ציון ומומנטום קצר-טווח חלשים יותר משאר התיק.",
+      "suggestedReview": "סקירה מוצעת",
+      "suggestedReviewText": "כדאי לבדוק את ריכוז החשיפה לטכנולוגיה ולוודא שאחזקות עם ציון נמוך עדיין מתאימות לתוכנית שלך.",
+      "confidence": "רמת ביטחון",
+      "disclaimer": "זהו מידע תומך החלטה בלבד ואינו ייעוץ פיננסי.",
+      "emptyPortfolio": {
+        "title": "אין עדיין מספיק נתוני תיק",
+        "description": "הוסף את האחזקה הראשונה שלך כדי לפתוח תובנות תיק המבוססות על הפוזיציות האמיתיות שלך."
+      }
+    },
+    "actions": {
+      "addStock": "הוסף מניה",
+      "viewAll": "הצג הכל"
+    },
+    "comingSoon": "מימוש לוח הבקרה יגיע בשלב הבא."
+  },
+  "portfolio": {
+    "title": "התיק שלי",
+    "subtitle": "מעקב אחר ההשקעות והביצועים הכוללים",
+    "header": {
+      "visibilityLabel": "נראות תיק ההשקעות"
+    },
+    "actions": {
+      "addTransaction": "הוסף פעולה",
+      "addStock": "הוסף מניה",
+      "addHolding": "הוסף אחזקה",
+      "editHolding": "ערוך אחזקה",
+      "removeHolding": "הסר אחזקה",
+      "addNote": "הוסף הערה",
+      "setAlert": "הגדר התראה",
+      "viewStock": "צפה במניה",
+      "editCashBalance": "ערוך יתרת מזומן",
+      "addFunds": "הוסף כספים",
+      "viewAll": "הצג הכל",
+      "viewCalendar": "הצג יומן",
+      "viewFullAllocation": "הצג הקצאה מלאה",
+      "viewPerformanceReport": "הצג דוח ביצועים",
+      "viewAllHoldings": "הצג את כל האחזקות",
+      "viewAllActivity": "הצג את כל הפעילות"
+    },
+    "form": {
+      "addTitle": "הוסף אחזקה",
+      "editTitle": "ערוך אחזקה",
+      "symbol": "סימול",
+      "shares": "מניות",
+      "averageCost": "עלות ממוצעת",
+      "purchaseCurrency": "מטבע רכישה",
+      "purchaseDate": "תאריך רכישה",
+      "accountName": "שם חשבון",
+      "accountType": "סוג חשבון",
+      "accountTypeOptional": "אופציונלי",
+      "targetAllocation": "הקצאת יעד %",
+      "strategyTag": "תג אסטרטגיה",
+      "strategyOptional": "אופציונלי",
+      "notes": "הערות",
+      "save": "שמור",
+      "cancel": "ביטול",
+      "done": "סיום",
+      "delete": "מחק",
+      "required": "שדה חובה",
+      "invalidShares": "מספר המניות חייב להיות גדול מאפס",
+      "invalidAverageCost": "עלות ממוצעת חייבת להיות אפס או יותר",
+      "invalidTargetAllocation": "הקצאת יעד חייבת להיות בין 0 ל-100",
+      "duplicateSymbol": "סימול זה כבר קיים בתיק",
+      "symbolAlreadyExists": "סימול זה כבר קיים בתיק שלך.",
+      "updateExisting": "עדכן אחזקה קיימת",
+      "addSeparateHolding": "הוסף כמנה נפרדת",
+      "symbolReadOnly": "לא ניתן לשנות סימול בעריכה. החלפת אחזקה תתווסף בהמשך.",
+      "targetAllocationSumWarning": "סך הקצאות היעד חורג מ-100%. עדיין ניתן לשמור.",
+      "mockFallbackNotice": "נתוני מחיר ופרופיל עשויים להיות מדגם או גיבוי עבור סמל זה."
+    },
+    "accountType": {
+      "brokerage": "ברוקראז'",
+      "retirement": "פנסיה",
+      "taxAdvantaged": "חשבון מועדף מס",
+      "other": "אחר"
+    },
+    "strategy": {
+      "core": "ליבה",
+      "growth": "צמיחה",
+      "income": "הכנסה",
+      "speculative": "ספקולטיבי",
+      "watch": "מעקב"
+    },
+    "remove": {
+      "title": "הסר אחזקה",
+      "description": "{symbol} ({companyName}) יוסר מתצוגת התיק המקומית בלבד. לא משפיע על חשבון ברוקראז' אמיתי.",
+      "confirm": "הסר",
+      "cancel": "ביטול"
+    },
+    "success": {
+      "added": "האחזקה נוספה לתיק המקומי",
+      "updated": "האחזקה עודכנה",
+      "removed": "האחזקה הוסרה",
+      "noteSaved": "ההערה נשמרה"
+    },
+    "cash": {
+      "title": "ערוך יתרת מזומן",
+      "amount": "סכום מזומן",
+      "currency": "מטבע",
+      "save": "שמור"
+    },
+    "metrics": {
+      "totalValue": "שווי תיק כולל",
+      "todayChange": "שינוי היום",
+      "dayGainLoss": "רווח / הפסד יומי",
+      "totalReturn": "תשואה כוללת",
+      "totalGainLoss": "רווח / הפסד כולל",
+      "cashAvailable": "מזומן זמין",
+      "cashBalance": "יתרת מזומן",
+      "holdings": "אחזקות",
+      "portfolioScore": "ציון תיק",
+      "availableToInvest": "זמין להשקעה",
+      "stocks": "מניות",
+      "today": "היום",
+      "allTime": "כל התקופה",
+      "scoreBase": "/100",
+      "scoreCount": "{count} מניות",
+      "scoreAria": "ציון תיק {score} מתוך 100"
+    },
+    "performance": {
+      "title": "ביצועי התיק",
+      "value": "שווי",
+      "rangeLabel": "טווח ביצועים",
+      "selectorLabel": "בחירת ערך ביצועים",
+      "currentValue": "שווי נוכחי: {value}",
+      "ranges": {
+        "oneDay": "יום",
+        "oneWeek": "שבוע",
+        "oneMonth": "חודש",
+        "oneYear": "שנה",
+        "all": "הכל"
+      }
+    },
+    "allocation": {
+      "title": "הקצאת נכסים",
+      "total": "סה״כ",
+      "stocks": "מניות",
+      "etfs": "קרנות סל",
+      "cash": "מזומן",
+      "crypto": "קריפטו",
+      "technology": "טכנולוגיה",
+      "consumerCyclical": "צריכה מחזורית",
+      "communication": "שירותי תקשורת",
+      "consumerDefensive": "צריכה בסיסית",
+      "healthcare": "בריאות"
+    },
+    "holdings": {
+      "title": "אחזקות ({count})",
+      "filterLabel": "סינון אחזקות",
+      "sortLabel": "מיון אחזקות",
+      "allHoldings": "כל האחזקות",
+      "winners": "עולים היום",
+      "losers": "יורדים היום",
+      "sortSymbolAsc": "סימול א–ת",
+      "sortSymbolDesc": "סימול ת–א",
+      "sortScoreHigh": "ציון גבוה לנמוך",
+      "sortScoreLow": "ציון נמוך לגבוה",
+      "columnsButton": "עמודות",
+      "filterButton": "סינון אחזקות",
+      "downloadButton": "הורדת אחזקות",
+      "rowAria": "פתיחת ניתוח מניה עבור {symbol}",
+      "priceUnavailable": "מחיר לא זמין עדיין",
+      "columns": {
+        "symbol": "סימול",
+        "company": "חברה",
+        "shares": "מניות",
+        "avgCost": "עלות ממוצעת",
+        "currentPrice": "מחיר נוכחי",
+        "dayChange": "שינוי יומי",
+        "totalReturn": "תשואה כוללת",
+        "marketValue": "שווי שוק",
+        "gainLoss": "רווח / הפסד",
+        "weight": "משקל",
+        "recentDayChanges": "5 ימים אחרונים %",
+        "score": "ציון",
+        "action": "פעולה",
+        "more": "פעולות נוספות"
+      }
+    },
+    "topMovers": {
+      "title": "מובילות היום",
+      "topWinners": "עליות מובילות",
+      "topLosers": "ירידות מובילות",
+      "viewAllWinners": "הצג את כל העליות",
+      "viewAllLosers": "הצג את כל הירידות"
+    },
+    "earnings": {
+      "title": "דוחות קרובים",
+      "beforeMarket": "לפני המסחר",
+      "afterMarket": "אחרי המסחר"
+    },
+    "recentActivity": {
+      "title": "פעילות אחרונה",
+      "buy": "קנייה",
+      "sell": "מכירה",
+      "dividend": "דיבידנד",
+      "added": "נוספה",
+      "mock": {
+        "aapl": "קניית {symbol}",
+        "msft": "דיבידנד {symbol}",
+        "tsla": "מכירת {symbol}",
+        "nvda": "{symbol} נוספה"
+      }
+    },
+    "ai": {
+      "title": "תובנת תיק AI",
+      "summary": "התיק עולה היום, עם חוזקה מ-NVDA ומ-AAPL שמאזנת חולשה ב-TSLA וב-GOOGL.",
+      "keyPositive": "נקודה חיובית",
+      "potentialConcern": "נקודה למעקב",
+      "suggestedReview": "סקירה מוצעת",
+      "confidence": "רמת ביטחון",
+      "disclaimer": "זהו מידע תומך החלטה בלבד ואינו ייעוץ פיננסי.",
+      "mock": {
+        "keyPositive": "מובילות הטכנולוגיה תורמות את רוב העלייה היום ומשאירות את התיק מעל מגמת הייחוס.",
+        "potentialConcern": "ריכוז החשיפה לטכנולוגיה גבוה, ולכן ירידה בסקטור אחד עשויה להשפיע יותר על התיק.",
+        "suggestedReview": "כדאי לבחון אחזקות עם ציונים נמוכים ולוודא שיתרת המזומן עדיין מתאימה לתוכנית שלך."
+      }
+    },
+    "scoreDistribution": {
+      "title": "התפלגות ציונים",
+      "great": "מעולה",
+      "good": "טוב",
+      "watch": "מעקב",
+      "avoid": "להימנע"
+    }
+  },
+  "nextMoves": {
+    "title": "המהלכים הבאים",
+    "subtitle": "פעולות מותאמות אישית שיעזרו לך לקבל החלטות השקעה חכמות יותר",
+    "tabs": {
+      "label": "מסנני המהלכים הבאים",
+      "allActions": "כל הפעולות",
+      "needsAction": "דורש פעולה",
+      "opportunities": "הזדמנויות",
+      "risks": "סיכונים",
+      "earnings": "דוחות",
+      "dismissed": "נדחו"
+    },
+    "filters": {
+      "filter": "סינון"
+    },
+    "types": {
+      "needsAction": "דורש פעולה",
+      "opportunity": "הזדמנות",
+      "risk": "סיכון",
+      "earnings": "דוחות",
+      "monitor": "מעקב"
+    },
+    "entities": {
+      "portfolio": "תיק השקעות"
+    },
+    "actions": {
+      "reviewStock": "סקור מניה",
+      "viewAllocation": "הצג הקצאה",
+      "analyze": "נתח",
+      "setAlert": "הגדר התראה",
+      "viewAll": "הצג הכל",
+      "viewCalendar": "הצג יומן",
+      "viewFullAiAnalysis": "הצג ניתוח AI מלא",
+      "more": "פעולות נוספות"
+    },
+    "items": {
+      "tsla": {
+        "title": "סקירת פוזיציית TSLA",
+        "description": "הציון ירד מ-61 ל-45 במהלך 30 הימים האחרונים."
+      },
+      "nvda": {
+        "title": "שקול להוסיף ל-NVDA",
+        "description": "מומנטום חזק ודוחות שעלו על הציפיות."
+      },
+      "technology": {
+        "title": "איזון מחדש של חשיפה לטכנולוגיה",
+        "description": "טכנולוגיה מהווה 64% מהתיק שלך, מעל יעד המקסימום של 50%."
+      },
+      "aapl": {
+        "title": "דוחות קרובים: AAPL",
+        "description": "דוחות בעוד 4 ימים."
+      },
+      "msft": {
+        "title": "הזדמנות קנייה חזקה",
+        "description": "תמחור אטרקטיבי ופוטנציאל צמיחה חזק בתחום ה-AI."
+      },
+      "googl": {
+        "title": "מעקב אחר רמת תמיכה ב-GOOGL",
+        "description": "המחיר קרוב לרמת תמיכה מרכזית."
+      }
+    },
+    "cards": {
+      "portfolioHealth": {
+        "title": "בריאות התיק",
+        "overallHealthy": "התיק בריא באופן כללי",
+        "monitorRisks": "כדאי להמשיך לעקוב אחר סיכונים מרכזיים",
+        "great": "מעולה",
+        "good": "טוב",
+        "watch": "מעקב",
+        "avoid": "להימנע"
+      },
+      "riskFactors": {
+        "title": "גורמי סיכון מובילים",
+        "highConcentration": "ריכוז גבוה בטכנולוגיה",
+        "highConcentrationDetail": "64% (יעד: מקסימום 50%)",
+        "marketVolatility": "חשיפה לתנודתיות שוק",
+        "marketVolatilityDetail": "בטא 1.25 מול S&P 500",
+        "interestRateSensitivity": "רגישות לשיעורי ריבית",
+        "interestRateSensitivityDetail": "סיכון מח״מ בתיק",
+        "high": "גבוה",
+        "medium": "בינוני"
+      },
+      "events": {
+        "title": "אירועים קרובים",
+        "earningsCall": "שיחת דוחות",
+        "beforeMarket": "לפני המסחר",
+        "afterMarket": "אחרי המסחר"
+      },
+      "aiSummary": {
+        "title": "סיכום AI",
+        "summary": "התיק מציג ביצועים טובים באופן כללי. כדאי לשקול סקירה של חשיפת הטכנולוגיה ושל פוזיציית TSLA. הזדמנויות חזקות מופיעות ב-NVDA וב-MSFT.",
+        "disclaimer": "זהו מידע תומך החלטה בלבד ואינו ייעוץ פיננסי."
+      }
+    },
+    "metrics": {
+      "score": "ציון",
+      "trend": "מגמה",
+      "sentiment": "סנטימנט",
+      "valuation": "תמחור",
+      "current": "נוכחי",
+      "targetMax": "יעד מקסימום",
+      "deviation": "סטייה",
+      "event": "אירוע",
+      "impact": "השפעה",
+      "positionSize": "גודל פוזיציה",
+      "upside": "פוטנציאל עלייה",
+      "confidence": "רמת ביטחון",
+      "price": "מחיר",
+      "support": "תמיכה",
+      "distance": "מרחק"
+    },
+    "metricValues": {
+      "up": "מעלה",
+      "down": "מטה",
+      "warning": "אזהרה",
+      "ok": "תקין",
+      "earnings": "דוחות",
+      "high": "גבוה"
+    },
+    "empty": {
+      "title": "אין מהלכים בתצוגה הזו",
+      "description": "נסה מסנן אחר כדי לראות פעולות פעילות בתיק."
+    },
+    "accessibility": {
+      "portfolioScore": "ציון בריאות התיק {score} מתוך {max}"
+    }
+  },
+  "stockAnalysis": {
+    "breadcrumb": {
+      "label": "ניווט ניתוח מניה",
+      "portfolio": "תיק השקעות",
+      "analysis": "ניתוח"
+    },
+    "actions": {
+      "addToWatchlist": "הוסף לרשימת מעקב",
+      "addToPortfolio": "הוסף לתיק",
+      "setPriceAlert": "הגדר התראת מחיר",
+      "addNote": "הוסף הערה",
+      "compareCompetitors": "השווה למתחרים",
+      "viewSecFilings": "צפה בדוחות SEC",
+      "optionsChain": "שרשרת אופציות"
+    },
+    "header": {
+      "overallScore": "ציון כולל",
+      "highConviction": "ביטחון גבוה",
+      "lastUpdated": "נכון ל-{date}",
+      "previousClose": "סגירה קודמת"
+    },
+    "chart": {
+      "rangeLabel": "טווח גраф מחיר",
+      "ranges": {
+        "oneDay": "יום",
+        "oneWeek": "שבוע",
+        "oneMonth": "חודש",
+        "oneYear": "שנה",
+        "max": "מקס"
+      }
+    },
+    "scores": {
+      "growth": "צמיחה",
+      "profitability": "רווחיות",
+      "valuation": "שווי",
+      "financialHealth": "בריאות פיננסית",
+      "momentum": "מומנטום",
+      "analystSentiment": "סנטימנט אנליסטים"
+    },
+    "scoreLabels": {
+      "veryStrong": "חזק מאוד",
+      "strong": "חזק",
+      "good": "טוב",
+      "watch": "מעקב",
+      "weak": "חלש"
+    },
+    "confidence": {
+      "high": "ביטחון גבוה",
+      "medium": "ביטחון בינוני",
+      "low": "ביטחון נמוך"
+    },
+    "ai": {
+      "title": "תובנת AI",
+      "whatsGood": "מה טוב",
+      "riskToWatch": "סיכון למעקב",
+      "suggestedAction": "פעולה מוצעת",
+      "disclaimer": "ניתוח AI הוא לתמיכה בהחלטות בלבד ואינו ייעוץ פיננסי.",
+      "poweredBy": "מופעל על ידי StockPilot AI"
+    },
+    "keyMetrics": {
+      "title": "מדדים עיקריים",
+      "pe": "P/E (TTM)",
+      "peg": "PEG (5Y)",
+      "revenueGrowth": "צמיחת הכנסות (YoY)",
+      "grossMargin": "מרווח גולמי",
+      "operatingMargin": "מרווח תפעולי",
+      "marketCap": "שווי שוק",
+      "freeCashFlow": "תזרים מזומנים חופשי (TTM)",
+      "debtToEquity": "חוב / הון",
+      "roe": "ROE (TTM)",
+      "nextEarnings": "דוח הבא",
+      "viewMore": "הצג מדדים נוספים"
+    },
+    "news": {
+      "title": "חדשות אחרונות",
+      "viewAll": "הצג הכל",
+      "emptyState": "אין חדשות אחרונות למניה זו",
+      "emptyDescription": "בדוק שוב מאוחר יותר לדוחות, ניתוחים וכותרות.",
+      "categories": {
+        "earnings": "דוחות",
+        "analysis": "ניתוח",
+        "news": "חדשות"
+      }
+    },
+    "analystTarget": {
+      "title": "יעד אנליסטים",
+      "averageTarget": "יעד ממוצע",
+      "upside": "פוטנציאל עלייה",
+      "highLow": "גבוה / נמוך",
+      "consensus": "הערכת אנליסטים",
+      "consensusLabels": {
+        "strongBuy": "קנייה חזקה",
+        "buy": "קנייה",
+        "hold": "החזקה",
+        "sell": "מכירה"
+      },
+      "basedOnAnalysts": "מבוסס על {count} אנליסטים",
+      "buy": "קנייה",
+      "hold": "החזקה",
+      "sell": "מכירה",
+      "viewDetails": "הצג פרטי אנליסטים",
+      "detailsTitle": "פרטי יעד אנליסטים",
+      "close": "סגור"
+    },
+    "position": {
+      "title": "הפוזיציה שלך",
+      "viewInPortfolio": "הצג בתיק",
+      "shares": "מניות",
+      "avgCost": "עלות ממוצעת",
+      "marketValue": "שווי שוק",
+      "dayGainLoss": "רווח / הפסד יומי",
+      "totalGainLoss": "רווח / הפסד כולל",
+      "noPosition": "אין לך מניה זו בתיק עדיין."
+    },
+    "quickActions": {
+      "title": "פעולות מהירות",
+      "edit": "עריכה"
+    },
+    "thesis": {
+      "title": "התזה / הערות שלי",
+      "whyIOwnIt": "למה אני מחזיק",
+      "whatToWatch": "מה לעקוב",
+      "sellIf": "מכור אם",
+      "edit": "עריכה"
+    },
+    "notes": {
+      "emptyState": "אין הערות שמורות עדיין",
+      "emptyDescription": "הוסף את התזה וטריגרים להחלטה כדי לעקוב למה אתה מחזיק במניה.",
+      "generalNotesTitle": "הערות לסשן",
+      "untitledNote": "הערה ללא כותרת"
+    },
+    "tabs": {
+      "overview": "סקירה",
+      "fundamentals": "פונדמנטלים",
+      "news": "חדשות",
+      "notes": "הערות"
+    },
+    "fundamentals": {
+      "emptyState": "נתונים פונדמנטליים עדיין אינם זמינים עבור מניה זו.",
+      "aiRead": {
+        "title": "קריאה פונדמנטלית של AI",
+        "whatsStrong": "מה חזק",
+        "riskToWatch": "סיכון לעקוב",
+        "whatToMonitor": "מה לנטר",
+        "disclaimer": "ניתוח AI הוא לתמיכת החלטות בלבד ואינו ייעוץ פיננסי.",
+        "poweredBy": "מופעל על ידי StockPilot AI"
+      },
+      "metrics": {
+        "revenue": "הכנסות",
+        "grossProfit": "רווח גולמי",
+        "operatingIncome": "הכנסה תפעולית",
+        "epsDiluted": "רווח למניה (מדולל)",
+        "freeCashFlow": "תזרים מזומנים חופשי",
+        "operatingMargin": "מרווח תפעולי"
+      },
+      "units": {
+        "billions": "$ במיליארדים",
+        "perShare": "$ למניה",
+        "percent": "%"
+      },
+      "status": {
+        "improving": "משתפר",
+        "stable": "יציב",
+        "declining": "יורד"
+      },
+      "insights": {
+        "revenue": "צמיחת ההכנסות נשארת חזקה",
+        "grossProfit": "הרווח הגולמי האיץ בגדילה",
+        "operatingIncome": "ההכנסה התפעולית עלתה בחדות",
+        "epsDiluted": "צמיחת הרווח למניה נשארת יוצאת דופן",
+        "freeCashFlow": "יצירת תזרים מזומנים חופשי חזקה",
+        "operatingMargin": "המרווחים התרחבו ב-3 התקופות האחרונות"
+      },
+      "valuation": {
+        "title": "תמונת שווי",
+        "peTtm": "מכפיל רווח (TTM)",
+        "forwardPe": "מכפיל עתידי",
+        "peg5y": "PEG (5 שנים)",
+        "grossMarginTtm": "מרווח גולמי (TTM)",
+        "debtEquity": "חוב / הון",
+        "roeTtm": "תשואה על ההון (TTM)",
+        "high": "גבוה",
+        "moderate": "בינוני",
+        "strong": "חזק",
+        "low": "נמוך",
+        "viewMoreMetrics": "צפייה במדדים נוספים"
+      },
+      "sourceNote": "נתונים פיננסיים בדולר. מקור: דיווחי חברה ונתוני הדגמה."
+    },
+    "mock": {
+      "nvda": {
+        "fundamentals": {
+          "whatsStrong": "צמיחת ההכנסות והרווחים נשארת מואצת, עם מרווחים חזקים ויצירת מזומנים רובסטית.",
+          "riskToWatch": "השווי נשאר גבוה ביחס להיסטוריה ולמתחרים; מחזוריות בביקוש למרכזי נתונים עלולה ללחוץ על התוצאות.",
+          "whatToMonitor": "ביקוש מתמשך לתשתית AI, יציבות מרווח גולמי ודינמיקה תחרותית בשבבי AI."
+        },
+        "ai": {
+          "whatsGood": "לפי הציון הנוכחי, NVDA מציגה צמיחה ורווחיות חזקות מאוד, מונעות מביקוש במרכזי נתונים ל-AI ומרווחים גולמיים מתרחבים.",
+          "riskToWatch": "נקודה למעקב: השווי גבוה ביחס לממוצע ההיסטורי, מה שעלול להגביר רגישות לפספוסי דוחות.",
+          "suggestedAction": "פעולה מוצעת: כדאי לבחון את גודל הפוזיציה לחשיפה לצמיחה ארוכת טווח תוך מעקב אחר דחיסת מכפילים."
+        },
+        "thesis": {
+          "whyIOwnIt": "אחזקת ליבה בתשתית AI עם מנהיגות במחשוב מואץ ומומנטום הכנסות חזק.",
+          "whatToWatch": "מגמות ביקוש במרכזי נתונים, יציבות מרווח גולמי ותחרות בשוק שבבי AI.",
+          "sellIf": "הציון יורד מתחת ל-70, הצמיחה מאטה משמעותית, או שהשווי עולה ללא תמיכת רווחים."
+        },
+        "news": {
+          "item1": {
+            "title": "NVIDIA עולה על תחזיות Q1 בזכות ביקוש לשבבי AI",
+            "source": "Reuters",
+            "timeAgo": "לפני שעתיים"
+          },
+          "item2": {
+            "title": "אנליסטים מעלים יעדי NVDA לאחר ביצועי מרכזי נתונים",
+            "source": "Bloomberg",
+            "timeAgo": "לפני 5 שעות"
+          },
+          "item3": {
+            "title": "NVIDIA חושפת פלטפורמת AI חדשה לעומסי עבודה ארגוניים",
+            "source": "CNBC",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "aapl": {
+        "fundamentals": {
+          "whatsStrong": "רווחיות ויצירת מזומנים נשארות חזקות מאוד עם אקוסיסטם עמיד ותמהיל שירותים.",
+          "riskToWatch": "צמיחת ההכנסות האטה; כדאי לעקוב אם מחזורי מוצר חדשים יאיצו מחדש את ההתרחבות.",
+          "whatToMonitor": "חוזק מחזור iPhone, צמיחת שירותים וקצב החזר הון."
+        },
+        "ai": {
+          "whatsGood": "Apple שומרת על רווחיות ובריאות פיננסית חזקות מאוד עם הכנסות שירותים עמידות ו בסיס לקוחות נאמן.",
+          "riskToWatch": "צמיחת ההכנסות האטה; כדאי לעקוב אם מחזורי מוצר חדשים יאיצו מחדש את קצב הצמיחה.",
+          "suggestedAction": "פעולה מוצעת: החזק את ההקצאה הנוכחית ושקול סקירה לאחר דוח הרווחים הבא."
+        },
+        "thesis": {
+          "whyIOwnIt": "חברת איכות עם מערכת אקולוגית חזקה ויצירת מזומנים עקבית.",
+          "whatToWatch": "מחזור שדרוג iPhone, צמיחת שירותים ותוכנית החזר הון.",
+          "sellIf": "דחיסת מרווחים נמשכת או שהציון יורד מתחת ל-65 בשני תקופות רצופות."
+        },
+        "news": {
+          "item1": {
+            "title": "Apple מדווחת על צמיחה יציבה בהכנסות שירותים",
+            "source": "Reuters",
+            "timeAgo": "לפני 3 שעות"
+          },
+          "item2": {
+            "title": "Wall Street שומר על ת outlook חיובי לאקוסיסטם של Apple",
+            "source": "MarketWatch",
+            "timeAgo": "לפני 6 שעות"
+          },
+          "item3": {
+            "title": "Apple מרחיבה יכולות AI בכל סדרת המכשירים",
+            "source": "TechCrunch",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "msft": {
+        "fundamentals": {
+          "whatsStrong": "אינטגרציית ענן ו-AI תומכת במרווחים תפעוליים חזקים וביקוש ארגוני עמיד.",
+          "riskToWatch": "השווי מעל לחציון הסקטור; צמיחת Azure חייבת להצדיק את המכפילים.",
+          "whatToMonitor": "קצב צמיחת Azure, מונטיזציה של AI ומגמות מרווח תפעולי."
+        },
+        "ai": {
+          "whatsGood": "Microsoft מציגה אינטגרציה חזקה של ענן ו-AI עם ציוני רווחיות ובריאות פיננסית מצוינים.",
+          "riskToWatch": "השווי מעל לחציון הסקטור; כדאי לעקוב אם צמיחת Azure מצדיקה את המכפילים.",
+          "suggestedAction": "פעולה מוצעת: החזק — לפי הציון הנוכחי, היסודות נשארים solid לחשיפת ליבה בתיק."
+        },
+        "thesis": {
+          "whyIOwnIt": "מנהיגת תוכנה ארגונית מגוונת עם Azure ו-Copilot כמנועי צמיחה ארוכי טווח.",
+          "whatToWatch": "קצב צמיחת Azure, התקדמות monetization של AI ומגמות מרווח תפעולי.",
+          "sellIf": "צמיחת הענן מאטה משמעותית או שהציון יורד מתחת ל-68."
+        },
+        "news": {
+          "item1": {
+            "title": "הכנסות Azure של Microsoft מאיצות בזכות ביקוש ל-AI",
+            "source": "Reuters",
+            "timeAgo": "לפני 4 שעות"
+          },
+          "item2": {
+            "title": "אנליסטים מדגישים את Microsoft כבחירה מובילה בתשתית AI",
+            "source": "Barron's",
+            "timeAgo": "לפני 8 שעות"
+          },
+          "item3": {
+            "title": "Microsoft מרחיבה אינטגרציות Copilot ארגוניות",
+            "source": "The Verge",
+            "timeAgo": "לפני יומיים"
+          }
+        }
+      },
+      "tsla": {
+        "fundamentals": {
+          "whatsStrong": "גמישות במאזן ואופציונליות באנרגיה מספקות מרחב אסטרטגי.",
+          "riskToWatch": "מרווחי רכב ומומנטום מסירות נשארים תחת לחץ ביחס למחזורים קודמים.",
+          "whatToMonitor": "נפחי מסירה, מרווחים גולמיים ברכב והתקדמות מונטיזציה של FSD."
+        },
+        "ai": {
+          "whatsGood": "Tesla שומרת על בריאות פיננסית טובה עם חוב נמוך ואופציונליות באנרגיה ואוטונומיה.",
+          "riskToWatch": "ציוני מומנטום ורווחיות חלשים; לחץ על מרווחים וביקוש EV מ decelerating עשויים להצביע על רוחות נגדיות.",
+          "suggestedAction": "פעולה מוצעת: מעקב — כדאי לבחון אם ההקצאה הנוכחית מתאימה לרמת הסיכון שלך."
+        },
+        "thesis": {
+          "whyIOwnIt": "אופציונליות על נתח שוק EV, אגירת אנרגיה ופיתוח נהיגה אוטונומית.",
+          "whatToWatch": "נפחי מסירה, מרווחים גולמיים ברכב ו התקדמות FSD.",
+          "sellIf": "המרווחים ממשיכים לרדת או שהציון יורד מתחת ל-45."
+        },
+        "news": {
+          "item1": {
+            "title": "מספרי המסירות של Tesla מתחת לציפיות",
+            "source": "Reuters",
+            "timeAgo": "לפני שעתיים"
+          },
+          "item2": {
+            "title": "אנליסטים מחולקים לגבי לוח זמנים להתאוששות מרווחים",
+            "source": "CNBC",
+            "timeAgo": "לפני 7 שעות"
+          },
+          "item3": {
+            "title": "Tesla מרחיבה פריסות אגירת אנרגיה באירופה",
+            "source": "Electrek",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "googl": {
+        "fundamentals": {
+          "whatsStrong": "רווחיות חיפוש וענן נשארת solid עם שיפור במשמעת עלויות.",
+          "riskToWatch": "פיקוח רגולטורי ורגישות למחזורי פרסום עלולים להגביל עלייה קצרת טווח.",
+          "whatToMonitor": "צמיחת ענן, אימוץ מוצרי AI ומגמות הכנסות פרסום."
+        },
+        "ai": {
+          "whatsGood": "Alphabet שומרת על מרווחים בריאים עם השקעות בענן ו-AI לצמיחה ארוכת טווח.",
+          "riskToWatch": "ציון המומנטום רך יותר; תנודתיות בביקוש לפרסום עלולה להשפיע על התוצאות.",
+          "suggestedAction": "פעולה מוצעת: מעקב — סקור לאחר הדוח הבא לעדכוני ענן ו-AI."
+        },
+        "thesis": {
+          "whyIOwnIt": "חשיפה לתזרימי חיפוש עם אופציונליות בענן ובפלטפורמות AI.",
+          "whatToWatch": "צמיחת הכנסות ענן, השקת מוצרי AI וכותרות רגולטוריות.",
+          "sellIf": "צמיחת הענן מאטה משמעותית או שהציון יורד מתחת ל-50."
+        },
+        "news": {
+          "item1": {
+            "title": "הכנסות הענן של Alphabet עולות על הציפיות בזכות AI",
+            "source": "Reuters",
+            "timeAgo": "לפני 3 שעות"
+          },
+          "item2": {
+            "title": "אנליסטים דנים בקצב התאוששות של שוק הפרסום",
+            "source": "Bloomberg",
+            "timeAgo": "לפני 6 שעות"
+          },
+          "item3": {
+            "title": "Google משיקה יכולות חיפוש AI גנרטיביות חדשות",
+            "source": "The Verge",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "amzn": {
+        "fundamentals": {
+          "whatsStrong": "רווחיות AWS ושיפורי יעילות קמעונאית תומכים בעמידות ברווחים.",
+          "riskToWatch": "מרווחי קמעונאות דקים; הוצאות הון ל-AI עלולות ללחוץ על תזרים חופשי.",
+          "whatToMonitor": "צמיחת AWS, מרווחי קמעונאות ועוצמת capex ל-AI."
+        },
+        "ai": {
+          "whatsGood": "Amazon מציגה שיפור ברווחיות עם AWS כמנוע רווחים עמיד.",
+          "riskToWatch": "השווי מניח צמיחה גבוהה; כדאי לעקוב אחר התאוששות מרווחים והון.",
+          "suggestedAction": "פעולה מוצעת: החזק — לפי הציון הנוכחי, שקול סקירה לאחר הדוח הבא."
+        },
+        "thesis": {
+          "whyIOwnIt": "מנוע כפול של קנה מידה בקמעונאות וצמיחת ענן ברווחיות גבוהה.",
+          "whatToWatch": "מרווח תפעולי AWS, יחידות קמעונאות ואימוץ שירותי AI.",
+          "sellIf": "צמיחת AWS מאטה משמעותית או שהציון יורד מתחת ל-55."
+        },
+        "news": {
+          "item1": {
+            "title": "הכנסות AWS של Amazon מאיצות בביקוש ארגוני ל-AI",
+            "source": "Reuters",
+            "timeAgo": "לפני 4 שעות"
+          },
+          "item2": {
+            "title": "Wall Street מעלה יעדי Amazon על שיפור מרווחים",
+            "source": "CNBC",
+            "timeAgo": "לפני 7 שעות"
+          },
+          "item3": {
+            "title": "Amazon מרחיבה משלוח ביום-אחד במטרופולינים מרכזיים",
+            "source": "Bloomberg",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "meta": {
+        "fundamentals": {
+          "whatsStrong": "מרווחים תפעוליים גבוהים ותזרים חופשי חזק תומכים בהשקעה ב-AI.",
+          "riskToWatch": "מחזוריות בשוק הפרסום וסיכון רגולטורי בפלטפורמות נשארים רלוונטיים.",
+          "whatToMonitor": "צמיחת הכנסות פרסום, מונטיזציה של Reels והוצאות תשתית AI."
+        },
+        "ai": {
+          "whatsGood": "Meta מציגה רווחיות חזקה עם יעילות פרסום משתפרת ומעורבות מונעת AI.",
+          "riskToWatch": "הפסדי Reality Labs ו-capex ל-AI עלולים ללחוץ על תזרים קצר טווח.",
+          "suggestedAction": "פעולה מוצעת: החזק — עקוב אחר מגמות פרסום ו-ROI של AI."
+        },
+        "thesis": {
+          "whyIOwnIt": "פלטפורמת פרסום ברווחיות גבוהה עם AI שמשפר מיקוד ומעורבות.",
+          "whatToWatch": "מגמות תמחור פרסום, מעורבות משתמשים והנחיית capex ל-AI.",
+          "sellIf": "הכנסות פרסום יורדות ברצף או שהציון יורד מתחת ל-60."
+        },
+        "news": {
+          "item1": {
+            "title": "הכנסות הפרסום של Meta עולות על התחזיות בזכות Reels",
+            "source": "Reuters",
+            "timeAgo": "לפני שעתיים"
+          },
+          "item2": {
+            "title": "אנליסטים מדגישים השקעות תשתית AI של Meta",
+            "source": "Barron's",
+            "timeAgo": "לפני 5 שעות"
+          },
+          "item3": {
+            "title": "Meta חושפת מודל AI קוד פתוח חדש למפתחים",
+            "source": "TechCrunch",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "amd": {
+        "fundamentals": {
+          "whatsStrong": "ביקוש למרכזי נתונים ומאיצי AI תומך בצמיחת הכנסות ויתרונות scale.",
+          "riskToWatch": "תחרות בשבבי AI ומחזוריות PC עלולים ליצור תנודתיות.",
+          "whatToMonitor": "נתח מרכזי נתונים, עליית MI300 ויציבות מרווח גולמי."
+        },
+        "ai": {
+          "whatsGood": "AMD נהנית מבניית תשתית AI עם תמהיל מרכזי נתונים משתפר.",
+          "riskToWatch": "תחרות ממתחרים גדולים עלולה ללחוץ על תמחור ונתח שוק.",
+          "suggestedAction": "פעולה מוצעת: מעקב — כדאי לנטר הנחיית מרכזי נתונים ומגמות מרווח."
+        },
+        "thesis": {
+          "whyIOwnIt": "חשיפה למקור שני ב-AI ו-CPU שרת עם מפת דרכים משתפרת.",
+          "whatToWatch": "אימוץ MI300, תמהיל הכנסות מרכזי נתונים ותזמון התאוששות PC.",
+          "sellIf": "נתח מרכזי נתונים נעצר או שהציון יורד מתחת ל-55."
+        },
+        "news": {
+          "item1": {
+            "title": "הכנסות מרכזי הנתונים של AMD עולות בביקוש למאיצי AI",
+            "source": "Reuters",
+            "timeAgo": "לפני 3 שעות"
+          },
+          "item2": {
+            "title": "אנליסטים עוקבים אחר עליית MI300 מול אספקת NVIDIA",
+            "source": "Bloomberg",
+            "timeAgo": "לפני 6 שעות"
+          },
+          "item3": {
+            "title": "AMD מציגה מפת דרכים ל-CPU שרת דור הבא",
+            "source": "Tom's Hardware",
+            "timeAgo": "לפני יום"
+          }
+        }
+      },
+      "avgo": {
+        "fundamentals": {
+          "whatsStrong": "תמהיל מגוון של שבבים ותוכנה מניב מרווחים ותזרים חזקים.",
+          "riskToWatch": "סיכון אינטגרציה ומינוף מרכישות עלולים להגביר רגישות מאזנית.",
+          "whatToMonitor": "ביקוש לרשתות AI, סינרגיות VMware ופירעון חוב."
+        },
+        "ai": {
+          "whatsGood": "Broadcom משלב מרווחים גבוהים עם חשיפה לרשתות AI והכנסות תוכנה חוזרות.",
+          "riskToWatch": "ריכוז לקוחות ואינטגרציית M&A נשארים תחומי מעקב מרכזיים.",
+          "suggestedAction": "פעולה מוצעת: החזק — לפי הציון הנוכחי, היסודות תומכים."
+        },
+        "thesis": {
+          "whyIOwnIt": "מצבר איכות בשבבי קישוריות עם אופציונליות אנונת תוכנה.",
+          "whatToWatch": "הזמנות רשת AI, cross-sell של VMware והפחתת מינוף.",
+          "sellIf": "יעדי סינרגיה מתפספסים משמעותית או שהציון יורד מתחת ל-65."
+        },
+        "news": {
+          "item1": {
+            "title": "Broadcom עולה על התחזיות בביקוש לשבבי רשת AI",
+            "source": "Reuters",
+            "timeAgo": "לפני 4 שעות"
+          },
+          "item2": {
+            "title": "אנליסטים חיוביים לגבי התקדמות אינטגרציית התוכנה",
+            "source": "Barron's",
+            "timeAgo": "לפני 8 שעות"
+          },
+          "item3": {
+            "title": "Broadcom מרחיבה שותפויות מאיצי AI מותאמים",
+            "source": "CNBC",
+            "timeAgo": "לפני יומיים"
+          }
+        }
+      },
+      "generic": {
+        "fundamentals": {
+          "whatsStrong": "הפעילות הליבתית מציגה מגמות הכנסה יציבות עם מדדי מאזן סבירים בנתוני הדגמה.",
+          "riskToWatch": "פרטים ספציפיים למניה מוגבלים — סקור שווי ומרווחים לפני קביעת גודל פוזיציה.",
+          "whatToMonitor": "דוח רווחים הבא, שינויי הנחיה וביצועים יחסית לסקטור."
+        },
+        "ai": {
+          "whatsGood": "לפי ציון ההדגמה, לסימול מוצגים יסודות מאוזנים הראויים לסקירה נוספת.",
+          "riskToWatch": "מניעי חברה ספציפיים לא נטענו; התייחס לתובנות כתמיכת החלטות בלבד.",
+          "suggestedAction": "פעולה מוצעת: מעקב — הוסף הערות וסקור כשיהיו נתונים נוספים."
+        },
+        "thesis": {
+          "whyIOwnIt": "תזה לדוגמה — החלף בנימוק שלך למעקב או החזקה בסימול.",
+          "whatToWatch": "תאריך דוחות, מגמות מרווח וחדשות סקטור שעשויות להשפיע על הציון.",
+          "sellIf": "הציון מדרדר משמעותית או שהתזה המקורית כבר לא תקפה."
+        },
+        "news": {
+          "item1": {
+            "title": "החברה צפויה לפרסם דוח רבעוני בקרוב",
+            "source": "Mock Wire",
+            "timeAgo": "לפני 4 שעות"
+          },
+          "item2": {
+            "title": "אנליסטים מפרסמים הערות השוואה מעודכנות לסקטור",
+            "source": "Mock Research",
+            "timeAgo": "לפני 8 שעות"
+          },
+          "item3": {
+            "title": "כותרות תעשייה עשויות להשפיע על סנטימנט קצר טווח",
+            "source": "Mock Daily",
+            "timeAgo": "לפני יום"
+          }
+        }
+      }
+    }
+  },
+  "watchlist": {
+    "title": "רשימת מעקב",
+    "subtitle": "רדאר הזדמנויות למניות שאולי תרצה לקנות בהמשך",
+    "actions": {
+      "addStock": "הוספת מניה",
+      "filter": "סינון",
+      "reviewStock": "סקירת מניה",
+      "setAlert": "הגדרת התראה",
+      "alertSet": "התראה הוגדרה",
+      "compare": "השוואה",
+      "addToPortfolio": "הוסף לתיק",
+      "viewFullRanking": "צפייה בדירוג המלא",
+      "viewAll": "צפייה בהכול",
+      "viewCalendar": "הצג יומן"
+    },
+    "metrics": {
+      "watchedStocks": "מניות במעקב",
+      "averageOpportunityScore": "ציון הזדמנות ממוצע",
+      "inBuyZone": "בתחום קנייה",
+      "upcomingEarnings": "דוחות קרובים",
+      "alertsTriggered": "התראות שהופעלו",
+      "thisWeek": "השבוע",
+      "vsLastWeek": "לעומת שבוע שעבר",
+      "ofWatchlist": "מרשימת המעקב",
+      "nextThirtyDays": "30 הימים הבאים",
+      "newToday": "חדשה היום"
+    },
+    "table": {
+      "title": "רדאר הזדמנויות",
+      "subtitle": "ממויין לפי אותות תומכי החלטה",
+      "filteredSubtitle": "מוצגות {count} מתוך {total} מניות במעקב",
+      "favorite": "מועדף",
+      "symbol": "סימול",
+      "company": "חברה",
+      "currentPrice": "מחיר נוכחי",
+      "priceUnavailable": "מחיר לא זמין עדיין",
+      "buyZone": "תחום קנייה",
+      "distanceToBuyZone": "מרחק מתחום הקנייה",
+      "qualityScore": "ציון איכות",
+      "opportunityScore": "ציון הזדמנות",
+      "status": "סטטוס",
+      "triggerToAct": "טריגר לפעולה",
+      "action": "פעולה",
+      "more": "אפשרויות נוספות",
+      "expandRow": "פתיחת פרטים עבור {symbol}"
+    },
+    "filters": {
+      "title": "סינון רשימת מעקב",
+      "description": "צמצם את הרדאר להזדמנויות שחשוב לעקוב אחריהן עכשיו.",
+      "open": "פתיחת מסנני רשימת המעקב",
+      "close": "סגירת מסננים",
+      "activeCount": "{count} מסננים פעילים",
+      "statusTitle": "סטטוס",
+      "actionTitle": "פעולה מוצעת",
+      "scoreTitle": "ציון הזדמנות מינימלי",
+      "anyScore": "כל ציון",
+      "minimumScore": "ציון {score}+",
+      "favoritesTitle": "מועדפים בלבד",
+      "favoritesDescription": "הצג רק מניות שסומנו כמועדפות.",
+      "clear": "ניקוי מסננים",
+      "apply": "החלת מסננים",
+      "applyWithCount": "החלת {count} מסננים",
+      "empty": "אין מניות במעקב שתואמות למסננים הנוכחיים."
+    },
+    "status": {
+      "readyToBuy": "מוכן לקנייה",
+      "waitForPullback": "להמתין לנסיגה",
+      "watchClosely": "מעקב צמוד",
+      "tooExpensive": "יקר מדי",
+      "needsMoreData": "נדרש עוד מידע"
+    },
+    "expanded": {
+      "whyWatching": "למה במעקב",
+      "triggerToAct": "טריגר לפעולה",
+      "keyThingsToMonitor": "דברים מרכזיים למעקב",
+      "opportunityScoreTrend": "מגמת ציון הזדמנות"
+    },
+    "sidebar": {
+      "aiInsight": "תובנת AI לרשימת המעקב",
+      "bestOpportunities": "ההזדמנויות הטובות ביותר",
+      "closestToBuyZone": "הקרובות ביותר לתחום קנייה",
+      "couldReplaceHolding": "עשויה להחליף אחזקה",
+      "upcomingEarnings": "דוחות קרובים"
+    },
+    "common": {
+      "above": "מעל",
+      "below": "מתחת",
+      "buyIf": "לקנות אם",
+      "score": "ציון",
+      "current": "נוכחי",
+      "target": "יעד",
+      "distance": "מרחק",
+      "confidence": "ביטחון"
+    },
+    "insight": {
+      "body": "השווקים נראים חזקים, אך התמחורים נמתחים בחלק מהשמות. ההזדמנויות הטובות יותר נמצאות במובילות איכותיות שמתקרבות חזרה לתחומי קנייה חזקים. כדאי להתמקד בדוחות השבוע כי תנודתיות עשויה ליצור נקודות כניסה טובות יותר.",
+      "emptyBody": "הוסף מניות לרשימת המעקב כדי לראות תובנות הזדמנות המבוססות על מה שאתה עוקב אחריו.",
+      "disclaimer": "למידע בלבד. ציונים והנחיות תומכים בקבלת החלטות ואינם ייעוץ פיננסי."
+    },
+    "replaceHolding": {
+      "title": "{candidate} עשויה להחליף את {holding}",
+      "msftTsla": "צמיחה עקבית יותר, מרווחים חזקים יותר ותנודתיות נמוכה יותר.",
+      "empty": "הוסף אחזקות ומועמדים לרשימת המעקב כדי לראות רעיונות להחלפה."
+    },
+    "earnings": {
+      "nvda": "22 במאי 2026",
+      "aapl": "1 במאי 2026",
+      "amzn": "2 במאי 2026"
+    },
+    "rows": {
+      "nvda": {
+        "trigger": "לקנות אם המחיר יורד מתחת ל-$980 או שהציון נשאר מעל 85.",
+        "whyWatching": "מובילת צמיחת AI, מרווחים חזקים ויכולת צמיחה ארוכת טווח.",
+        "expandedTrigger": "לקנות אם המחיר יורד מתחת ל-$980 או שהציון נשאר מעל 85 אחרי הדוחות.",
+        "monitor": {
+          "blackwell": "האצת Blackwell GPU וביקוש לדאטה סנטר",
+          "margins": "מרווחים ומשמעת עלויות",
+          "china": "מגבלות יצוא לסין"
+        }
+      },
+      "msft": {
+        "trigger": "לקנות מתחת ל-$415 עם ציון מעל 75.",
+        "whyWatching": "מובילת תוכנה וענן איכותית עם מרווחים עמידים.",
+        "monitor": {
+          "cloud": "צמיחת Azure וביקוש ארגוני",
+          "ai": "אימוץ Copilot ומוניטיזציה של עומסי AI"
+        }
+      },
+      "aapl": {
+        "trigger": "לקנות בנסיגה לכיוון תמיכת $190.",
+        "whyWatching": "בסיס משתמשים גדול וכלכלת שירותים שומרים על איכות גבוהה.",
+        "monitor": {
+          "services": "צמיחת שירותים ותמהיל מרווחים",
+          "iphone": "מחזור החלפת iPhone ותכונות AI"
+        }
+      },
+      "googl": {
+        "trigger": "לקנות מתחת ל-$165.",
+        "whyWatching": "ייצור מזומנים חזק עם חיפוש, ענן ואופציונליות AI.",
+        "monitor": {
+          "search": "נתח חיפוש ותמחור פרסום",
+          "cloud": "שיפור מרווחים בענן"
+        }
+      },
+      "amzn": {
+        "trigger": "לקנות קרוב לתמיכת $175.",
+        "whyWatching": "AWS ויעילות קמעונאית יכולות לתמוך בצמיחה ארוכת טווח.",
+        "monitor": {
+          "aws": "צמיחת AWS והתאוששות מרווחים",
+          "retail": "מינוף תפעולי בקמעונאות"
+        }
+      },
+      "tsla": {
+        "trigger": "המחיר רחוק מדי ביחס לתחום הקנייה.",
+        "whyWatching": "אופציונליות גבוהה, אך האותות הנוכחיים דורשים יותר סבלנות.",
+        "monitor": {
+          "margins": "מרווחים גולמיים ברכב",
+          "delivery": "צמיחת מסירות ותמריצי ביקוש"
+        }
+      },
+      "meta": {
+        "trigger": "לקנות קרוב ל-$470.",
+        "whyWatching": "פלטפורמת פרסום חזקה ותזרים מזומנים, עם אופציונליות מוצרי AI.",
+        "monitor": {
+          "ads": "מומנטום הכנסות מפרסום",
+          "capex": "משמעת השקעות AI"
+        }
+      },
+      "amd": {
+        "trigger": "להמתין לאימוץ MI300 ולהכוונה.",
+        "whyWatching": "קיימת הזדמנות במאיצי AI, אך נדרש עוד מידע לחיזוק הביטחון.",
+        "monitor": {
+          "mi300": "אימוץ MI300 וריכוז לקוחות",
+          "guidance": "הכוונה קדימה ותחזית מרווחים"
+        }
+      },
+      "default": {
+        "trigger": "לבחון כשהמחיר נכנס לאזור הקנייה או כשהציון משתנה באופן משמעותי.",
+        "whyWatching": "נוסף ידנית — כדאי לבדוק את היסודות ולעדכן את תנאי ההפעלה כשמתאים."
+      }
+    }
+  },
+  "news": {
+    "title": "חדשות",
+    "subtitle": "עדכונים וניתוחים לשווקים ולהשקעות שלך",
+    "searchPlaceholder": "חיפוש חדשות…",
+    "refresh": "רענון",
+    "lastUpdated": "עודכן לאחרונה",
+    "openArticle": "פתיחת מאמר",
+    "readMore": "קרא עוד",
+    "filters": {
+      "label": "מסנני חדשות",
+      "all": "הכל",
+      "portfolio": "התיק שלי",
+      "watchlist": "רשימת מעקב",
+      "market": "שוק",
+      "earnings": "דוחות רווח",
+      "analysts": "אנליסטים",
+      "reports": "דוחות"
+    },
+    "sort": {
+      "newest": "הכי חדש",
+      "relevant": "רלוונטי"
+    },
+    "featured": {
+      "badge": "חדשות מובילות"
+    },
+    "noResults": {
+      "title": "לא נמצאו חדשות",
+      "description": "נסו לשנות את החיפוש או המסננים כדי למצוא סיפורים רלוונטיים.",
+      "clearFilters": "ניקוי מסננים"
+    },
+    "marketPulse": {
+      "title": "תמונת מצב שוק",
+      "viewMarket": "צפייה בשוק"
+    },
+    "portfolioNews": {
+      "title": "חדשות לפי התיק שלי",
+      "viewAll": "הצג הכל"
+    },
+    "events": {
+      "title": "אירועים קרובים",
+      "viewCalendar": "לוח שנה מלא"
+    },
+    "sentiment": {
+      "positive": "חיובי",
+      "neutral": "ניטרלי",
+      "negative": "שלילי"
+    },
+    "source": {
+      "mock": "נתוני דוגמה",
+      "fmp": "FMP",
+      "finnhub": "Finnhub"
+    },
+    "modal": {
+      "title": "פרטי מאמר",
+      "close": "סגירה"
+    }
+  },
+  "reports": {
+    "title": "דוחות",
+    "subtitle": "עקבו אחר ביצועי התיק, ההקצאה ופעילות ההשקעות",
+    "exportReport": "ייצוא דוח",
+    "refresh": "רענון",
+    "lastUpdated": "עודכן לאחרונה",
+    "tabs": {
+      "label": "קטעי דוח",
+      "overview": "סקירה",
+      "performance": "ביצועים",
+      "allocation": "הקצאה",
+      "holdings": "אחזקות",
+      "risk": "סיכון",
+      "taxes": "מס",
+      "activity": "פעילות",
+      "comingSoonTitle": "{tab} — בקרוב",
+      "comingSoonDescription": "קטע דוח זה יהיה זמין בעדכון עתידי. השתמשו בסקירה לסיכום מלא של התיק."
+    },
+    "period": {
+      "label": "תקופת דוח",
+      "all": "הכל",
+      "oneYear": "שנה",
+      "sixMonths": "6 ח׳",
+      "threeMonths": "3 ח׳",
+      "thirtyDays": "30 יום"
+    },
+    "metrics": {
+      "portfolioValue": "שווי תיק",
+      "totalGainLoss": "רווח / הפסד כולל",
+      "annualReturn": "תשואה שנתית",
+      "unrealizedGain": "רווח לא ממומש",
+      "cashBalance": "יתרת מזומן",
+      "vsAllTime": "מול כל התקופה",
+      "vsLastYear": "מול שנה שעברה",
+      "vsSixMonths": "מול 6 חודשים",
+      "vsThreeMonths": "מול 3 חודשים",
+      "vsThirtyDays": "מול 30 יום",
+      "fromOriginalInvestment": "מהשקעה מקורית",
+      "vsBenchmark": "מול {benchmark}",
+      "ofPortfolio": "מהתיק"
+    },
+    "performance": {
+      "title": "ביצועי התיק לאורך זמן",
+      "portfolio": "התיק שלך",
+      "benchmarkLabel": "מדד השוואה",
+      "benchmark": {
+        "sp500": "S&P 500",
+        "nasdaq": "NASDAQ",
+        "msciWorld": "MSCI World"
+      },
+      "benchmarkComparison": {
+        "title": "השוואה למדדים",
+        "portfolioLabel": "התיק שלך",
+        "benchmarkCol": "מדד",
+        "returnCol": "תשואה",
+        "vsPortfolioCol": "מול התיק",
+        "aheadBy": "+{delta} קדימה",
+        "behindBy": "{delta} מאחור",
+        "matched": "זהה"
+      }
+    },
+    "allocation": {
+      "title": "הקצאת נכסים",
+      "total": "סה״כ",
+      "sectors": {
+        "technology": "מניות ארה״ב",
+        "consumerCyclical": "מניות בינלאומיות",
+        "communication": "תקשורת",
+        "consumerDefensive": "צריכה הגנתית",
+        "healthcare": "בריאות",
+        "cash": "מזומן"
+      },
+      "breakdown": {
+        "title": "פירוט הקצאה",
+        "valueCol": "שווי",
+        "allocationCol": "הקצאה",
+        "holdingsCol": "אחזקות",
+        "noHoldings": "—"
+      }
+    },
+    "contributors": {
+      "title": "תורמים מובילים",
+      "viewAll": "הצג הכל",
+      "cash": "מזומן"
+    },
+    "statistics": {
+      "title": "סטטיסטיקות מפתח",
+      "bestHolding": "אחזקה מובילה",
+      "worstHolding": "אחזקה חלשה",
+      "beta": "בטא תיק",
+      "sharpeRatio": "יחס שארפ",
+      "maxDrawdown": "ירידה מקסימלית",
+      "dividendYield": "תשואת דיבידנד"
+    },
+    "monthly": {
+      "title": "סיכום חודשי",
+      "currentMonth": "מאי 2026",
+      "return": "תשואה חודשית",
+      "gainLoss": "רווח / הפסד",
+      "transactions": "עסקאות",
+      "fees": "עמלות",
+      "dividends": "דיבידנדים",
+      "netDeposits": "הפקדות נטו"
+    },
+    "available": {
+      "title": "דוחות זמינים",
+      "viewAll": "הצג את כל הדוחות",
+      "performanceReport": "דוח ביצועים",
+      "allocationReport": "דוח הקצאה",
+      "riskReport": "דוח סיכון",
+      "taxReport": "דוח מס",
+      "holdingsReport": "דוח אחזקות",
+      "download": "הורדה"
+    },
+    "modal": {
+      "exportTitle": "ייצוא דוח",
+      "downloadTitle": "הורדת דוח",
+      "placeholderDescription": "ייצוא PDF ו-CSV יהיה זמין בקרוב. זו פעולת תצוגה מקדימה בלבד.",
+      "close": "סגירה"
+    },
+    "empty": {
+      "title": "אין אחזקות עדיין",
+      "description": "הוסיפו אחזקה ראשונה כדי לראות דוחות, ביצועים והקצאה.",
+      "addHolding": "הוספת אחזקה"
+    },
+    "risk": {
+      "title": "מדדי סיכון תיק",
+      "metrics": {
+        "beta": "בטא תיק",
+        "sharpeRatio": "יחס שארפ",
+        "sortinoRatio": "יחס סורטינו",
+        "maxDrawdown": "ירידה מקסימלית",
+        "volatility": "תנודתיות (שנתית)",
+        "valueAtRisk": "ערך בסיכון (95%)",
+        "correlationSP500": "מתאם ל-S&P 500",
+        "dividendYield": "תשואת דיבידנד"
+      },
+      "disclaimer": {
+        "title": "הערכות סיכון",
+        "body": "מדדים אלה הם הערכות אנליטיות המבוססות על נתונים זמינים. הם אינם ערובה לביצועים עתידיים ואין לראות בהם ייעוץ פיננסי."
+      },
+      "aiAnalyzer": {
+        "title": "מנתח AI",
+        "primaryRisk": "חשיפת סיכון עיקרית",
+        "concentrationRisk": "סיכון ריכוז",
+        "monitoringSuggestion": "כדאי לעקוב",
+        "riskFactorsTitle": "גורמי סיכון מרכזיים",
+        "confidence": "רמת ביטחון",
+        "disclaimer": "ניתוח הסיכון שנוצר ב-AI מיועד לתמיכה בקבלת החלטות בלבד ואינו מהווה ייעוץ פיננסי.",
+        "mock": {
+          "summary": "על בסיס מדדי הסיכון הנוכחיים, פרופיל הסיכון של התיק נראה מוגבר במידה בינונית עם ריכוז בעמדות צמיחה.",
+          "primaryRisk": "בטא תיק מעל 1.0 עשויה להצביע על רגישות גבוהה יותר לתנועות שוק רחבות מאשר מדד מאוזן.",
+          "concentrationRisk": "מניות טכנולוגיה וצמיחה בשווי גבוה מהוות חלק משמעותי משווי התיק, מה שעשוי להגביר ירידות סקטוריאליות.",
+          "monitoringSuggestion": "שקלו לבדוק משקלי עמדות ואחזקות עם ציון נמוך כדי לוודא שהסיכון עדיין מתאים לתוכנית שלכם.",
+          "riskFactors": {
+            "sectorConcentration": "ריכוז סקטוריאלי גבוה ביחס לבסיס מגוון.",
+            "elevatedBeta": "בטא משוקללת של התיק מרמזת על חשיפה לתנודתיות מעל השוק.",
+            "drawdownExposure": "רמות ירידה מקסימלית אחרונות מצביעות על פוטנציאל לירידות חדות בטווח הקצר."
+          }
+        }
+      }
+    },
+    "taxes": {
+      "summaryTitle": "סיכום מס",
+      "lotsTitle": "לוטים למס",
+      "disclaimer": "נתוני המס הם הערכות לתמיכה בקבלת החלטות בלבד. רווחים לא ממומשים מבוססים על אחזקות נוכחיות; רווחים ממומשים, דיבידנדים והערכות מס דורשים היסטוריית עסקאות מלאה.",
+      "summary": {
+        "realizedGains": "רווחים ממומשים",
+        "unrealizedGains": "רווחים לא ממומשים",
+        "dividendIncome": "הכנסה מדיבידנדים",
+        "shortTermGains": "רווחים לטווח קצר",
+        "longTermGains": "רווחים לטווח ארוך",
+        "estimatedTax": "הערכת חבות מס"
+      },
+      "cols": {
+        "holding": "אחזקה",
+        "shares": "מניות",
+        "costBasis": "עלות בסיס",
+        "currentValue": "שווי נוכחי",
+        "gainLoss": "רווח / הפסד",
+        "term": "תקופה",
+        "acquired": "נרכש"
+      },
+      "term": {
+        "short": "קצר",
+        "long": "ארוך"
+      }
+    },
+    "activity": {
+      "title": "פעילות תיק",
+      "addedHolding": "נוספה אחזקה ב-{symbol}"
+    }
+  },
+  "alerts": {
+    "title": "מרכז התראות",
+    "subtitle": "כל העדכונים וההתראות החשובים על התיק ורשימת המעקב שלך",
+    "searchPlaceholder": "חיפוש התראות…",
+    "alertSettings": "הגדרות התראות",
+    "metrics": {
+      "activeAlerts": "התראות פעילות",
+      "priceAlerts": "התראות מחיר",
+      "earningsAlerts": "התראות דוחות",
+      "portfolioAlerts": "התראות תיק",
+      "smartReplace": "Smart Replace",
+      "new": "{count} חדשות",
+      "noNew": "אין חדשות"
+    },
+    "tabs": {
+      "label": "סינון התראות",
+      "allAlerts": "כל ההתראות",
+      "active": "פעילות",
+      "triggered": "הופעלו",
+      "snoozed": "בהשהיה",
+      "dismissed": "נדחו"
+    },
+    "sort": {
+      "sortBy": "מיון לפי:",
+      "newest": "החדש ביותר",
+      "oldest": "הישן ביותר",
+      "priority": "עדיפות"
+    },
+    "list": {
+      "label": "רשימת התראות",
+      "view": "צפייה",
+      "more": "אפשרויות נוספות",
+      "triggeredAgo": "הופעל לפני {minutes} דקות",
+      "hoursAgo": "לפני {hours} שעות",
+      "dayAgo": "לפני {days} יום",
+      "inBuyZone": "באזור קנייה",
+      "scoreImprovement": "שיפור ציון",
+      "upgraded": "שודרג",
+      "overweight": "Overweight",
+      "points": "נק'",
+      "belowTarget": "מתחת ליעד",
+      "scoreImproved": "הציון השתפר",
+      "dismissed": "נדחה",
+      "emptyTitle": "לא נמצאו התראות",
+      "emptyDescription": "נסה לשנות את הסינון או את מילות החיפוש."
+    },
+    "types": {
+      "price": "התראת מחיר",
+      "earnings": "התראת דוחות",
+      "portfolio": "התראת תיק",
+      "buyZone": "התראת אזור קנייה",
+      "score": "התראת ציון",
+      "smartReplace": "Smart Replace",
+      "analyst": "התראת אנליסט"
+    },
+    "priority": {
+      "high": "גבוהה",
+      "medium": "בינונית",
+      "low": "נמוכה",
+      "info": "מידע"
+    },
+    "sidebar": {
+      "summaryTitle": "סיכום התראות",
+      "quickFilters": "סינון מהיר",
+      "highPriority": "עדיפות גבוהה",
+      "priceAlerts": "התראות מחיר",
+      "earningsAlerts": "התראות דוחות",
+      "buyZoneAlerts": "התראות אזור קנייה",
+      "scoreAlerts": "התראות ציון",
+      "portfolioRisks": "סיכוני תיק",
+      "clearFilters": "נקה סינון",
+      "snoozedAlerts": "התראות בהשהיה",
+      "snoozedDescription": "יש לך {count} התראות בהשהיה",
+      "viewSnoozed": "צפה בהשהיות",
+      "breakdown": {
+        "price": "התראות מחיר",
+        "earnings": "התראות דוחות",
+        "portfolio": "התראות תיק",
+        "smartReplace": "Smart Replace"
+      }
+    },
+    "actions": {
+      "view": "צפייה",
+      "clear": "נקה",
+      "filter": "סינון התראות",
+      "search": "חיפוש התראות",
+      "openSettings": "פתח הגדרות התראות"
+    },
+    "userCreated": {
+      "title": "התראה מותאמת עבור {symbol}",
+      "description": "התראה שנשמרה מקומית — תמיכה בהחלטות בלבד, לא פקודת מסחר.",
+      "timestamp": "נוצרה עכשיו",
+      "noTarget": "לא הוגדר ערך יעד"
+    },
+    "items": {
+      "tslaPriceTriggered": {
+        "title": "התראת מחיר TSLA הופעלה",
+        "description": "Tesla Inc. ירדה מתחת למחיר ההתראה של $175.00"
+      },
+      "nvdaEarnings": {
+        "title": "דוח NVDA בעוד יומיים",
+        "description": "פרסום דוחות NVIDIA Corporation ב-22 במאי 2026, לאחר סגירת המסחר"
+      },
+      "portfolioConcentration": {
+        "title": "ריכוז גבוה בתיק",
+        "description": "מגזר הטכנולוגיה מהווה 34.2% מהתיק, מעל יעד 30%"
+      },
+      "googlBuyZone": {
+        "title": "GOOGL נכנס לאזור קנייה",
+        "description": "Google LLC נמצא כעת באזור הקנייה של $155.00 – $165.00"
+      },
+      "smartReplaceOpportunity": {
+        "title": "הזדמנות Smart Replace",
+        "description": "ל-TSLA יש הזדמנות החלפה עם AVGO (+21 שיפור ציון)"
+      },
+      "msftAnalystUpgrade": {
+        "title": "שדרוג דירוג אנליסטים ל-MSFT",
+        "description": "Morgan Stanley שדרגה את Microsoft ל-Overweight"
+      },
+      "aaplPriceActive": {
+        "title": "התראת מחיר AAPL פעילה",
+        "description": "Apple Inc. מתקרבת למחיר ההתראה של $185.00"
+      },
+      "metaEarningsTriggered": {
+        "title": "התראת דוחות META הופעלה",
+        "description": "תאריך דוחות Meta Platforms מתקרב — 28 במאי 2026"
+      },
+      "amznBuyZone": {
+        "title": "AMZN נכנס לאזור קנייה",
+        "description": "Amazon.com נמצא כעת בטווח אזור הקנייה"
+      },
+      "portfolioDividend": {
+        "title": "תשואת דיבידנד בתיק מתחת ליעד",
+        "description": "תשואת הדיבידנד בתיק נמוכה מיעד 2%"
+      },
+      "avgoScore": {
+        "title": "ציון AVGO השתפר",
+        "description": "ציון Broadcom עלה ל-88 על בסיס נתונים עדכניים"
+      },
+      "jpmSmartReplace": {
+        "title": "הזדמנות Smart Replace ל-JPM",
+        "description": "כדאי לבחון את JPM כמועמדת להחלפה"
+      },
+      "costEarnings": {
+        "title": "תזכורת דוחות COST",
+        "description": "דוחות Costco Wholesale ב-5 ביוני 2026"
+      },
+      "nvdaPriceTriggered": {
+        "title": "התראת מחיר NVDA הופעלה",
+        "description": "NVIDIA ירדה מתחת לסף מחיר ההתראה"
+      },
+      "aaplEarningsTriggered": {
+        "title": "התראת דוחות AAPL הופעלה",
+        "description": "דוח Apple Inc. מתוכנן ל-1 במאי 2026"
+      },
+      "dismissed": {
+        "1": { "title": "התראת מחיר שנדחתה", "description": "התראת מחיר שנדחתה בעבר" },
+        "2": { "title": "התראת דוחות שנדחתה", "description": "תזכורת דוחות שנדחתה בעבר" },
+        "3": { "title": "התראת ציון שנדחתה", "description": "הודעת שינוי ציון שנדחתה" },
+        "4": { "title": "התראת אזור קנייה שנדחתה", "description": "כניסה לאזור קנייה שנדחתה" },
+        "5": { "title": "התראת תיק שנדחתה", "description": "התראת סיכון תיק שנדחתה" },
+        "6": { "title": "התראת אנליסט שנדחתה", "description": "שינוי דירוג אנליסט שנדחה" },
+        "7": { "title": "התראת מחיר שנדחתה", "description": "סף מחיר שנדחה בעבר" },
+        "8": { "title": "התראת דוחות שנדחתה", "description": "תאריך דוחות שנדחה" },
+        "9": { "title": "התראת ציון שנדחתה", "description": "עדכון ציון שנדחה" },
+        "10": { "title": "התראת אזור קנייה שנדחתה", "description": "הודעת אזור קנייה שנדחתה" },
+        "11": { "title": "התראת תיק שנדחתה", "description": "אזהרת ריכוז שנדחתה" },
+        "12": { "title": "התראת אנליסט שנדחתה", "description": "שדרוג דירוג שנדחה" },
+        "13": { "title": "התראת מחיר שנדחתה", "description": "התראת תנועת מחיר שנדחתה" },
+        "14": { "title": "התראת דוחות שנדחתה", "description": "מעקב דוחות שנדחה" },
+        "15": { "title": "התראת ציון שנדחתה", "description": "הודעת ירידת ציון שנדחתה" },
+        "16": { "title": "התראת אזור קנייה שנדחתה", "description": "יציאה מאזור קנייה שנדחתה" },
+        "17": { "title": "התראת תיק שנדחתה", "description": "חשיפת מגזר שנדחתה" },
+        "18": { "title": "התראת אנליסט שנדחתה", "description": "הורדת דירוג שנדחתה" }
+      }
+    }
+  },
+  "settings": {
+    "title": "הגדרות",
+    "subtitle": "התאימו את Equi לסגנון ההשקעה וההעדפות שלכם",
+    "searchPlaceholder": "חיפוש בהגדרות...",
+    "search": {
+      "noResults": "לא נמצאו הגדרות תואמות בלשונית זו."
+    },
+    "placeholderModal": {
+      "description": "התכונה תהיה זמינה בעדכון עתידי.",
+      "close": "סגירה"
+    },
+    "resetToDefaults": "איפוס לברירת מחדל",
+    "saveChanges": "שמירת שינויים",
+    "cancel": "ביטול",
+    "saved": "נשמר",
+    "tabs": {
+      "label": "קטגוריות הגדרות",
+      "general": "כללי",
+      "appearance": "מראה",
+      "portfolio": "תיק השקעות",
+      "scoringModel": "מודל ציון",
+      "alerts": "התראות",
+      "aiPreferences": "העדפות AI",
+      "integrations": "חיבורים",
+      "comingSoonTitle": "בקרוב",
+      "comingSoonDescription": "המדור הזה יהיה זמין בקרוב."
+    },
+    "general": {
+      "language": {
+        "title": "שפה",
+        "description": "בחרו את השפה המועדפת עליכם",
+        "english": "English",
+        "hebrew": "עברית"
+      },
+      "currency": {
+        "title": "מטבע תצוגה",
+        "description": "בחרו את מטבע התצוגה ברירת המחדל",
+        "usd": "USD — דולר אמריקאי",
+        "ils": "ILS — שקל חדש",
+        "eur": "EUR — יורו",
+        "helper": "כל הערכים יוצגו ב-{currency}"
+      },
+      "region": {
+        "title": "אזור / שוק",
+        "description": "בחרו את מיקוד השוק העיקרי שלכם",
+        "unitedStates": "ארצות הברית",
+        "israel": "ישראל",
+        "europe": "אירופה",
+        "global": "גלובלי",
+        "helper": "זה עוזר לנו להתאים תובנות ונתונים"
+      },
+      "dateFormat": {
+        "title": "פורמט תאריך",
+        "description": "בחרו את פורמט התאריך המועדף",
+        "us": "May 22, 2026 (MM/DD/YYYY)",
+        "european": "22 May 2026 (DD/MM/YYYY)",
+        "iso": "2026-05-22 (YYYY-MM-DD)",
+        "helper": "זה ישמש בכל הפלטפורמה"
+      },
+      "benchmark": {
+        "title": "מדד ייחוס ברירת מחדל",
+        "description": "בחרו את מדד הייחוס להשוואת ביצועים",
+        "sp500": "S&P 500",
+        "nasdaq100": "NASDAQ 100",
+        "dowJones": "דאו ג'ונס",
+        "russell2000": "Russell 2000",
+        "custom": "מותאם אישית",
+        "standard": "סטנדרטי",
+        "growth": "צמיחה",
+        "industrial": "תעשייתי",
+        "smallCap": "שווי שוק קטן",
+        "chooseIndex": "בחרו מדד"
+      },
+      "privacy": {
+        "title": "הנתונים שלכם פרטיים ומאובטחים",
+        "description": "ההגדרות שלכם נשמרות מקומית בינתיים ולעולם לא משותפות."
+      }
+    },
+    "appearance": {
+      "theme": {
+        "title": "ערכת נושא",
+        "description": "בחרו את סכמת הצבעים המועדפת",
+        "light": "בהיר",
+        "dark": "כהה",
+        "system": "מערכת"
+      },
+      "backgroundGlow": {
+        "title": "זוהר רקע",
+        "description": "התאימו את עוצמת הזוהר ברחבי האפליקציה"
+      },
+      "layoutDensity": {
+        "title": "צפיפות פריסה",
+        "description": "בחרו כמה תוכן מוצג על המסך",
+        "comfortable": "נוח",
+        "comfortableDescription": "יותר ריווח ו-padding",
+        "compact": "קומפקטי",
+        "compactDescription": "הצגת יותר תוכן"
+      },
+      "chartAnimations": {
+        "title": "אנימציות גרפים",
+        "description": "הפעילו אנימציות חלקות לגרפים ועדכוני נתונים"
+      },
+      "cardRadius": {
+        "title": "רדיוס כרטיסים",
+        "description": "קבעו את רדיוס הפינות לכרטיסים ורכיבים"
+      },
+      "motionPreference": {
+        "title": "העדפת תנועה",
+        "description": "כבדו את העדפות התנועה של המערכת",
+        "system": "ברירת מחדל של המערכת",
+        "reduce": "הפחתת תנועה",
+        "full": "תנועה מלאה"
+      },
+      "preview": {
+        "title": "תצוגה מקדימה",
+        "subtitle": "ראו איך ההגדרות שלכם נראות ב-Equi",
+        "livePreview": "תצוגה מקדימה חיה",
+        "portfolioOverview": "סקירת תיק",
+        "accountValue": "שווי חשבון",
+        "dailyChange": "+2.43% (1י)",
+        "topHolding": "אחזקה מובילה",
+        "holdingCategory": "טכנולוגיה • Large Cap",
+        "holdingChange": "+1.28%",
+        "score": "ציון",
+        "overallScore": "ציון כולל",
+        "scoreLabel": "טוב",
+        "riskProfile": "פרופיל סיכון",
+        "chartAnimation": "תצוגה מקדימה של אנימציית גraf",
+        "moderate": "מתון",
+        "timeRanges": {
+          "label": "טווח זמן",
+          "1d": "1י",
+          "1w": "1ש",
+          "1m": "1ח",
+          "3m": "3ח",
+          "1y": "1ש",
+          "all": "הכל"
+        }
+      }
+    },
+    "portfolio": {
+      "riskProfile": {
+        "title": "פרופיל סיכון",
+        "description": "בחרו את רמת הסיכון הכללית שלכם",
+        "conservative": "שמרני",
+        "moderate": "מתון",
+        "aggressive": "אגרסיבי",
+        "info": {
+          "conservative": "מעדיף שימור הון עם תנודתיות נמוכה. מתאים למשקיעים שמעדיפים יציבות על פני צמיחה גבוהה.",
+          "moderate": "גישה מאוזנת בין צמיחה לשימור הון. מתאים למשקיעים לטווח ארוך שמחפשים צמיחה יציבה.",
+          "aggressive": "מתמקד בפוטנציאל צמיחה גבוה יותר עם תנודתיות גבוהה. מתאים למשקיעים עם אופק זמן ארוך וסבילות סיכון גבוהה."
+        }
+      },
+      "targetAllocation": {
+        "title": "הקצאת יעד",
+        "description": "בחרו את אסטרטגיית ההקצאה",
+        "automatic": {
+          "title": "אוטומטי",
+          "subtitle": "מבוסס AI"
+        },
+        "manual": {
+          "title": "ידני",
+          "subtitle": "הגדרה ידנית"
+        },
+        "custom": {
+          "title": "מותאם",
+          "subtitle": "כללים מתקדמים"
+        },
+        "info": {
+          "automatic": "Equi יציע הקצאת יעד בהתבסס על פרופיל הסיכון שלכם ותנאי השוק.",
+          "manual": "אתם מגדירים יעדי סקטורים ונכסים. Equi יעקוב אחר סטייה מהיעדים שהגדרתם.",
+          "custom": "הגדירו כללי הקצאה מתקדמים עם ספי סטייה וטריגרים לאיזון מחדש."
+        }
+      },
+      "benchmark": {
+        "title": "מדד השוואה ברירת מחדל",
+        "description": "בחרו את מדד ההשוואה לביצועים",
+        "sp500": "S&P 500",
+        "nasdaq100": "NASDAQ 100",
+        "dowJones": "Dow Jones",
+        "russell2000": "Russell 2000",
+        "custom": "מותאם אישית",
+        "standard": "סטנדרטי",
+        "growth": "צמיחה",
+        "industrial": "תעשייתי",
+        "smallCap": "Small Cap",
+        "chooseIndex": "בחירת מדד",
+        "info": "מדד ההשוואה משמש להערכת ביצועים, תשואה מתואמת סיכון ואלפא."
+      },
+      "maxSectorExposure": {
+        "title": "חשיפה מקסימלית לסקטור",
+        "description": "קבעו את המשקל המקסימלי המותר לכל סקטור בודד",
+        "valueLabel": "{value}%",
+        "helper": "מומלץ: 25% – 35%"
+      },
+      "maxSingleStockExposure": {
+        "title": "חשיפה מקסימלית למניה בודדת",
+        "description": "קבעו את המשקל המקסימלי המותר לכל אחזקה בודדת",
+        "valueLabel": "{value}%",
+        "helper": "מומלץ: 5% – 15%"
+      },
+      "rebalancingThreshold": {
+        "title": "סף איזון מחדש",
+        "description": "קבעו מתי Equi יסמן סטייה בהקצאה",
+        "valueLabel": "{value}%",
+        "helper": "איזון מחדש כאשר ההקצאה סוטה באחוז זה"
+      },
+      "summary": {
+        "title": "העדפות התיק שלכם",
+        "subtitle": "סקירה של הגדרות התיק הנוכחיות",
+        "percentValue": "{value}%",
+        "labels": {
+          "riskProfile": "פרופיל סיכון",
+          "targetAllocation": "הקצאת יעד",
+          "benchmark": "מדד השוואה",
+          "maxSectorExposure": "חשיפה מקסימלית לסקטור",
+          "maxSingleStockExposure": "חשיפה מקסימלית למניה",
+          "rebalancingThreshold": "סף איזון מחדש"
+        },
+        "values": {
+          "conservative": "שמרני",
+          "moderate": "מתון",
+          "aggressive": "אגרסивי",
+          "automatic": "אוטומטי (מבוסס AI)",
+          "manual": "ידני",
+          "custom": "מותאם (כללים מתקדמים)"
+        }
+      },
+      "quickActions": {
+        "title": "פעולות מהירות",
+        "resetPortfolioSettings": "איפוס הגדרות תיק",
+        "manageTargetAllocation": "ניהול הקצאת יעד",
+        "viewCurrentAllocation": "צפייה בהקצאה נוכחית",
+        "portfolioRiskAnalysis": "ניתוח סיכוני תיק",
+        "resetSuccess": "הגדרות התיק אופסו. השתמשו בשמירת שינויים כדי לשמור."
+      },
+      "modals": {
+        "manageTargetAllocationTitle": "ניהול הקצאת יעד",
+        "portfolioRiskAnalysisTitle": "ניתוח סיכוני תיק",
+        "placeholderDescription": "כלי הקצאה וניתוח סיכונים מלאים יגיעו בקרוב."
+      }
+    },
+    "scoringModel": {
+      "title": "מודל ציון",
+      "description": "התאימו את האופן שבו Equi מעריכה מניות. כווננו את משקלי הגורמים כך שיתאימו לסגנון ההשקעה שלכם.",
+      "useRecommended": "השתמשו במומלץ",
+      "weightValue": "{value}%",
+      "weightInputLabel": "משקל עבור {factor}",
+      "saveDisabledInvalidTotal": "המשקל הכולל חייב להיות 100% לפני שמירת השינויים.",
+      "table": {
+        "factor": "גורם",
+        "description": "תיאור",
+        "weight": "משקל",
+        "impact": "השפעה על הציון"
+      },
+      "factors": {
+        "growth": {
+          "title": "צמיחה",
+          "description": "פוטנציאל ועקביות של צמיחת הכנסות ורווחים.",
+          "details": "צמיחה מודדת את קצב התרחבות ההכנסות והרווחים של החברה. Equi שוקלת מגמות היסטוריות, תחזיות עתידיות ועקביות בין רבעונים."
+        },
+        "profitability": {
+          "title": "רווחיות",
+          "description": "מרווחים, ROE, ROIC ויעילות רווחיות כוללת.",
+          "details": "רווחיות משקפת את יעילות המרה של הכנסות לרווח. אותות מרכזיים כוללים מרווח גולמי, מרווח תפעולי, ROE ו-ROIC ביחס לעמיתים."
+        },
+        "valuation": {
+          "title": "הערכת שווי",
+          "description": "יחסי הערכה ופוטנציאל עליון מול שווי פנימי.",
+          "details": "הערכת שווי משווה מחיר נוכחי לנתונים פונדמנטליים כמו רווחים, תזרים מזומנים וצמיחה, כדי להעריך האם המניה מחוירת באופן אטרקטיבי."
+        },
+        "financialHealth": {
+          "title": "בריאות פיננסית",
+          "description": "חוזק מאזן, רמות חוב ואיכות תזרים מזומנים.",
+          "details": "בריאות פיננסית בוחנת עמידות מאזנית, מינוף, נזילות ויציבות תזרים. יסודות חזקים עשויים להצביע על סיכון מבני נמוך יותר."
+        },
+        "momentum": {
+          "title": "מומנטום",
+          "description": "מומנטום מחיר וחוזק יחסי.",
+          "details": "מומנטום עוקב אחר מגמות מחיר אחרונות וחוזק יחסי מול השוק או הסקטור, ועשוי להדגיש מניות עם מגמה חיובית או שלילית מתמשכת."
+        },
+        "analystSentiment": {
+          "title": "סנטימנט אנליסטים",
+          "description": "דירוגי אנליסטים, תיקונים ומגמות סנטימנט.",
+          "details": "סנטימנט אנליסטים מצרף שינויי דירוג, תיקוני תחזיות וקונצנזוס. זהו קלט אחד בלבד ועשוי להיות מאחר מול התפתחויות בשוק."
+        }
+      },
+      "impact": {
+        "high": "גבוהה",
+        "medium": "בינונית",
+        "low": "נמוכה"
+      },
+      "totalWeight": {
+        "title": "משקל כולל",
+        "hint": "המשקל הכולל חייב להיות 100%. גורמים במשקל גבוה יותר משפיעים יותר על הציון הכולל.",
+        "valid": "מאוזן",
+        "invalid": "כווננו משקלים עד 100%"
+      },
+      "about": {
+        "title": "אודות ציון Equi",
+        "description": "מודל הציון של Equi מעריך מניות על בסיס 6 גורמים מרכזיים. הציון הכולל נע בין 0 ל-100. הציונים הם עזר אנליטי, לא הוראות קנייה או מכירה.",
+        "rangeDescription": "טווחי הציון עוזרים לפרש תוצאות במבט מהיר.",
+        "bands": {
+          "veryStrong": "80–100: חזק מאוד",
+          "strong": "60–79: חזק",
+          "average": "40–59: ממוצע",
+          "weak": "20–39: חלש",
+          "veryWeak": "0–19: חלש מאוד"
+        }
+      },
+      "summary": {
+        "title": "סיכום מודל הציון",
+        "subtitle": "סקירה של מודל הציון הנוכחי שלכם",
+        "needsBalancing": "כווננו את משקלי הגורמים כך שהסכום יהיה 100%.",
+        "scoreBase": "/ 100",
+        "modelHealth": {
+          "veryStrong": "מודל חזק מאוד",
+          "strong": "מודל חזק",
+          "good": "מודל מאוזן",
+          "watch": "דורש בדיקה",
+          "weak": "סטייה גבוהה"
+        },
+        "legend": {
+          "growth": "צמיחה",
+          "profitability": "רווחיות",
+          "valuation": "הערכת שווי",
+          "financialHealth": "בריאות פיננסית",
+          "momentum": "מומנטום",
+          "analystSentiment": "סנטימנט אנליסטים"
+        }
+      },
+      "quickActions": {
+        "title": "פעולות מהירות",
+        "compareRecommended": "השוואה למומלץ",
+        "resetRecommended": "איפוס למומלץ",
+        "saveCustomModel": "שמירה כמודל מותאם",
+        "howScoringWorks": "איך הציון עובד",
+        "viewFactorDefinitions": "הגדרות גורמים",
+        "savedCustomModel": "המודל המותאם נשמר מקומית. השתמשו בשמירת שינויים כדי לשמור את המשקלים."
+      },
+      "modals": {
+        "compare": {
+          "title": "השוואה למומלץ",
+          "description": "ראו כיצד המשקלים הנוכחיים שלכם שונים מהמודל המומלץ של Equi.",
+          "factor": "גורם",
+          "current": "נוכחי",
+          "recommended": "מומלץ",
+          "difference": "הפרש",
+          "close": "סגירה"
+        },
+        "definitions": {
+          "title": "הגדרות גורמים",
+          "description": "מה כל גורם ציון מודד במודל של Equi.",
+          "close": "סגירה"
+        }
+      }
+    },
+    "alerts": {
+      "saveDisabledNoPriority": "יש להפעיל לפחות עדיפות התראה אחת לפני שמירת השינויים.",
+      "header": {
+        "title": "הגדרות התראות",
+        "description": "בחרו אילו התראות לקבל ואיך תרצו להתעדכן.",
+        "testNotifications": "בדיקת התראות",
+        "testNotificationSuccess": "התראת בדיקה נשלחה. זו תצוגה מקדימה בלבד — לא הופעלו התראות אמיתיות."
+      },
+      "types": {
+        "title": "סוגי התראות",
+        "description": "הפעילו או בטלו סוגי התראות ספציפיים",
+        "configure": "הגדרה",
+        "price": {
+          "title": "התראות מחיר",
+          "description": "קבלו התראה כשמניה מגיעה ליעד המחיר שלכם"
+        },
+        "buyZone": {
+          "title": "התראות אזור קנייה",
+          "description": "קבלו התראה כשמניה נכנסת לאזור הקנייה שלכם"
+        },
+        "earnings": {
+          "title": "התראות דוחות",
+          "description": "קבלו התראה לפני פרסום דוחות רווח"
+        },
+        "score": {
+          "title": "התראות שינוי ציון",
+          "description": "קבלו התראה כשציון מניה משתנה"
+        },
+        "smartReplace": {
+          "title": "התראות החלפה חכמה",
+          "description": "קבלו התראה על הזדמנויות החלפה"
+        },
+        "portfolio": {
+          "title": "התראות סיכון תיק",
+          "description": "קבלו התראה על סיכונים ומגבלות בתיק"
+        }
+      },
+      "channels": {
+        "title": "ערוצי התראה",
+        "description": "בחרו איך תרצו לקבל התראות",
+        "inApp": {
+          "title": "התראות באפליקציה",
+          "description": "התראות מיידיות בתוך Equi"
+        },
+        "email": {
+          "title": "אימייל",
+          "description": "קבלת עדכונים באימייל"
+        },
+        "browserPush": {
+          "title": "Push בדפדפן",
+          "description": "קבלת התראות push"
+        },
+        "weeklyDigest": {
+          "title": "סיכום שבועי",
+          "description": "סיכום שבועי של התראות"
+        }
+      },
+      "quietHours": {
+        "title": "שעות שקט",
+        "description": "השהיית התראות לא דחופות בשעות אלה",
+        "scheduleLabel": "לוח שעות שקט",
+        "optionDefault": "22:00 - 08:00",
+        "optionLate": "23:00 - 07:00",
+        "disabled": "מושבת",
+        "custom": "מותאם אישית",
+        "customPlaceholder": "שעות שקט מותאמות אישית יהיו זמינות בעדכון עתידי.",
+        "helper": "תמשיכו לקבל התראות דחופות."
+      },
+      "priority": {
+        "title": "עדיפות התראות",
+        "description": "בחרו אילו רמות עדיפות תרצו לקבל",
+        "warning": "הפעילו לפחות רמת עדיפות אחת כדי לקבל התראות.",
+        "high": {
+          "title": "עדיפות גבוהה",
+          "description": "התראות חשובות שדורשות את תשומת לבכם"
+        },
+        "medium": {
+          "title": "עדיפות בינונית",
+          "description": "התראות חשובות אך לא דחופות"
+        },
+        "low": {
+          "title": "עדיפות נמוכה",
+          "description": "התראות מידע ועדכונים"
+        },
+        "info": {
+          "title": "מידע בלבד",
+          "description": "עדכונים כלליים ותובנות"
+        }
+      },
+      "summary": {
+        "title": "סיכום ההתראות שלכם",
+        "subtitle": "סקירה של העדפות ההתראות שלכם",
+        "activeLabel": "פעילים",
+        "priceAlerts": "התראות מחיר",
+        "earningsAlerts": "התראות דוחות",
+        "portfolioAlerts": "התראות תיק",
+        "buyZoneAlerts": "התראות אזור קנייה",
+        "scoreAlerts": "התראות ציון",
+        "smartReplace": "החלפה חכמה"
+      },
+      "rulesOverview": {
+        "title": "סקירת כללי התראות",
+        "totalRules": "סה״כ כללי התראות",
+        "activeRules": "כללים פעילים",
+        "snoozedRules": "כללים מושהים",
+        "disabledRules": "כללים מושבתים",
+        "manageAll": "ניהול כל הכללים"
+      },
+      "quickActions": {
+        "title": "פעולות מהירות",
+        "createNewAlert": "יצירת התראה חדשה",
+        "manageRules": "ניהול כללי התראות",
+        "snoozedAlerts": "התראות מושהות",
+        "notificationHistory": "היסטוריית התראות"
+      },
+      "alertsCenterBanner": {
+        "message": "ניתן לנהל כללי התראות ותנאים בודדים ממרכז ההתראות.",
+        "link": "עבור למרכז ההתראות"
+      },
+      "modals": {
+        "configureTitle": "הגדרת {type}",
+        "createAlertTitle": "יצירת התראה חדשה",
+        "notificationHistoryTitle": "היסטוריית התראות",
+        "placeholderDescription": "ניהול כללים מלא יהיה זמין בקרוב במרכז ההתראות.",
+        "close": "סגירה",
+        "save": "שמירה",
+        "priority": "עדיפות",
+        "frequency": "תדירות",
+        "channels": "ערוצים",
+        "threshold": "סף",
+        "frequencyDaily": "יומי",
+        "frequencyImmediate": "מיידי",
+        "frequencyWeekly": "שבועי",
+        "thresholdDefault": "ברירת מחדל לסוג התראה זה"
+      }
+    },
+    "aiPreferences": {
+      "header": {
+        "title": "העדפות AI",
+        "description": "התאימו כיצד Equi מסביר תובנות, סיכונים ופעולות מוצעות.",
+        "previewAiResponse": "תצוגה מקדימה של תגובת AI"
+      },
+      "detail": {
+        "title": "רמת פירוט התובנות",
+        "description": "בחרו עד כמה מפורטות יהיו ההסברים של ה-AI.",
+        "concise": "תמציתי",
+        "conciseSubtitle": "סיכומים קצרים עם נקודת מפתח אחת",
+        "balanced": "מאוזן",
+        "balancedSubtitle": "הסבר מעשי עם יתרונות, סיכונים וצעד הבא",
+        "detailed": "מפורט",
+        "detailedSubtitle": "ניתוח מעמיק יותר עם הקשר והסבר",
+        "info": {
+          "concise": "תובנות תמציתיות מתמקדות במסקנות עיקריות עם מינימום הסבר.",
+          "balanced": "מאוזן מספק הקשר מעשי עם סיכונים וצעד מוצע הבא.",
+          "detailed": "תובנות מפורטות כוללות הקשר רחב יותר, נתונים תומכים והסבר מעמיק."
+        }
+      },
+      "tone": {
+        "title": "טון AI",
+        "description": "בחרו את הטון ש-Equi ישתמש בו בעת הסבר החלטות.",
+        "conservative": "שמרני",
+        "conservativeSubtitle": "זהיר יותר וממוקד סיכון",
+        "balanced": "מאוזן",
+        "balancedSubtitle": "איזון בין הזדמנות לסיכון",
+        "growthOriented": "ממוקד צמיחה",
+        "growthOrientedSubtitle": "דגש על פוטנציאל עלייה וצמיחה",
+        "info": {
+          "conservative": "טון שמרני מדגיש סיכונים, אי-ודאות ותרחישי ירידה.",
+          "balanced": "טון מאוזן מספק תמיכה בהחלטות ניטרלית המבוססת על נתונים.",
+          "growthOriented": "טון ממוקד צמיחה מדגיש פוטנציאל עלייה תוך ציון סיכונים רלוונטיים."
+        }
+      },
+      "risk": {
+        "title": "נראות סיכון",
+        "description": "שלטו בעוצמה שבה Equi מדגיש סיכונים.",
+        "showRiskWarnings": {
+          "title": "הצג אזהרות סיכון",
+          "description": "הציגו אזהרות סיכון מפורשות בתובנות AI."
+        },
+        "showDownsideScenarios": {
+          "title": "הצג תרחישי ירידה",
+          "description": "כללו מה עלול להחליש את התזה אם התנאים משתנים."
+        },
+        "showConfidenceLevel": {
+          "title": "הצג ביטחון בנתונים",
+          "description": "הציגו רמת ביטחון כאשר איכות הנתונים תומכת בכך."
+        },
+        "showMissingDataWarnings": {
+          "title": "הצג אזהרות על נתונים חסרים",
+          "description": "סמנו כאשר קלטים חשובים חסרים או לא מעודכנים."
+        }
+      },
+      "structure": {
+        "title": "מבנה ההסבר",
+        "description": "בחרו אילו מקטעים יופיעו בתובנות AI.",
+        "summary": "סיכום",
+        "strengths": "מה חזק",
+        "risks": "סיכונים למעקב",
+        "whatChanged": "מה השתנה",
+        "suggestedNextStep": "צעד מוצע הבא",
+        "confidence": "רמת ביטחון",
+        "dataFreshness": "הערת רעננות נתונים",
+        "summaryRequiredWarning": "סיכום הוא חובה ולא ניתן לכבות אותו."
+      },
+      "behavior": {
+        "title": "התנהגות AI",
+        "description": "כווננו כיצד Equi משתמש ב-AI ברחבי האפליקציה.",
+        "prioritizePortfolioContext": {
+          "title": "תעדף הקשר תיק",
+          "description": "שקלל תובנות לפי האחזקות וההקצאה הנוכחיות שלכם."
+        },
+        "compareAgainstSectorPeers": {
+          "title": "השווה לעמיתים בסקטור",
+          "description": "הוסף הקשר יחסי מחברות דומות באותו סקטור."
+        },
+        "considerWatchlistOpportunities": {
+          "title": "שקול הזדמנויות מרשימת מעקב",
+          "description": "התייחס למניות שאתם עוקבים אחריהן כשזה רלוונטי."
+        },
+        "includeEarningsContext": {
+          "title": "כלול הקשר דוחות כספיים קרובים",
+          "description": "ציין תזמון דוחות כשהוא עשוי להשפיע על התצוגה."
+        },
+        "conservativeFallback": {
+          "title": "השתמש בגיבוי שמרני כשחסרים נתונים",
+          "description": "ברירת מחדל לניסוח זהיר כשהקלטים לא שלמים."
+        }
+      },
+      "safety": {
+        "title": "בטיחות AI",
+        "description": "Equi הוא כלי לתמיכה בהחלטות. תובנות AI אינן ייעוץ פיננסי ויש לבדוק אותן עם שיקול דעתכם."
+      },
+      "summary": {
+        "title": "סיכום העדפות AI",
+        "subtitle": "סקירה של התנהגות ה-AI הנוכחית",
+        "labels": {
+          "detailLevel": "רמת פירוט",
+          "tone": "טון",
+          "riskWarnings": "אזהרות סיכון",
+          "confidenceLevel": "רמת ביטחון",
+          "portfolioContext": "הקשר תיק",
+          "dataFreshness": "רעננות נתונים"
+        },
+        "values": {
+          "concise": "תמציתי",
+          "balanced": "מאוזן",
+          "detailed": "מפורט",
+          "conservative": "שמרני",
+          "growthOriented": "ממוקד צמיחה",
+          "enabled": "מופעל",
+          "disabled": "מושבת"
+        }
+      },
+      "preview": {
+        "title": "תצוגה מקדימה של תגובת AI",
+        "subtitle": "תובנה לדוגמה לפי ההעדפות הנוכחיות",
+        "currentPreferences": "העדפות נוכחיות",
+        "symbol": "NVDA",
+        "mock": {
+          "concise_conservative": {
+            "text": "NVDA נראית חזקה, אך שווי והתזמון סביב דוחות מוסיפים סיכון. כדאי לעקוב לפני הגדלת חשיפה."
+          },
+          "concise_balanced": {
+            "text": "NVDA נשארת חזקה בצמיחה ומומנטום. השווי גבוה—עקבו אחר דוחות ושוליים לפני הוספה אגרסיבית."
+          },
+          "concise_growthOriented": {
+            "text": "ל-NVDA צמיחה ומומנטום חזקים. פוטנציאל עלייה עשוי להימשך, אך שווי גבוה מצדיק מעקב סביב דוחות."
+          },
+          "balanced_conservative": {
+            "text": "NVDA נשארת חזקה בצמיחה, שוליים ומומנטום. השווי גבוה, לכן כדאי לעקוב אחר יציבות דוחות ושוליים לפני הוספה. תרחישי ירידה כוללים דחיסת מכפיל אם הצמיחה מאטה."
+          },
+          "balanced_balanced": {
+            "text": "NVDA נשארת חזקה בצמיחה, שוליים ומומנטום. השווי גבוה, לכן כדאי לעקוב אחר יציבות דוחות ושוליים לפני הוספה אגרסיבית."
+          },
+          "balanced_growthOriented": {
+            "text": "NVDA נשארת חזקה בצמיחה, שוליים ומומנטום. מגמות הצמיחה תומכות בתזה, אך שווי גבוה מצדיק מעקב אחר דוחות ושוליים."
+          },
+          "detailed_conservative": {
+            "intro": "ל-NVDA יסודות טובים, אך גורמי סיכון ראויים להדגשה לפני פעולה.",
+            "bullet1": "צמיחה ושוליים תומכים, אך שווי משאיר פחות מרווח לאכזבה.",
+            "bullet2": "תזמון דוחות ורגישות מאקרו עלולים להגביר תנודתיות.",
+            "bullet3": "צעד מוצע: עקבו אחר תוצאות והעריכו מחדש את גודל הפוזיציה."
+          },
+          "detailed_balanced": {
+            "intro": "NVDA נשארת חזקה בצמיחה, שוליים ומומנטום עם הקשר סיכון מאוזן.",
+            "bullet1": "מה חזק: צמיחת הכנסות, פרופיל שוליים ומנהיגות שוק.",
+            "bullet2": "סיכונים למעקב: שווי גבוה ורגישות לשינויי תחזיות דוחות.",
+            "bullet3": "צעד מוצע: עקבו אחר דוחות ויציבות שוליים לפני הוספה אגרסיבית."
+          },
+          "detailed_growthOriented": {
+            "intro": "פרופיל הצמיחה של NVDA נשאר מנוע מרכזי, עם פוטנציאל עלייה עדיין בתמונה.",
+            "bullet1": "מגמות צמיחה ומומנטום תומכות בהמשך עניין.",
+            "bullet2": "השווי גבוה—עקבו אחר דוחות לאימות.",
+            "bullet3": "צעד מוצע: עקבו אחר תוצאות תוך מעקב אחר סיכון סביב מכפילים."
+          }
+        },
+        "preferenceLabels": {
+          "detailLevel": "רמת פירוט",
+          "tone": "טון",
+          "riskWarnings": "אזהרות סיכון",
+          "confidence": "ביטחון",
+          "downside": "תרחישי ירידה"
+        }
+      },
+      "quickActions": {
+        "title": "פעולות מהירות",
+        "resetAiPreferences": "איפוס העדפות AI",
+        "previewAiResponse": "תצוגה מקדימה של תגובת AI",
+        "viewAiSafetyRules": "צפייה בכללי בטיחות AI",
+        "explainConfidenceScores": "הסבר על ציוני ביטחון"
+      },
+      "modals": {
+        "previewTitle": "תצוגה מקדימה של תגובת AI",
+        "safetyRulesTitle": "כללי בטיחות AI",
+        "confidenceScoresTitle": "ציוני ביטחון",
+        "close": "סגור",
+        "stockLabel": "תובנה לדוגמה",
+        "activePreferences": "העדפות פעילות"
+      },
+      "safetyRules": {
+        "noGuaranteedReturns": "Equi אינה מבטיחה תשואות או תוצאות.",
+        "noTrades": "Equi אינה מבצעת עסקאות בשמכם.",
+        "decisionSupportOnly": "תובנות AI הן לתמיכה בהחלטות בלבד—לא ייעוץ פיננסי.",
+        "reviewRisks": "בדקו תמיד סיכונים, הנחות ורעננות נתונים לפני פעולה.",
+        "missingDataLowersConfidence": "נתונים חסרים או לא מעודכנים צריכים להוריד את רמת הביטחון בתובנה."
+      },
+      "confidence": {
+        "high": "ביטחון גבוה",
+        "medium": "ביטחון בינוני",
+        "low": "ביטחון נמוך",
+        "highDescription": "מספיק נתונים עדכניים עם אותות עקביים בגורמים מרכזיים.",
+        "mediumDescription": "אותות מעורבים או נתונים חלקיים—פרשו עם הקשר נוסף.",
+        "lowDescription": "נתונים חסרים או אותות סותרים—התייחסו כהערכה ראשונית בלבד."
+      },
+      "saved": "העדפות AI נשמרו."
+    },
+    "summary": {
+      "title": "סיכום ההגדרות שלכם",
+      "subtitle": "סקירה של ההעדפות הנוכחיות",
+      "riskProfile": "פרופיל סיכון",
+      "targetAllocation": "הקצאת יעד",
+      "scoringModel": "מודל ציון",
+      "alerts": "התראות",
+      "aiInsights": "תובנות AI",
+      "moderate": "מתון",
+      "enabled": "מופעל",
+      "disabled": "כבוי",
+      "custom": "מותאם",
+      "recommended": "מומלץ",
+      "balanced": "מאוזן"
+    },
+    "quickActions": {
+      "title": "פעולות מהירות",
+      "exportSettings": "ייצוא הגדרות",
+      "importSettings": "ייבוא הגדרות",
+      "howScoringWorks": "איך הציון עובד",
+      "helpSupport": "עזרה ותמיכה",
+      "exportSuccess": "ההגדרות יוצאו בהצלחה כ-equi-settings.json.",
+      "importSuccess": "ההגדרות יובאו בהצלחה. ההעדפות שלך עודכנו.",
+      "importErrors": {
+        "invalidJson": "לא ניתן לקרוא את הקובץ. בחר קובץ JSON תקין.",
+        "invalidFormat": "הקובץ לא נראה כמו הגדרות Equi. בדוק את הקובץ ונסה שוב.",
+        "unsupportedVersion": "גרסת קובץ ההגדרות הזו עדיין לא נתמכת."
+      },
+      "howScoringWorksModal": {
+        "title": "איך הציון עובד",
+        "intro": "Equi מדרג מניות מ-0 עד 100 באמצעות שילוב משוקלל של שישה גורמים אנליטיים. הציונים הם אותות לתמיכה בהחלטה — לא הוראות קנייה או מכירה.",
+        "disclaimer": "ציונים עשויים לעזור להשוות ולתעדף רעיונות, אך אינם מבטיחים תוצאות. יש לשקול תמיד את המטרות, לוח הזמנים וסבילות הסיכון שלך.",
+        "customizeHint": "ניתן להתאים את משקלי הגורמים בלשונית מודל הציון כך שיתאימו לסגנון ההשקעה שלך.",
+        "goToScoringModel": "פתח מודל ציון",
+        "close": "סגור"
+      },
+      "helpSupportModal": {
+        "title": "עזרה ותמיכה",
+        "comingSoonTitle": "בקרוב",
+        "comingSoonDescription": "אפשרויות עזרה ותמיכה בדרך. בינתיים, אפשר לראות מה יהיה זמין.",
+        "close": "סגור",
+        "options": {
+          "documentation": "תיעוד",
+          "contactSupport": "יצירת קשר עם התמיכה",
+          "reportIssue": "דיווח על בעיה"
+        }
+      }
+    }
+  },
+  "states": {
+    "empty": {
+      "title": "אין כאן עדיין תוכן",
+      "description": "אין נתונים להצגה בסעיף זה כרגע.",
+      "addStock": "הוספת מניה",
+      "addToWatchlist": "הוספה לרשימת מעקב",
+      "createAlert": "יצירת התראה"
+    },
+    "loading": {
+      "title": "טוען נתונים",
+      "description": "אנא המתן בזמן שאנו מכינים את הסעיף.",
+      "portfolio": "טוען תיק…",
+      "chart": "טוען גרף…",
+      "table": "טוען טבלה…",
+      "insights": "טוען תובנות…"
+    },
+    "error": {
+      "title": "לא ניתן לטעון נתונים",
+      "description": "משהו השתבש בעת טעינת הסעיף. ניתן לנסות שוב.",
+      "retry": "נסה שוב",
+      "goBack": "חזרה",
+      "refresh": "רענון"
+    },
+    "noResults": {
+      "title": "לא נמצאו תוצאות",
+      "description": "נסה לשנות את החיפוש או המסננים כדי למצוא את מה שאתה מחפש.",
+      "clearSearch": "נקה חיפוש",
+      "clearFilters": "נקה מסננים"
+    },
+    "stale": {
+      "title": "ייתכן שהנתונים אינם עדכניים",
+      "description": "ייתכן שהמידע אינו משקף את נתוני השוק העדכניים ביותר.",
+      "lastUpdated": "עודכן לאחרונה",
+      "refresh": "רענון"
+    },
+    "freshness": {
+      "loading": "מתעדכן",
+      "live": "חי",
+      "recent": "עדכני",
+      "stale": "לא עדכני",
+      "mock": "נתוני דוגמה",
+      "unavailable": "לא זמין"
+    },
+    "dataSource": {
+      "fmpLive": "נתוני שוק מ-FMP",
+      "finnhubFallback": "חלק מהנתונים מ-Finnhub (גיבוי)",
+      "partialFallback": "חלק מהמקטעים משתמשים בגיבוי או בנתונים במטמון",
+      "mockFallback": "מוצגים נתוני דוגמה — ספק חי לא זמין",
+      "rateLimited": "הגבלת קצב מהספק — משתמשים בנתונים במטמון או בדוגמה",
+      "missingKey": "מפתח API חסר — מוצגים נתוני דוגמה",
+      "providerError": "שגיאת ספק — מוצגים נתונים במטמון או בדוגמה"
+    }
+  },
+  "actions": {
+    "setPriceAlert": "הגדר התראת מחיר",
+    "addNote": "הוסף הערה",
+    "compareToCompetitors": "השווה למתחרים",
+    "viewSecFilings": "צפה בדיווחי SEC",
+    "optionsChain": "שרשרת אופציות",
+    "addToWatchlist": "הוסף לרשימת מעקב",
+    "addToPortfolio": "הוסף לתיק",
+    "edit": "עריכה",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "confirm": "אישור",
+    "remove": "הסר",
+    "viewStock": "צפה במניה",
+    "dismiss": "סגור",
+    "snooze": "השהה",
+    "alreadyInWatchlist": "ברשימת מעקב",
+    "alreadyInWatchlistTitle": "כבר ברשימת מעקב",
+    "alreadyInWatchlistDescription": "{symbol} כבר נמצא ברשימת המעקב שלך.",
+    "addedToWatchlistTitle": "נוסף לרשימת מעקב",
+    "addedToWatchlistDescription": "{symbol} נוסף לרשימת המעקב לסשן זה.",
+    "removeFromWatchlist": "הסר מרשימת מעקב",
+    "removedFromWatchlist": "הוסר מרשימת מעקב"
+  },
+  "placeholders": {
+    "compare": {
+      "title": "השוואת מניות בקרוב",
+      "description": "השוואה צד-בצד עדיין לא זמינה. המתחרים המוצעים מופיעים למטה."
+    },
+    "secFilings": {
+      "title": "אינטגרציית דיווחי SEC בקרוב",
+      "description": "לא ניתן לפתוח דיווחי SEC למניה זו בלשונית חדשה."
+    },
+    "optionsChain": {
+      "title": "שרשרת אופציות תהיה זמינה מאוחר יותר",
+      "description": "תכונה זו תדרוש ספק נתוני אופציות."
+    }
+  },
+  "notes": {
+    "modal": {
+      "title": "הוסף הערה",
+      "thesisTitle": "עריכת תזה / הערות",
+      "thesisTitleWithSymbol": "תזה עבור {symbol}",
+      "thesisDescription": "תעד למה אתה מחזיק, מה לעקוב, ומתי לשקול הפחתה.",
+      "category": "קטגוריה",
+      "titleField": "כותרת",
+      "note": "הערה",
+      "whyIOwnIt": "למה אני מחזיק",
+      "whyIOwnItPlaceholder": "הרציונל להחזקה…",
+      "whatToWatch": "מה לעקוב",
+      "whatToWatchPlaceholder": "אותות או אירועים למעקב…",
+      "sellIf": "מכור אם",
+      "sellIfPlaceholder": "תנאים להפחתה…",
+      "save": "שמור",
+      "cancel": "ביטול",
+      "success": "ההערה נשמרה מקומית"
+    }
+  },
+  "confirm": {
+    "removeHolding": {
+      "title": "להסיר החזקה?",
+      "description": "להסיר את {symbol} מהתיק לסשן זה?",
+      "confirm": "הסר"
+    },
+    "removeWatchlist": {
+      "title": "להסיר מרשימת מעקב?",
+      "description": "להסיר את {symbol} מרשימת המעקב לסשן זה?",
+      "confirm": "הסר",
+      "cancel": "ביטול",
+      "success": "הוסר מרשימת המעקב"
+    }
+  },
+  "interactions": {
+    "placeholder": {
+      "description": "תכונה זו תהיה זמינה בעדכון עתידי.",
+      "close": "סגור"
+    },
+    "rowActions": {
+      "menu": "פעולות נוספות",
+      "close": "סגור",
+      "viewDetails": "צפייה בפרטים",
+      "setAlert": "הגדרת התראה",
+      "addNote": "הוספת הערה",
+      "snooze": "השהיה",
+      "dismiss": "סילוק",
+      "remove": "הסרה",
+      "compare": "השוואה"
+    },
+    "setAlert": {
+      "title": "הגדרת התראה",
+      "titleWithSymbol": "הגדרת התראה עבור {symbol}",
+      "description": "צרו התראת דמו למעקב אחר המניה. התראות הן אותות תמיכה להחלטה — לא פקודות מסחר.",
+      "close": "סגור",
+      "cancel": "ביטול",
+      "save": "שמירת התראה",
+      "fields": {
+        "symbol": "מניה",
+        "alertType": "סוג התראה",
+        "targetValue": "ערך יעד",
+        "targetPlaceholder": "הזינו ערך יעד",
+        "priority": "עדיפות",
+        "note": "הערה (אופציונלי)",
+        "notePlaceholder": "הוסף הקשר להתראה…"
+      },
+      "types": {
+        "price": "מחיר",
+        "buyZone": "אזור קנייה",
+        "scoreChange": "שינוי ציון",
+        "earnings": "דוחות"
+      },
+      "priorities": {
+        "high": "גבוהה",
+        "medium": "בינונית",
+        "low": "נמוכה"
+      },
+      "success": {
+        "title": "ההתראה נשמרה",
+        "message": "העדפת ההתראה נשמרה מקומית לסשן זה.",
+        "messageWithSymbol": "ההתראה עבור {symbol} נשמרה מקומית לסשן זה.",
+        "done": "סיום"
+      }
+    },
+    "stockNote": {
+      "title": "הוספת הערה",
+      "titleWithSymbol": "הערה עבור {symbol}",
+      "description": "תעדו תזה, סיכונים או נקודות מעקב. ההערות נשארות במכשיר זה בינתיים.",
+      "close": "סגור",
+      "cancel": "ביטול",
+      "save": "שמירת הערה",
+      "fields": {
+        "title": "כותרת",
+        "titlePlaceholder": "כותרת קצרה",
+        "category": "קטגוריה",
+        "note": "הערה",
+        "notePlaceholder": "כתבו את ההערה כאן…"
+      },
+      "categories": {
+        "thesis": "תזה",
+        "watch": "מעקב",
+        "risk": "סיכון",
+        "general": "כללי"
+      },
+      "success": {
+        "title": "ההערה נשמרה",
+        "message": "ההערה נשמרה מקומית לסשן זה.",
+        "messageWithSymbol": "ההערה עבור {symbol} נשמרה מקומית לסשן זה.",
+        "done": "סיום"
+      }
+    },
+    "compare": {
+      "comingSoonTitle": "השוואה",
+      "comingSoonDescription": "השוואת מניות תהיה זמינה בקרוב. בינתיים אפשר לעיין ב-Smart Replace."
+    },
+    "globalSearch": {
+      "noResultsTitle": "אין תוצאות",
+      "noResultsDescription": "נסו סימול כמו NVDA או AAPL, או חפשו portfolio, alerts או settings.",
+      "navigateHint": "Enter לניווט אל {label}",
+      "routes": {
+        "stock": "מניה",
+        "portfolio": "תיק",
+        "watchlist": "רשימת מעקב",
+        "alerts": "מרכז התראות",
+        "settings": "הגדרות",
+        "dashboard": "לוח בקרה",
+        "smartReplace": "Smart Replace",
+        "nextMoves": "צעדים הבאים"
+      }
+    },
+    "refresh": {
+      "success": "נתוני התצוגה רועננו."
+    },
+    "profile": {
+      "title": "פרופיל",
+      "description": "הגדרות חשבון ופרופיל יהיו זמינות כשיתווסף כניסה למערכת."
+    },
+    "disabled": {
+      "comingSoon": "בקרוב",
+      "authRequired": "נדרשת כניסה"
+    },
+    "undo": {
+      "dismissed": "ההתראה סולקה.",
+      "snoozed": "ההתראה הושהתה.",
+      "moveDismissed": "הפעולה סולקה."
+    },
+    "portfolio": {
+      "addTransactionTitle": "הוספת עסקה",
+      "addTransactionDescription": "הזנת עסקאות ידנית תהיה זמינה בעדכון עתידי.",
+      "exportTitle": "ייצוא",
+      "exportDescription": "ייצוא התיק יהיה זמין בעדכון עתידי.",
+      "columnsTitle": "עמודות",
+      "columnsDescription": "התאמת עמודות תהיה זמינה בעדכון עתידי."
+    },
+    "features": {
+      "secFilingsTitle": "דיווחי SEC",
+      "secFilingsDescription": "דיווחי SEC יהיו זמינים בעדכון עתידי.",
+      "optionsChainTitle": "שרשרת אופציות",
+      "optionsChainDescription": "נתוני אופציות יהיו זמינים בעדכון עתידי.",
+      "viewMoreMetricsTitle": "מדדים נוספים",
+      "viewMoreMetricsDescription": "מדדי הערכה מורחבים יהיו זמינים בעדכון עתידי.",
+      "removeTitle": "הסרה",
+      "removeDescription": "הסרה מהרשימה תהיה זמינה בעדכון עתידי.",
+      "aiAnalysisTitle": "ניתוח AI",
+      "aiAnalysisDescription": "ניתוח AI מלא יהיה זמין בעדכון עתידי.",
+      "rankingTitle": "דירוג מלא",
+      "rankingDescription": "דירוג מלא של רשימת המעקב יהיה זמין בעדכון עתידי.",
+      "buyZoneTitle": "אזורי קנייה",
+      "buyZoneDescription": "כל הזדמנויות אזור הקנייה יהיו זמינות בעדכון עתידי.",
+      "activityTitle": "פעילות",
+      "activityDescription": "היסטוריית פעילות מלאה תהיה זמינה בעדכון עתידי.",
+      "moversTitle": "מובילי שינוי",
+      "moversDescription": "רשימת מובילי השינוי המלאה תהיה זמינה בעדכון עתידי.",
+      "riskFactorsTitle": "גורמי סיכון",
+      "riskFactorsDescription": "פירוט גורמי הסיכון המלא יהיה זמין בעדכון עתידי."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc --noEmit 2>&1 | head -60)",
+      "Bash(npx next lint 2>&1 | tail -30)",
+      "Bash(npx next lint 2>&1 | tail -20)",
+      "Bash(npx eslint src/components/stocks --ext .tsx,.ts 2>&1 | tail -30)",
+      "Bash(npx eslint src/components/stocks --ext .tsx,.ts 2>&1 | tail -20)",
+      "Bash(npx tsc --noEmit 2>&1)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('src/i18n/messages/en.json', 'utf8'\\)\\); console.log\\('en.json valid'\\)\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('src/i18n/messages/he.json', 'utf8'\\)\\); console.log\\('he.json valid'\\)\")",
+      "Bash(npm run build 2>&1 | tail -50)",
+      "Bash(npm run build 2>&1 | tail -30)",
+      "Bash(npm run build 2>&1 | head -20)",
+      "Bash(npm run build 2>&1 | grep -E \"✓|✗|error TS|compiled|TypeScript|Failed\")",
+      "Bash(npm run build 2>&1 | tail -20)"
+    ]
+  }
+}

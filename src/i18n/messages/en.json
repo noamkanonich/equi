@@ -1,0 +1,3219 @@
+{
+  "app": {
+    "name": "Equi",
+    "tagline": "Your AI portfolio copilot"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "portfolio": "Portfolio",
+    "watchlist": "Watchlist",
+    "nextMoves": "Next Moves",
+    "reports": "Reports",
+    "news": "News",
+    "fundamentalAnalysis": "Fundamental Analysis",
+    "stockAnalysis": "Stock Analysis",
+    "smartReplace": "Smart Replace",
+    "alerts": "Alerts Center",
+    "settings": "Settings"
+  },
+  "topBar": {
+    "searchPlaceholder": "Search stocks, holdings…",
+    "refresh": "Refresh data",
+    "userMenu": "User menu"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "createAccount": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "loading": "Loading…",
+    "signingIn": "Signing in…",
+    "signingUp": "Creating account…",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "openAuth": "Open sign in",
+    "close": "Close",
+    "signedInAs": "Signed in as {email}",
+    "localMode": "Local mode",
+    "authenticatedMode": "Synced",
+    "syncedMode": "Synced",
+    "profile": "Profile",
+    "openProfile": "Open profile menu",
+    "errors": {
+      "emailRequired": "Email is required.",
+      "passwordRequired": "Password is required.",
+      "passwordTooShort": "Password must be at least 6 characters.",
+      "passwordMismatch": "Passwords do not match.",
+      "invalidCredentials": "Invalid email or password.",
+      "default": "Something went wrong. Please try again."
+    },
+    "success": {
+      "signedIn": "Signed in successfully.",
+      "signedUp": "Account created. Check your email if confirmation is required.",
+      "confirmEmail": "Account created. Confirm your email, then sign in to sync your data.",
+      "signedOut": "Signed out.",
+      "dataSynced": "Your data is synced."
+    }
+  },
+  "authWelcome": {
+    "title": "Your portfolio, organized",
+    "subtitle": "A calm workspace to track holdings, monitor changes, and review decision-support insights.",
+    "signInTitle": "Welcome back",
+    "signUpTitle": "Create your account",
+    "signInDescription": "Sign in to open your synced portfolio, watchlist, notes, and alerts.",
+    "signUpDescription": "Create an account to keep your portfolio data synced securely across sessions.",
+    "featurePortfolio": "Track your real portfolio",
+    "featureWatchlist": "Sync watchlist, notes, and alerts",
+    "featureAnalysis": "Analyze stocks with clean decision-support tools",
+    "secureSync": "Your data syncs securely to your account. Equi supports decisions — it does not trade for you.",
+    "loading": "Checking your session…",
+    "loadingDescription": "Please wait while we verify your sign-in status.",
+    "mockPreview": {
+      "portfolio": "Portfolio",
+      "watchlist": "Watchlist",
+      "alerts": "Alerts",
+      "notes": "Notes",
+      "synced": "Synced"
+    },
+    "visual": {
+      "portfolioValue": "$124,580",
+      "todayChange": "+1.2% today",
+      "watchlistReady": "Watchlist ready",
+      "alertsActive": "Alerts active",
+      "notesSecured": "Notes secured",
+      "watchlistChange1": "+1.2%",
+      "watchlistChange2": "-0.4%",
+      "watchlistChange3": "+2.1%",
+      "alertsCount": "3 active",
+      "alertItemPrice": "NVDA price watch",
+      "alertItemPortfolio": "Portfolio drift check",
+      "notePreviewLine1": "Cloud spend thesis — monitor margin trend",
+      "notePreviewLine2": "Review position size before earnings"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Your account and synced data",
+    "accountStatus": "Account status",
+    "synced": "Synced",
+    "localMode": "Local mode",
+    "localModeDescription": "Sign in to sync portfolio, watchlist, notes, alerts, and settings across devices.",
+    "signInPrompt": "Sign in",
+    "loading": "Loading account…",
+    "email": "Email",
+    "userId": "User ID",
+    "provider": "Provider",
+    "providerEmail": "Email",
+    "joinedAt": "Joined",
+    "lastSignIn": "Last sign-in",
+    "authenticated": "Authenticated",
+    "yes": "Yes",
+    "no": "No",
+    "notAvailable": "Not available",
+    "accountDetails": "Account details",
+    "dataSync": "Data sync",
+    "portfolioHoldings": "Portfolio holdings",
+    "watchlistItems": "Watchlist items",
+    "notes": "Notes",
+    "alerts": "Alerts",
+    "settings": "Settings",
+    "quickActions": "Quick actions",
+    "goToPortfolio": "Go to Portfolio",
+    "goToSettings": "Go to Settings",
+    "signOut": "Sign out"
+  },
+  "stockSearch": {
+    "mockBadge": "Mock",
+    "mockNotice": "Showing mock search data for testing.",
+    "searchPlaceholder": "Search stocks, holdings…",
+    "noResultsTitle": "No stocks found",
+    "noResultsDescription": "Try another company name or ticker symbol.",
+    "loading": "Searching…",
+    "minQuery": "Type at least 2 characters to search."
+  },
+  "topSearch": {
+    "mockBadge": "Mock",
+    "viewStock": "View stock",
+    "sheetTitle": "Search stocks",
+    "closeSheet": "Close search",
+    "recentSearches": "Recent searches",
+    "suggestions": "Suggestions",
+    "clearRecent": "Clear recent searches",
+    "noRecentSearches": "Your recent stock searches will appear here."
+  },
+  "language": {
+    "current": "Current language",
+    "selectLanguage": "Select language",
+    "english": "English",
+    "hebrew": "עברית",
+    "changeLanguage": "Change language",
+    "close": "Close"
+  },
+  "currency": {
+    "selectCurrency": "Select currency",
+    "displayCurrency": "Display currency",
+    "changeCurrency": "Change display currency",
+    "close": "Close",
+    "usd": "USD",
+    "ils": "ILS",
+    "eur": "EUR",
+    "originalValue": "Original value",
+    "convertedValue": "Converted value",
+    "fxRatesEstimated": "FX rates are estimated.",
+    "fxRatesSource": "Source: {source}",
+    "fxRatesLastUpdated": "Updated: {date}"
+  },
+  "scoring": {
+    "status": {
+      "veryStrong": "Very Strong",
+      "strong": "Strong",
+      "average": "Average",
+      "weak": "Weak",
+      "veryWeak": "Very Weak"
+    },
+    "actions": {
+      "buyMore": "Buy More",
+      "hold": "Hold",
+      "watch": "Watch",
+      "reduce": "Reduce",
+      "avoid": "Avoid"
+    },
+    "confidence": {
+      "high": "High conviction",
+      "medium": "Medium conviction",
+      "low": "Low conviction"
+    },
+    "categories": {
+      "growth": "Growth",
+      "profitability": "Profitability",
+      "valuation": "Valuation",
+      "financialHealth": "Financial Health",
+      "momentum": "Momentum",
+      "analystSentiment": "Analyst Sentiment"
+    },
+    "reasons": {
+      "strongGrowth": "Strong growth profile",
+      "strongProfitability": "Strong profitability and margin quality",
+      "healthyBalanceSheet": "Healthy balance sheet and financial health",
+      "positiveMomentum": "Positive price momentum",
+      "strongAnalystSentiment": "Strong analyst sentiment",
+      "attractiveValuation": "Attractive valuation relative to fundamentals"
+    },
+    "risks": {
+      "weakGrowth": "Growth profile may be weakening",
+      "lowProfitability": "Profitability and margins need review",
+      "stretchedValuation": "Valuation looks stretched or unattractive",
+      "weakFinancialHealth": "Financial health needs review",
+      "negativeMomentum": "Momentum is weak",
+      "weakAnalystSentiment": "Analyst sentiment is cautious",
+      "missingData": "Scoring data is incomplete for this symbol"
+    }
+  },
+  "smartReplace": {
+    "eyebrow": "Portfolio quality lab",
+    "title": "Smart Replace",
+    "subtitle": "Find stronger alternatives for low-scoring positions in your portfolio",
+    "units": {
+      "points": "pts"
+    },
+    "metrics": {
+      "positionsToReview": "Positions to Review",
+      "bestReplacementMatches": "Best Replacement Matches",
+      "potentialScoreImprovement": "Potential Score Improvement",
+      "estimatedUpsideDifference": "Estimated Upside Difference",
+      "helpers": {
+        "needsAttention": "Need attention",
+        "highQualityOptions": "High quality options",
+        "averageImprovement": "Average improvement",
+        "averageUpsideLift": "Average upside lift"
+      }
+    },
+    "main": {
+      "positionToReview": "Position to Review",
+      "bestMatch": "Best Match",
+      "currentHolding": "Current holding",
+      "replacementCandidate": "Replacement candidate",
+      "simulateSwap": "Simulate Swap",
+      "previewSwapImpact": "Preview Swap Impact",
+      "resetPreview": "Reset Preview",
+      "previewOnly": "Preview only",
+      "doesNotChangePortfolio": "This does not change your portfolio",
+      "decisionSupportEstimate": "Decision-support estimate based on current mock assumptions.",
+      "replaceThisWithThat": "Replace this with that",
+      "afterSwapPreview": "After Swap Preview"
+    },
+    "labels": {
+      "sector": "Sector",
+      "currentWeight": "Current weight",
+      "estimatedWeight": "Est. weight if swapped",
+      "avgCost": "Avg cost",
+      "marketValue": "Market value",
+      "unrealizedPl": "Unrealized P/L",
+      "currentPrice": "Current price",
+      "upsidePotential": "Upside potential",
+      "analystConsensus": "Analyst consensus",
+      "score": "Score",
+      "scoreAria": "Score {score} out of 100",
+      "action": "Action",
+      "risk": "Risk",
+      "beta": "Beta"
+    },
+    "sectors": {
+      "consumerDiscretionary": "Consumer Discretionary",
+      "technology": "Technology",
+      "communicationServices": "Communication Services"
+    },
+    "concerns": {
+      "highVolatility": "High volatility",
+      "weakMomentum": "Weak momentum",
+      "premiumValuation": "Premium valuation"
+    },
+    "positives": {
+      "higherProfitability": "Higher profitability",
+      "aiInfrastructureExposure": "AI infrastructure exposure",
+      "strongerEarningsTrend": "Stronger earnings trend",
+      "betterRiskReward": "Better risk/reward"
+    },
+    "consensus": {
+      "strongBuy": "Strong Buy",
+      "buy": "Buy"
+    },
+    "reasons": {
+      "strongAiExposure": "Strong earnings and AI exposure",
+      "aiDemandImproving": "AI demand and improving margins",
+      "adGrowthCashFlow": "Ad growth and strong cash flow",
+      "cloudCommerceScale": "Cloud and e-commerce scale",
+      "stableCashGeneration": "Stable growth and cash generation"
+    },
+    "matchTypes": {
+      "sameSector": "Same Sector",
+      "similarBusiness": "Similar Business",
+      "qualityUpgrade": "Quality Upgrade",
+      "lowerRisk": "Lower Risk"
+    },
+    "table": {
+      "replacementCandidates": "Replacement Candidates",
+      "matchByBalanced": "Match by Balanced",
+      "symbol": "Symbol",
+      "company": "Company",
+      "matchType": "Match Type",
+      "score": "Score",
+      "upside": "Upside %",
+      "riskBeta": "Risk / Beta",
+      "keyReason": "Key Reason",
+      "action": "Action"
+    },
+    "actions": {
+      "buy": "Buy",
+      "buyMore": "Buy More",
+      "hold": "Hold",
+      "watch": "Watch",
+      "reduce": "Reduce",
+      "avoid": "Avoid",
+      "bestMatch": "Best Match",
+      "consider": "Consider",
+      "review": "Review",
+      "compare": "Compare",
+      "selected": "Selected",
+      "applySwap": "Apply swap"
+    },
+    "confirm": {
+      "previewOnlyTitle": "Preview only",
+      "previewOnlyDescription": "Preview only — portfolio changes are not persisted yet. Simulate and review impact before any future apply flow.",
+      "close": "Got it",
+      "cancel": "Cancel"
+    },
+    "sidebar": {
+      "whyRecommendation": "Why this recommendation?",
+      "swapImpactEstimate": "Swap Impact Estimate",
+      "aiNote": "AI Note",
+      "howItWorks": "How it works",
+      "otherWeakPositions": "Other Weak Positions",
+      "recentSignals": "Recent Upgrade / Downgrade Signals",
+      "impactAssumption": "Estimates based on a 6-12 month horizon.",
+      "reasons": {
+        "sameSector": "Similar growth drivers with cleaner execution profile",
+        "higherScore": "Significantly higher overall score",
+        "earningsQuality": "Stronger fundamentals and earnings quality",
+        "lowerDownside": "Attractive upside with lower downside risk"
+      }
+    },
+    "impact": {
+      "portfolioScore": "Portfolio Score",
+      "technologyExposure": "Technology Exposure",
+      "expectedUpside": "Expected Upside",
+      "annualizedReturnEstimate": "Annualized Return Estimate",
+      "riskScore": "Risk Score / Volatility",
+      "before": "Before",
+      "after": "After",
+      "lowerRisk": "Lower risk"
+    },
+    "aiNote": {
+      "body": "AVGO offers stronger profitability and more consistent execution than TSLA, while still providing exposure to secular growth themes like AI infrastructure and semiconductor demand. The swap may improve portfolio quality and risk-adjusted return assumptions.",
+      "disclaimer": "Informational only, not financial advice."
+    },
+    "howItWorks": {
+      "description": "Scores and estimates are decision-support only.",
+      "noTradePlaced": "No actual trade is placed.",
+      "simulationOnly": "This is a simulation using mock assumptions."
+    },
+    "signals": {
+      "upgrade": "Upgrade",
+      "downgrade": "Downgrade",
+      "avgoUpgrade": "Upgraded to Strong Buy by Morgan Stanley",
+      "amdUpgrade": "Upgraded to Buy by J.P. Morgan",
+      "tslaDowngrade": "Downgraded to Hold by Wells Fargo",
+      "twoHoursAgo": "2h ago",
+      "fiveHoursAgo": "5h ago",
+      "oneDayAgo": "1d ago"
+    }
+  },
+  "addStock": {
+    "title": "Add Stock",
+    "subtitle": "Search and add stocks to your portfolio or watchlist",
+    "search": {
+      "stepLabel": "Step 1",
+      "title": "Search for a Stock",
+      "helper": "Search by company name, ticker symbol, or keyword",
+      "placeholder": "Search for a stock...",
+      "popularSearches": "Popular searches",
+      "results": "Search Results",
+      "trendingResults": "Trending suggestions",
+      "resultsFound": "{count} results found",
+      "noResultsTitle": "No stocks found",
+      "noResultsDescription": "Try another company name, ticker symbol, or keyword.",
+      "sparklineLabel": "{symbol} recent price trend",
+      "fallbackNotice": "Showing offline results. Connect to see live data."
+    },
+    "destination": {
+      "title": "Add to",
+      "helper": "Choose where you want to add this stock",
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Add to your portfolio holdings",
+        "secondary": "Track performance and analytics"
+      },
+      "watchlist": {
+        "title": "Watchlist",
+        "description": "Add to your watchlist",
+        "secondary": "Monitor and track opportunities"
+      },
+      "createNewWatchlist": "Create new watchlist"
+    },
+    "overview": {
+      "title": "Quick Stock Overview",
+      "empty": "Select a stock to preview key metrics before adding it.",
+      "currentPrice": "Current Price",
+      "marketCap": "Market Cap",
+      "sector": "Sector",
+      "weekRange": "52 Week Range",
+      "analystRating": "Analyst Rating",
+      "equiScore": "Equi Score",
+      "market": "Market",
+      "assetType": "Asset Type",
+      "priceUnavailable": "Price unavailable",
+      "notAvailable": "Not available",
+      "scoreUnavailable": "Score pending until price data is available",
+      "ratingAverage": "{value} average",
+      "scoreSummary": "Strong overall",
+      "ratings": {
+        "buy": "Buy",
+        "hold": "Hold",
+        "watch": "Watch"
+      }
+    },
+    "actions": {
+      "addToPortfolio": "Add to Portfolio",
+      "addToWatchlist": "Add to Watchlist",
+      "cancel": "Cancel",
+      "close": "Close Add Stock",
+      "search": "Search stocks",
+      "selectStock": "Select {symbol}",
+      "searchSymbol": "Search for {symbol}"
+    },
+    "success": {
+      "title": "Stock added",
+      "addedToPortfolio": "{symbol} was added to your portfolio",
+      "addedToWatchlist": "{symbol} was added to your watchlist",
+      "alreadyInWatchlistTitle": "Already in watchlist",
+      "alreadyInWatchlistMessage": "{symbol} is already on your watchlist.",
+      "done": "Done"
+    },
+    "mockPreviewNotice": "Preview uses mock fallback data for testing.",
+    "addedSuccess": "Stock added successfully.",
+    "symbolAlreadyExists": "This stock already exists in your portfolio.",
+    "editExisting": "Edit existing holding",
+    "addSeparate": "Add as separate holding",
+    "cancel": "Cancel",
+    "table": {
+      "symbol": "Symbol",
+      "company": "Company",
+      "exchange": "Exchange",
+      "sector": "Sector",
+      "price": "Price",
+      "priceUnavailable": "Price unavailable",
+      "dayChange": "Day Change",
+      "score": "Score",
+      "taseLabel": "TASE"
+    }
+  },
+  "shell": {
+    "marketOpen": "Market open",
+    "marketClosed": "Market closed",
+    "lastUpdated": "Last updated: {time}",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "resizeSidebar": "Resize navigation sidebar",
+    "upgradeCard": {
+      "title": "Upgrade to Pro",
+      "description": "Unlock advanced analytics, AI insights and more.",
+      "cta": "Upgrade Now"
+    },
+    "marketCard": {
+      "statusOpen": "Market is Open",
+      "statusClosed": "Market is Closed",
+      "closesIn": "US Market Closes in",
+      "opensIn": "US Market Opens in",
+      "timestamp": "{time} ET"
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "comingSoon": "This section is coming soon.",
+    "buyMore": "Buy More",
+    "hold": "Hold",
+    "watch": "Watch",
+    "reduce": "Reduce",
+    "avoid": "Avoid",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "ai": {
+    "output": {
+      "disclaimer": "This is decision-support information only and is not financial advice.",
+      "contextTitles": {
+        "dashboard": "AI Portfolio Insight",
+        "portfolio": "AI Portfolio Insight",
+        "stockAnalysis": "AI Stock Insight",
+        "fundamentals": "AI Fundamentals Insight",
+        "watchlist": "AI Watchlist Insight",
+        "smartReplace": "AI Smart Replace Note",
+        "nextMoves": "AI Next Moves Summary",
+        "alerts": "AI Alert Explanation",
+        "settingsPreview": "AI Response Preview"
+      },
+      "sections": {
+        "summary": "Summary",
+        "whatsStrong": "What's strong",
+        "riskToWatch": "Risk to watch",
+        "whatChanged": "What changed",
+        "suggestedNextStep": "Suggested next step",
+        "confidence": "Confidence",
+        "dataFreshness": "Data freshness",
+        "disclaimer": "Disclaimer"
+      },
+      "actions": {
+        "reviewPortfolio": "Review portfolio",
+        "viewStock": "View stock analysis",
+        "viewWatchlist": "View watchlist",
+        "openSmartReplace": "Open Smart Replace",
+        "viewNextMoves": "View next moves",
+        "viewAlerts": "View alerts center",
+        "reviewFundamentals": "Review fundamentals"
+      }
+    }
+  },
+  "calendar": {
+    "earnings": {
+      "title": "Earnings Calendar",
+      "subtitle": "Upcoming earnings events for your portfolio and watchlist",
+      "today": "Today",
+      "selectedDay": "Selected day",
+      "upcomingEvents": "Upcoming events",
+      "noEvents": "No earnings events",
+      "noEventsDescription": "There are no mock earnings events for this date or filter.",
+      "reviewStock": "Review Stock",
+      "beforeMarket": "Before Market",
+      "afterMarket": "After Market",
+      "portfolio": "Portfolio",
+      "watchlist": "Watchlist",
+      "highImpact": "High Impact",
+      "mediumImpact": "Medium Impact",
+      "lowImpact": "Low Impact",
+      "eventDetails": "Event Details",
+      "considerReviewing": "Consider reviewing this position before earnings.",
+      "moreEvents": "+{count} more"
+    },
+    "filters": {
+      "label": "Earnings calendar filters",
+      "all": "All",
+      "portfolio": "Portfolio",
+      "watchlist": "Watchlist",
+      "highImpact": "High Impact"
+    },
+    "actions": {
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "close": "Close calendar",
+      "showCalendar": "Show Calendar",
+      "viewCalendar": "View Calendar"
+    },
+    "details": {
+      "earningsDate": "Earnings date",
+      "timing": "Timing",
+      "source": "Source",
+      "portfolioWeight": "Portfolio weight",
+      "notInPortfolio": "Not in portfolio"
+    },
+    "weekdays": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "AI-powered overview of your portfolio",
+    "metrics": {
+      "totalValue": "Total Portfolio Value",
+      "todayChange": "Today's Change",
+      "totalGainLoss": "Total Gain / Loss",
+      "cashAvailable": "Cash Available",
+      "portfolioScore": "Average Score",
+      "availableToInvest": "Available to invest",
+      "scoreBase": "/100",
+      "portfolioHealth": "Portfolio health",
+      "scoreLegend": {
+        "great": "Great",
+        "good": "Good",
+        "watch": "Watch",
+        "avoid": "Avoid"
+      }
+    },
+    "holdings": {
+      "title": "My Portfolio",
+      "viewAll": "View All",
+      "viewMode": "Holdings view mode",
+      "cardAria": "Open {symbol} stock analysis",
+      "table": "Table",
+      "cards": "Cards",
+      "priceUnavailable": "Price unavailable",
+      "columns": {
+        "symbol": "Symbol",
+        "company": "Company",
+        "shares": "Shares",
+        "avgCost": "Avg Cost",
+        "currentPrice": "Current Price",
+        "dayChange": "Day Change %",
+        "marketValue": "Market Value",
+        "gainLoss": "Gain / Loss %",
+        "score": "Score",
+        "action": "Action",
+        "recentDayChanges": "Last 5 Days %",
+        "trend": "Trend",
+        "more": "More actions"
+      }
+    },
+    "cards": {
+      "assetAllocation": "Asset Allocation",
+      "sectorExposure": "Sector Exposure",
+      "performance": "Portfolio Performance",
+      "recentActivity": "Recent Activity",
+      "aiInsight": "AI Portfolio Insight",
+      "topMovers": "Top Movers (Today)",
+      "scoreDistribution": "Score Distribution",
+      "upcomingEarnings": "Upcoming Earnings"
+    },
+    "charts": {
+      "labels": {
+        "stocks": "Stocks",
+        "etfs": "ETFs",
+        "cash": "Cash",
+        "crypto": "Crypto",
+        "technology": "Technology",
+        "communication": "Communication",
+        "consumerCyclical": "Consumer Cyclical",
+        "consumerDefensive": "Consumer Defensive",
+        "other": "Other"
+      },
+      "tooltip": {
+        "valueLabel": "Value",
+        "percentLabel": "{percent}"
+      }
+    },
+    "performance": {
+      "rangeLabel": "Performance range",
+      "currentValue": "Current value: {value}",
+      "currentValueLabel": "Current value",
+      "emptyDescription": "Add holdings to track portfolio performance over time.",
+      "ranges": {
+        "oneDay": "1D",
+        "oneWeek": "1W",
+        "oneMonth": "1M",
+        "threeMonths": "3M",
+        "oneYear": "1Y",
+        "all": "All"
+      }
+    },
+    "activity": {
+      "mockTimestamp": "Mock activity",
+      "emptyDescription": "No portfolio activity yet. Trades and updates will appear here.",
+      "types": {
+        "buy": "{symbol} Buy",
+        "dividend": "{symbol} Dividend",
+        "sell": "{symbol} Sell",
+        "added": "{symbol} Added"
+      }
+    },
+    "scoreDistribution": {
+      "total": "Total",
+      "labels": {
+        "great": "Great ({min}-{max})",
+        "good": "Good ({min}-{max})",
+        "watch": "Watch ({min}-{max})",
+        "avoid": "Avoid ({min}-{max})"
+      }
+    },
+    "earnings": {
+      "viewCalendar": "View Calendar",
+      "emptyDescription": "No upcoming earnings for your holdings yet.",
+      "timing": {
+        "beforeMarket": "Before Market",
+        "afterMarket": "After Market"
+      }
+    },
+    "ai": {
+      "summary": "Your portfolio is performing well today, led by stronger momentum in NVDA and AAPL.",
+      "keyPositive": "Key positive",
+      "keyPositiveText": "NVDA and AAPL are the strongest contributors across score, momentum, and day change.",
+      "potentialConcern": "Potential concern",
+      "potentialConcernText": "TSLA may be worth reviewing because its score and near-term momentum are weaker than the rest of the portfolio.",
+      "suggestedReview": "Suggested next review",
+      "suggestedReviewText": "Review concentration in technology and confirm whether lower-scoring holdings still fit your plan.",
+      "confidence": "Confidence",
+      "disclaimer": "This is decision-support information only and is not financial advice.",
+      "emptyPortfolio": {
+        "title": "Not enough portfolio data yet",
+        "description": "Add your first holding to unlock portfolio insights based on your actual positions."
+      }
+    },
+    "actions": {
+      "addStock": "Add Stock",
+      "viewAll": "View All"
+    },
+    "comingSoon": "Dashboard implementation comes next."
+  },
+  "portfolio": {
+    "title": "My Portfolio",
+    "subtitle": "Track your investments and overall performance",
+    "header": {
+      "visibilityLabel": "Portfolio visibility"
+    },
+    "actions": {
+      "addTransaction": "Add Transaction",
+      "addStock": "Add Stock",
+      "addHolding": "Add Holding",
+      "editHolding": "Edit Holding",
+      "removeHolding": "Remove Holding",
+      "addNote": "Add Note",
+      "setAlert": "Set Alert",
+      "viewStock": "View Stock",
+      "editCashBalance": "Edit Cash Balance",
+      "addFunds": "Add Funds",
+      "viewAll": "View All",
+      "viewCalendar": "View Calendar",
+      "viewFullAllocation": "View Full Allocation",
+      "viewPerformanceReport": "View Performance Report",
+      "viewAllHoldings": "View All Holdings",
+      "viewAllActivity": "View All Activity"
+    },
+    "form": {
+      "addTitle": "Add Holding",
+      "editTitle": "Edit Holding",
+      "symbol": "Symbol",
+      "shares": "Shares",
+      "averageCost": "Average Cost",
+      "purchaseCurrency": "Purchase Currency",
+      "purchaseDate": "Purchase Date",
+      "accountName": "Account Name",
+      "accountType": "Account Type",
+      "accountTypeOptional": "Optional",
+      "targetAllocation": "Target Allocation %",
+      "strategyTag": "Strategy Tag",
+      "strategyOptional": "Optional",
+      "notes": "Notes",
+      "save": "Save",
+      "cancel": "Cancel",
+      "done": "Done",
+      "delete": "Delete",
+      "required": "This field is required",
+      "invalidShares": "Shares must be greater than zero",
+      "invalidAverageCost": "Average cost must be zero or greater",
+      "invalidTargetAllocation": "Target allocation must be between 0 and 100",
+      "duplicateSymbol": "This symbol is already in your portfolio",
+      "symbolAlreadyExists": "This symbol already exists in your portfolio.",
+      "updateExisting": "Update existing holding",
+      "addSeparateHolding": "Add as separate lot",
+      "symbolReadOnly": "Symbol cannot be changed when editing. Use a separate replace flow later.",
+      "targetAllocationSumWarning": "Total target allocation across holdings exceeds 100%. You can still save.",
+      "mockFallbackNotice": "Price and profile data may be mock or fallback for this symbol."
+    },
+    "accountType": {
+      "brokerage": "Brokerage",
+      "retirement": "Retirement",
+      "taxAdvantaged": "Tax-Advantaged",
+      "other": "Other"
+    },
+    "strategy": {
+      "core": "Core",
+      "growth": "Growth",
+      "income": "Income",
+      "speculative": "Speculative",
+      "watch": "Watch"
+    },
+    "remove": {
+      "title": "Remove Holding",
+      "description": "{symbol} ({companyName}) will be removed from your local portfolio preview only. This does not affect a real brokerage account.",
+      "confirm": "Remove",
+      "cancel": "Cancel"
+    },
+    "success": {
+      "added": "Holding added to your local portfolio",
+      "updated": "Holding updated",
+      "removed": "Holding removed",
+      "noteSaved": "Note saved"
+    },
+    "cash": {
+      "title": "Edit Cash Balance",
+      "amount": "Cash Amount",
+      "currency": "Currency",
+      "save": "Save"
+    },
+    "metrics": {
+      "totalValue": "Total Portfolio Value",
+      "todayChange": "Today's Change",
+      "dayGainLoss": "Day Gain / Loss",
+      "totalReturn": "Total Return",
+      "totalGainLoss": "Total Gain / Loss",
+      "cashAvailable": "Cash Available",
+      "cashBalance": "Cash Balance",
+      "holdings": "Holdings",
+      "portfolioScore": "Portfolio Score",
+      "availableToInvest": "Available to invest",
+      "stocks": "Stocks",
+      "today": "Today",
+      "allTime": "All Time",
+      "scoreBase": "/100",
+      "scoreCount": "{count} stocks",
+      "scoreAria": "Portfolio score {score} out of 100"
+    },
+    "performance": {
+      "title": "Portfolio Performance",
+      "value": "Value",
+      "rangeLabel": "Performance range",
+      "selectorLabel": "Performance value selector",
+      "currentValue": "Current value: {value}",
+      "ranges": {
+        "oneDay": "1D",
+        "oneWeek": "1W",
+        "oneMonth": "1M",
+        "oneYear": "1Y",
+        "all": "All"
+      }
+    },
+    "allocation": {
+      "title": "Asset Allocation",
+      "total": "Total",
+      "stocks": "Stocks",
+      "etfs": "ETFs",
+      "cash": "Cash",
+      "crypto": "Crypto",
+      "technology": "Technology",
+      "consumerCyclical": "Consumer Cyclical",
+      "communication": "Communication Services",
+      "consumerDefensive": "Consumer Defensive",
+      "healthcare": "Healthcare"
+    },
+    "holdings": {
+      "title": "Holdings ({count})",
+      "filterLabel": "Holdings filter",
+      "sortLabel": "Sort holdings",
+      "allHoldings": "All Holdings",
+      "winners": "Winners today",
+      "losers": "Losers today",
+      "sortSymbolAsc": "Symbol A–Z",
+      "sortSymbolDesc": "Symbol Z–A",
+      "sortScoreHigh": "Score high to low",
+      "sortScoreLow": "Score low to high",
+      "columnsButton": "Columns",
+      "filterButton": "Filter holdings",
+      "downloadButton": "Download holdings",
+      "rowAria": "Open {symbol} stock analysis",
+      "priceUnavailable": "Price unavailable",
+      "columns": {
+        "symbol": "Symbol",
+        "company": "Company",
+        "shares": "Shares",
+        "avgCost": "Avg Cost",
+        "currentPrice": "Current Price",
+        "dayChange": "Day Change",
+        "totalReturn": "Total Return",
+        "marketValue": "Market Value",
+        "gainLoss": "Gain / Loss",
+        "weight": "Weight",
+        "recentDayChanges": "Last 5 Days %",
+        "score": "Score",
+        "action": "Action",
+        "more": "More actions"
+      }
+    },
+    "topMovers": {
+      "title": "Top Movers (Today)",
+      "topWinners": "Top Winners",
+      "topLosers": "Top Losers",
+      "viewAllWinners": "View All Winners",
+      "viewAllLosers": "View All Losers"
+    },
+    "earnings": {
+      "title": "Upcoming Earnings",
+      "beforeMarket": "Before Market",
+      "afterMarket": "After Market"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "buy": "Buy",
+      "sell": "Sell",
+      "dividend": "Dividend",
+      "added": "Added",
+      "mock": {
+        "aapl": "{symbol} Buy",
+        "msft": "{symbol} Dividend",
+        "tsla": "{symbol} Sell",
+        "nvda": "{symbol} Added"
+      }
+    },
+    "ai": {
+      "title": "AI Portfolio Insight",
+      "summary": "Your portfolio is up today, with strength from NVDA and AAPL offsetting weaker moves in TSLA and GOOGL.",
+      "keyPositive": "Key positive",
+      "potentialConcern": "Potential concern",
+      "suggestedReview": "Suggested next review",
+      "confidence": "Confidence",
+      "disclaimer": "This is decision-support information only and is not financial advice.",
+      "mock": {
+        "keyPositive": "Technology leaders are contributing most of today's gains and keeping the portfolio above its benchmark trend.",
+        "potentialConcern": "Technology concentration is elevated, so a single sector pullback may have an outsized impact.",
+        "suggestedReview": "Consider reviewing lower-scoring holdings and confirming whether the cash balance still fits your plan."
+      }
+    },
+    "scoreDistribution": {
+      "title": "Score Distribution",
+      "great": "Great",
+      "good": "Good",
+      "watch": "Watch",
+      "avoid": "Avoid"
+    }
+  },
+  "nextMoves": {
+    "title": "Next Moves",
+    "subtitle": "Personalized actions to help you make smarter investment decisions",
+    "tabs": {
+      "label": "Next moves filters",
+      "allActions": "All Actions",
+      "needsAction": "Needs Action",
+      "opportunities": "Opportunities",
+      "risks": "Risks",
+      "earnings": "Earnings",
+      "dismissed": "Dismissed"
+    },
+    "filters": {
+      "filter": "Filter"
+    },
+    "types": {
+      "needsAction": "Needs Action",
+      "opportunity": "Opportunity",
+      "risk": "Risk",
+      "earnings": "Earnings",
+      "monitor": "Monitor"
+    },
+    "entities": {
+      "portfolio": "Portfolio"
+    },
+    "actions": {
+      "reviewStock": "Review Stock",
+      "viewAllocation": "View Allocation",
+      "analyze": "Analyze",
+      "setAlert": "Set Alert",
+      "viewAll": "View All",
+      "viewCalendar": "View Calendar",
+      "viewFullAiAnalysis": "View Full AI Analysis",
+      "more": "More actions"
+    },
+    "items": {
+      "tsla": {
+        "title": "Review TSLA Position",
+        "description": "Score dropped from 61 to 45 in the last 30 days."
+      },
+      "nvda": {
+        "title": "Consider Adding to NVDA",
+        "description": "Strong momentum and earnings beat expectations."
+      },
+      "technology": {
+        "title": "Rebalance Technology Exposure",
+        "description": "Technology is 64% of your portfolio, above your target max of 50%."
+      },
+      "aapl": {
+        "title": "Upcoming Earnings: AAPL",
+        "description": "Earnings in 4 days."
+      },
+      "msft": {
+        "title": "Strong Buy Opportunity",
+        "description": "Attractive valuation and strong AI growth potential."
+      },
+      "googl": {
+        "title": "Watch GOOGL Support Level",
+        "description": "Price is near a key support level."
+      }
+    },
+    "cards": {
+      "portfolioHealth": {
+        "title": "Portfolio Health",
+        "overallHealthy": "Overall portfolio is healthy",
+        "monitorRisks": "Keep monitoring key risks",
+        "great": "Great",
+        "good": "Good",
+        "watch": "Watch",
+        "avoid": "Avoid"
+      },
+      "riskFactors": {
+        "title": "Top Risk Factors",
+        "highConcentration": "High concentration in Technology",
+        "highConcentrationDetail": "64% (Target: Max 50%)",
+        "marketVolatility": "Market volatility exposure",
+        "marketVolatilityDetail": "Beta 1.25 vs S&P 500",
+        "interestRateSensitivity": "Interest rate sensitivity",
+        "interestRateSensitivityDetail": "Duration risk in portfolio",
+        "high": "High",
+        "medium": "Medium"
+      },
+      "events": {
+        "title": "Upcoming Events",
+        "earningsCall": "Earnings Call",
+        "beforeMarket": "Before Market",
+        "afterMarket": "After Market"
+      },
+      "aiSummary": {
+        "title": "AI Summary",
+        "summary": "Your portfolio is performing well overall. Consider reviewing technology exposure and the TSLA position. Strong opportunities appear in NVDA and MSFT.",
+        "disclaimer": "This is decision-support information only and is not financial advice."
+      }
+    },
+    "metrics": {
+      "score": "Score",
+      "trend": "Trend",
+      "sentiment": "Sentiment",
+      "valuation": "Valuation",
+      "current": "Current",
+      "targetMax": "Target Max",
+      "deviation": "Deviation",
+      "event": "Event",
+      "impact": "Impact",
+      "positionSize": "Position Size",
+      "upside": "Upside",
+      "confidence": "Confidence",
+      "price": "Price",
+      "support": "Support",
+      "distance": "Distance"
+    },
+    "metricValues": {
+      "up": "Up",
+      "down": "Down",
+      "warning": "Warning",
+      "ok": "OK",
+      "earnings": "Earnings",
+      "high": "High"
+    },
+    "empty": {
+      "title": "No moves in this view",
+      "description": "Try another filter to see active portfolio actions."
+    },
+    "accessibility": {
+      "portfolioScore": "Portfolio health score {score} out of {max}"
+    }
+  },
+  "stockAnalysis": {
+    "breadcrumb": {
+      "label": "Stock analysis navigation",
+      "portfolio": "Portfolio",
+      "analysis": "Analysis"
+    },
+    "actions": {
+      "addToWatchlist": "Add to Watchlist",
+      "addToPortfolio": "Add to Portfolio",
+      "setPriceAlert": "Set Price Alert",
+      "addNote": "Add Note",
+      "compareCompetitors": "Compare to Competitors",
+      "viewSecFilings": "View SEC Filings",
+      "optionsChain": "Options Chain"
+    },
+    "header": {
+      "overallScore": "Overall Score",
+      "highConviction": "High conviction",
+      "lastUpdated": "As of {date}",
+      "previousClose": "Prev Close"
+    },
+    "chart": {
+      "rangeLabel": "Price chart range",
+      "ranges": {
+        "oneDay": "1D",
+        "oneWeek": "1W",
+        "oneMonth": "1M",
+        "oneYear": "1Y",
+        "max": "Max"
+      }
+    },
+    "scores": {
+      "growth": "Growth",
+      "profitability": "Profitability",
+      "valuation": "Valuation",
+      "financialHealth": "Financial Health",
+      "momentum": "Momentum",
+      "analystSentiment": "Analyst Sentiment"
+    },
+    "scoreLabels": {
+      "veryStrong": "Very Strong",
+      "strong": "Strong",
+      "good": "Good",
+      "watch": "Watch",
+      "weak": "Weak"
+    },
+    "confidence": {
+      "high": "High conviction",
+      "medium": "Medium conviction",
+      "low": "Low conviction"
+    },
+    "ai": {
+      "title": "AI Insight",
+      "whatsGood": "What's Good",
+      "riskToWatch": "Risk to Watch",
+      "suggestedAction": "Suggested Action",
+      "disclaimer": "AI analysis is for decision-support and is not financial advice.",
+      "poweredBy": "Powered by StockPilot AI"
+    },
+    "keyMetrics": {
+      "title": "Key Metrics",
+      "pe": "P/E (TTM)",
+      "peg": "PEG Ratio (5Y)",
+      "revenueGrowth": "Revenue Growth (YoY)",
+      "grossMargin": "Gross Margin",
+      "operatingMargin": "Operating Margin",
+      "marketCap": "Market Cap",
+      "freeCashFlow": "Free Cash Flow (TTM)",
+      "debtToEquity": "Debt / Equity",
+      "roe": "ROE (TTM)",
+      "nextEarnings": "Next Earnings",
+      "viewMore": "View More Metrics"
+    },
+    "news": {
+      "title": "Latest News",
+      "viewAll": "View All",
+      "emptyState": "No recent news for this stock",
+      "emptyDescription": "Check back later for earnings, analysis, and headlines.",
+      "categories": {
+        "earnings": "Earnings",
+        "analysis": "Analysis",
+        "news": "News"
+      }
+    },
+    "analystTarget": {
+      "title": "Analyst Target",
+      "averageTarget": "Average Target",
+      "upside": "Upside",
+      "highLow": "High / Low",
+      "consensus": "Analyst Consensus",
+      "consensusLabels": {
+        "strongBuy": "Strong Buy",
+        "buy": "Buy",
+        "hold": "Hold",
+        "sell": "Sell"
+      },
+      "basedOnAnalysts": "Based on {count} analysts",
+      "buy": "Buy",
+      "hold": "Hold",
+      "sell": "Sell",
+      "viewDetails": "View analyst details",
+      "detailsTitle": "Analyst target details",
+      "close": "Close"
+    },
+    "position": {
+      "title": "Your Position",
+      "viewInPortfolio": "View in Portfolio",
+      "shares": "Shares",
+      "avgCost": "Avg Cost",
+      "marketValue": "Market Value",
+      "dayGainLoss": "Day Gain / Loss",
+      "totalGainLoss": "Total Gain / Loss",
+      "noPosition": "You do not hold this stock in your portfolio yet."
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "edit": "Edit"
+    },
+    "thesis": {
+      "title": "My Thesis / Notes",
+      "whyIOwnIt": "Why I own it",
+      "whatToWatch": "What to watch",
+      "sellIf": "Sell if",
+      "edit": "Edit"
+    },
+    "notes": {
+      "emptyState": "No notes saved yet",
+      "emptyDescription": "Add your thesis and decision triggers to track why you own this stock.",
+      "generalNotesTitle": "Session notes",
+      "untitledNote": "Untitled note"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "fundamentals": "Fundamentals",
+      "news": "News",
+      "notes": "Notes"
+    },
+    "fundamentals": {
+      "emptyState": "Fundamental data is not available for this stock yet.",
+      "aiRead": {
+        "title": "AI Fundamental Read",
+        "whatsStrong": "What's Strong",
+        "riskToWatch": "Risk to Watch",
+        "whatToMonitor": "What to Monitor",
+        "disclaimer": "AI analysis is for decision-support and is not financial advice.",
+        "poweredBy": "Powered by StockPilot AI"
+      },
+      "metrics": {
+        "revenue": "Revenue",
+        "grossProfit": "Gross Profit",
+        "operatingIncome": "Operating Income",
+        "epsDiluted": "EPS Diluted",
+        "freeCashFlow": "Free Cash Flow",
+        "operatingMargin": "Operating Margin"
+      },
+      "units": {
+        "billions": "$ in billions",
+        "perShare": "$ per share",
+        "percent": "%"
+      },
+      "status": {
+        "improving": "Improving",
+        "stable": "Stable",
+        "declining": "Declining"
+      },
+      "insights": {
+        "revenue": "Revenue growth remains strong",
+        "grossProfit": "Gross profit accelerated on scale",
+        "operatingIncome": "Operating income up sharply",
+        "epsDiluted": "EPS growth remains exceptional",
+        "freeCashFlow": "Strong free cash flow generation",
+        "operatingMargin": "Margins expanded over last 3 periods"
+      },
+      "valuation": {
+        "title": "Valuation Snapshot",
+        "peTtm": "P/E (TTM)",
+        "forwardPe": "Forward P/E",
+        "peg5y": "PEG (5Y)",
+        "grossMarginTtm": "Gross Margin (TTM)",
+        "debtEquity": "Debt / Equity",
+        "roeTtm": "ROE (TTM)",
+        "high": "High",
+        "moderate": "Moderate",
+        "strong": "Strong",
+        "low": "Low",
+        "viewMoreMetrics": "View More Metrics"
+      },
+      "sourceNote": "Financials in USD. Source: Company filings and mock data."
+    },
+    "mock": {
+      "nvda": {
+        "fundamentals": {
+          "whatsStrong": "Revenue and earnings growth remain accelerated, with strong margins and robust cash generation.",
+          "riskToWatch": "Valuation remains elevated vs. history and peers; cyclicality in data center demand could pressure results.",
+          "whatToMonitor": "Sustained AI infrastructure demand, gross margin stability, and competitive dynamics in AI chips."
+        },
+        "ai": {
+          "whatsGood": "Based on current score, NVDA shows very strong growth and profitability driven by AI data-center demand and expanding gross margins.",
+          "riskToWatch": "Potential concern: valuation remains elevated relative to historical averages, which may increase sensitivity to earnings misses.",
+          "suggestedAction": "Suggested action: consider reviewing position sizing for long-term growth exposure while monitoring valuation compression."
+        },
+        "thesis": {
+          "whyIOwnIt": "Core AI infrastructure holding with leadership in accelerated computing and strong revenue momentum.",
+          "whatToWatch": "Data-center demand trends, gross margin stability, and competitive dynamics in AI chips.",
+          "sellIf": "Score drops below 70, growth decelerates materially, or valuation expands without earnings support."
+        },
+        "news": {
+          "item1": {
+            "title": "NVIDIA beats Q1 estimates on surging AI chip demand",
+            "source": "Reuters",
+            "timeAgo": "2h ago"
+          },
+          "item2": {
+            "title": "Analysts raise NVDA targets after data-center revenue beat",
+            "source": "Bloomberg",
+            "timeAgo": "5h ago"
+          },
+          "item3": {
+            "title": "NVIDIA unveils next-gen AI platform for enterprise workloads",
+            "source": "CNBC",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "aapl": {
+        "fundamentals": {
+          "whatsStrong": "Profitability and cash generation remain very strong with a resilient ecosystem and services mix.",
+          "riskToWatch": "Revenue growth has slowed; monitor whether new product cycles can reaccelerate expansion.",
+          "whatToMonitor": "iPhone cycle strength, services growth, and capital return pace."
+        },
+        "ai": {
+          "whatsGood": "Apple maintains very strong profitability and financial health with resilient services revenue and loyal customer base.",
+          "riskToWatch": "Revenue growth has slowed; worth monitoring whether new product cycles can reaccelerate top-line expansion.",
+          "suggestedAction": "Suggested action: hold current allocation and consider reviewing after next earnings report."
+        },
+        "thesis": {
+          "whyIOwnIt": "High-quality compounder with strong ecosystem lock-in and consistent cash generation.",
+          "whatToWatch": "iPhone upgrade cycle, services growth, and capital return program.",
+          "sellIf": "Margin compression persists or score falls below 65 for two consecutive periods."
+        },
+        "news": {
+          "item1": {
+            "title": "Apple reports steady services growth in latest quarter",
+            "source": "Reuters",
+            "timeAgo": "3h ago"
+          },
+          "item2": {
+            "title": "Wall Street maintains positive outlook on Apple ecosystem",
+            "source": "MarketWatch",
+            "timeAgo": "6h ago"
+          },
+          "item3": {
+            "title": "Apple expands AI features across device lineup",
+            "source": "TechCrunch",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "msft": {
+        "fundamentals": {
+          "whatsStrong": "Cloud and AI integration support strong operating margins and durable enterprise demand.",
+          "riskToWatch": "Valuation is above sector median; Azure growth must justify current multiples.",
+          "whatToMonitor": "Azure growth rate, AI monetization, and operating margin trends."
+        },
+        "ai": {
+          "whatsGood": "Microsoft shows strong cloud and AI integration with excellent profitability and financial health scores.",
+          "riskToWatch": "Valuation is above sector median; monitor whether Azure growth justifies current multiples.",
+          "suggestedAction": "Suggested action: hold — based on current score, fundamentals remain solid for core portfolio exposure."
+        },
+        "thesis": {
+          "whyIOwnIt": "Diversified enterprise software leader with Azure and Copilot as long-term growth drivers.",
+          "whatToWatch": "Azure growth rate, AI monetization progress, and operating margin trends.",
+          "sellIf": "Cloud growth decelerates meaningfully or score drops below 68."
+        },
+        "news": {
+          "item1": {
+            "title": "Microsoft Azure revenue accelerates on AI workload demand",
+            "source": "Reuters",
+            "timeAgo": "4h ago"
+          },
+          "item2": {
+            "title": "Analysts highlight Microsoft as top AI infrastructure pick",
+            "source": "Barron's",
+            "timeAgo": "8h ago"
+          },
+          "item3": {
+            "title": "Microsoft expands enterprise Copilot integrations",
+            "source": "The Verge",
+            "timeAgo": "2d ago"
+          }
+        }
+      },
+      "tsla": {
+        "fundamentals": {
+          "whatsStrong": "Balance sheet flexibility and energy optionality provide strategic room to maneuver.",
+          "riskToWatch": "Automotive margins and delivery momentum remain under pressure versus prior cycles.",
+          "whatToMonitor": "Delivery volumes, auto gross margins, and FSD monetization progress."
+        },
+        "ai": {
+          "whatsGood": "Tesla retains solid financial health with low debt and potential optionality in energy and autonomy.",
+          "riskToWatch": "Momentum and profitability scores are weak; margin pressure and slowing EV demand may indicate near-term headwinds.",
+          "suggestedAction": "Suggested action: watch — consider reviewing whether current allocation aligns with your risk tolerance."
+        },
+        "thesis": {
+          "whyIOwnIt": "Optionality on EV market share, energy storage, and full self-driving development.",
+          "whatToWatch": "Delivery volumes, automotive gross margins, and FSD progress.",
+          "sellIf": "Margins continue declining or score falls below 45."
+        },
+        "news": {
+          "item1": {
+            "title": "Tesla delivery numbers come in below street expectations",
+            "source": "Reuters",
+            "timeAgo": "2h ago"
+          },
+          "item2": {
+            "title": "Analysts split on Tesla margin recovery timeline",
+            "source": "CNBC",
+            "timeAgo": "7h ago"
+          },
+          "item3": {
+            "title": "Tesla expands energy storage deployments in Europe",
+            "source": "Electrek",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "googl": {
+        "fundamentals": {
+          "whatsStrong": "Search and cloud profitability remain solid with improving cost discipline.",
+          "riskToWatch": "Regulatory scrutiny and ad-cycle sensitivity may cap near-term upside.",
+          "whatToMonitor": "Cloud growth, AI product adoption, and ad revenue trends."
+        },
+        "ai": {
+          "whatsGood": "Alphabet maintains healthy margins with cloud and AI investments supporting long-term growth.",
+          "riskToWatch": "Momentum score is softer; ad demand volatility may weigh on near-term results.",
+          "suggestedAction": "Suggested action: watch — review after next earnings for cloud and AI monetization updates."
+        },
+        "thesis": {
+          "whyIOwnIt": "Exposure to search cash flows with optionality in cloud and AI platforms.",
+          "whatToWatch": "Cloud revenue growth, AI product rollout, and regulatory headlines.",
+          "sellIf": "Cloud growth decelerates materially or score falls below 50."
+        },
+        "news": {
+          "item1": {
+            "title": "Alphabet cloud revenue beats expectations on AI workloads",
+            "source": "Reuters",
+            "timeAgo": "3h ago"
+          },
+          "item2": {
+            "title": "Analysts debate ad recovery pace for Google",
+            "source": "Bloomberg",
+            "timeAgo": "6h ago"
+          },
+          "item3": {
+            "title": "Google rolls out new generative AI search features",
+            "source": "The Verge",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "amzn": {
+        "fundamentals": {
+          "whatsStrong": "AWS profitability and retail efficiency improvements support earnings resilience.",
+          "riskToWatch": "Retail margins remain thin; capex for AI infrastructure may pressure free cash flow.",
+          "whatToMonitor": "AWS growth, retail margin trends, and AI capex intensity."
+        },
+        "ai": {
+          "whatsGood": "Amazon shows improving profitability with AWS as a durable earnings engine.",
+          "riskToWatch": "Valuation embeds high growth; monitor retail margin recovery and capex levels.",
+          "suggestedAction": "Suggested action: hold — based on current score, consider reviewing after next earnings."
+        },
+        "thesis": {
+          "whyIOwnIt": "Dual engine of e-commerce scale and high-margin cloud growth.",
+          "whatToWatch": "AWS operating margin, retail unit economics, and AI service adoption.",
+          "sellIf": "AWS growth slows meaningfully or score drops below 55."
+        },
+        "news": {
+          "item1": {
+            "title": "Amazon AWS revenue accelerates on enterprise AI demand",
+            "source": "Reuters",
+            "timeAgo": "4h ago"
+          },
+          "item2": {
+            "title": "Wall Street raises Amazon targets on margin improvement",
+            "source": "CNBC",
+            "timeAgo": "7h ago"
+          },
+          "item3": {
+            "title": "Amazon expands same-day delivery in key U.S. metros",
+            "source": "Bloomberg",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "meta": {
+        "fundamentals": {
+          "whatsStrong": "High operating margins and strong free cash flow support reinvestment in AI.",
+          "riskToWatch": "Ad market cyclicality and regulatory risk on social platforms remain relevant.",
+          "whatToMonitor": "Ad revenue growth, Reels monetization, and AI infrastructure spend."
+        },
+        "ai": {
+          "whatsGood": "Meta shows strong profitability with improving ad efficiency and AI-driven engagement.",
+          "riskToWatch": "Reality Labs losses and capex for AI may pressure near-term free cash flow.",
+          "suggestedAction": "Suggested action: hold — monitor ad trends and AI ROI commentary."
+        },
+        "thesis": {
+          "whyIOwnIt": "High-margin ad platform with AI improving targeting and engagement.",
+          "whatToWatch": "Ad pricing trends, user engagement, and AI capex guidance.",
+          "sellIf": "Ad revenue declines sequentially or score falls below 60."
+        },
+        "news": {
+          "item1": {
+            "title": "Meta ad revenue tops estimates on Reels momentum",
+            "source": "Reuters",
+            "timeAgo": "2h ago"
+          },
+          "item2": {
+            "title": "Analysts highlight Meta AI infrastructure investments",
+            "source": "Barron's",
+            "timeAgo": "5h ago"
+          },
+          "item3": {
+            "title": "Meta unveils new open-source AI model for developers",
+            "source": "TechCrunch",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "amd": {
+        "fundamentals": {
+          "whatsStrong": "Data-center and AI accelerator demand support revenue growth and scale benefits.",
+          "riskToWatch": "Competitive intensity in AI chips and PC cyclicality may create volatility.",
+          "whatToMonitor": "Data-center share gains, MI300 ramp, and gross margin stability."
+        },
+        "ai": {
+          "whatsGood": "AMD benefits from AI infrastructure build-out with improving data-center mix.",
+          "riskToWatch": "Competition from larger peers may pressure pricing and share gains.",
+          "suggestedAction": "Suggested action: watch — worth monitoring data-center guidance and margin trends."
+        },
+        "thesis": {
+          "whyIOwnIt": "Second-source AI and server CPU exposure with improving product roadmap.",
+          "whatToWatch": "MI300 adoption, data-center revenue mix, and PC recovery timing.",
+          "sellIf": "Data-center share stalls or score drops below 55."
+        },
+        "news": {
+          "item1": {
+            "title": "AMD data-center revenue rises on AI accelerator demand",
+            "source": "Reuters",
+            "timeAgo": "3h ago"
+          },
+          "item2": {
+            "title": "Analysts track MI300 ramp versus NVIDIA supply",
+            "source": "Bloomberg",
+            "timeAgo": "6h ago"
+          },
+          "item3": {
+            "title": "AMD previews next-gen server CPU roadmap",
+            "source": "Tom's Hardware",
+            "timeAgo": "1d ago"
+          }
+        }
+      },
+      "avgo": {
+        "fundamentals": {
+          "whatsStrong": "Diversified semiconductor and software mix drives strong margins and cash flow.",
+          "riskToWatch": "Integration risk and leverage from acquisitions may increase balance-sheet sensitivity.",
+          "whatToMonitor": "AI networking demand, VMware synergy progress, and debt paydown."
+        },
+        "ai": {
+          "whatsGood": "Broadcom combines high margins with AI networking exposure and recurring software revenue.",
+          "riskToWatch": "Customer concentration and M&A integration remain key monitoring areas.",
+          "suggestedAction": "Suggested action: hold — based on current score, fundamentals remain supportive."
+        },
+        "thesis": {
+          "whyIOwnIt": "Quality compounder in connectivity chips with software annuity optionality.",
+          "whatToWatch": "AI networking orders, VMware cross-sell, and leverage reduction.",
+          "sellIf": "Synergy targets slip materially or score falls below 65."
+        },
+        "news": {
+          "item1": {
+            "title": "Broadcom beats estimates on AI networking chip demand",
+            "source": "Reuters",
+            "timeAgo": "4h ago"
+          },
+          "item2": {
+            "title": "Analysts positive on Broadcom software integration progress",
+            "source": "Barron's",
+            "timeAgo": "8h ago"
+          },
+          "item3": {
+            "title": "Broadcom expands custom AI accelerator partnerships",
+            "source": "CNBC",
+            "timeAgo": "2d ago"
+          }
+        }
+      },
+      "generic": {
+        "fundamentals": {
+          "whatsStrong": "Core operations show stable revenue trends with manageable balance-sheet metrics in mock data.",
+          "riskToWatch": "Limited symbol-specific detail — review valuation and margin trends before sizing positions.",
+          "whatToMonitor": "Next earnings report, guidance changes, and sector-relative performance."
+        },
+        "ai": {
+          "whatsGood": "Based on current mock score, this symbol shows balanced fundamentals suitable for further review.",
+          "riskToWatch": "Detailed company-specific drivers are not loaded; treat insights as decision-support only.",
+          "suggestedAction": "Suggested action: watch — add notes and review after more data is available."
+        },
+        "thesis": {
+          "whyIOwnIt": "Placeholder thesis — replace with your rationale for tracking or owning this symbol.",
+          "whatToWatch": "Earnings date, margin trends, and sector news that may affect the score.",
+          "sellIf": "Score deteriorates materially or your original thesis no longer holds."
+        },
+        "news": {
+          "item1": {
+            "title": "Company scheduled to report quarterly results soon",
+            "source": "Mock Wire",
+            "timeAgo": "4h ago"
+          },
+          "item2": {
+            "title": "Analysts publish updated sector comparison notes",
+            "source": "Mock Research",
+            "timeAgo": "8h ago"
+          },
+          "item3": {
+            "title": "Industry headlines may affect near-term sentiment",
+            "source": "Mock Daily",
+            "timeAgo": "1d ago"
+          }
+        }
+      }
+    }
+  },
+  "watchlist": {
+    "title": "Watchlist",
+    "subtitle": "Opportunity radar for stocks you may want to buy next",
+    "actions": {
+      "addStock": "Add Stock",
+      "filter": "Filter",
+      "reviewStock": "Review Stock",
+      "setAlert": "Set Alert",
+      "alertSet": "Alert Set",
+      "compare": "Compare",
+      "addToPortfolio": "Add to Portfolio",
+      "viewFullRanking": "View full ranking",
+      "viewAll": "View all",
+      "viewCalendar": "View Calendar"
+    },
+    "metrics": {
+      "watchedStocks": "Watched Stocks",
+      "averageOpportunityScore": "Average Opportunity Score",
+      "inBuyZone": "In Buy Zone",
+      "upcomingEarnings": "Upcoming Earnings",
+      "alertsTriggered": "Alerts Triggered",
+      "thisWeek": "this week",
+      "vsLastWeek": "vs last week",
+      "ofWatchlist": "of watchlist",
+      "nextThirtyDays": "Next 30 days",
+      "newToday": "new today"
+    },
+    "table": {
+      "title": "Opportunity Radar",
+      "subtitle": "Sorted by decision support signals",
+      "filteredSubtitle": "Showing {count} of {total} watched stocks",
+      "favorite": "Favorite",
+      "symbol": "Symbol",
+      "company": "Company",
+      "currentPrice": "Current Price",
+      "priceUnavailable": "Price unavailable",
+      "buyZone": "Buy Zone",
+      "distanceToBuyZone": "Distance to Buy Zone",
+      "qualityScore": "Quality Score",
+      "opportunityScore": "Opportunity Score",
+      "status": "Status",
+      "triggerToAct": "Trigger to Act",
+      "action": "Action",
+      "more": "More options",
+      "expandRow": "Expand {symbol} details"
+    },
+    "filters": {
+      "title": "Filter Watchlist",
+      "description": "Narrow the radar to the opportunities you want to monitor now.",
+      "open": "Open Watchlist filters",
+      "close": "Close filters",
+      "activeCount": "{count} active filters",
+      "statusTitle": "Status",
+      "actionTitle": "Suggested action",
+      "scoreTitle": "Minimum opportunity score",
+      "anyScore": "Any score",
+      "minimumScore": "{score}+ score",
+      "favoritesTitle": "Favorites only",
+      "favoritesDescription": "Show only stocks marked as favorites.",
+      "clear": "Clear filters",
+      "apply": "Apply filters",
+      "applyWithCount": "Apply {count} filters",
+      "empty": "No watched stocks match the current filters."
+    },
+    "status": {
+      "readyToBuy": "Ready to Buy",
+      "waitForPullback": "Wait for Pullback",
+      "watchClosely": "Watch Closely",
+      "tooExpensive": "Too Expensive",
+      "needsMoreData": "Needs More Data"
+    },
+    "expanded": {
+      "whyWatching": "Why watching",
+      "triggerToAct": "Trigger to act",
+      "keyThingsToMonitor": "Key things to monitor",
+      "opportunityScoreTrend": "Opportunity Score Trend"
+    },
+    "sidebar": {
+      "aiInsight": "AI Watchlist Insight",
+      "bestOpportunities": "Best Opportunities",
+      "closestToBuyZone": "Closest to Buy Zone",
+      "couldReplaceHolding": "Could Replace a Holding",
+      "upcomingEarnings": "Upcoming Earnings"
+    },
+    "common": {
+      "above": "Above",
+      "below": "Below",
+      "buyIf": "Buy if",
+      "score": "Score",
+      "current": "Current",
+      "target": "Target",
+      "distance": "Distance",
+      "confidence": "Confidence"
+    },
+    "insight": {
+      "body": "Markets look strong, but valuations are stretching in some names. Best opportunities are in quality leaders pulling back toward strong buy zones. Focus on earnings this week because volatility may create better entries.",
+      "emptyBody": "Add stocks to your watchlist to see opportunity insights based on what you are tracking.",
+      "disclaimer": "Informational only. Scores and prompts support decisions; they are not financial advice."
+    },
+    "replaceHolding": {
+      "title": "{candidate} could replace {holding}",
+      "msftTsla": "More consistent growth, stronger margins, and lower volatility.",
+      "empty": "Add holdings and watchlist candidates to see replacement ideas."
+    },
+    "earnings": {
+      "nvda": "May 22, 2026",
+      "aapl": "May 1, 2026",
+      "amzn": "May 2, 2026"
+    },
+    "rows": {
+      "nvda": {
+        "trigger": "Buy if price drops below $980 or score remains above 85.",
+        "whyWatching": "AI growth leader, strong margins, long-term compounder.",
+        "expandedTrigger": "Buy if price drops below $980 or score remains above 85 after earnings.",
+        "monitor": {
+          "blackwell": "Blackwell GPU ramp and data center demand",
+          "margins": "Margins and cost discipline",
+          "china": "China export restrictions"
+        }
+      },
+      "msft": {
+        "trigger": "Buy below $415 with score above 75.",
+        "whyWatching": "High-quality software and cloud leader with durable margins.",
+        "monitor": {
+          "cloud": "Azure growth and enterprise demand",
+          "ai": "Copilot adoption and AI workload monetization"
+        }
+      },
+      "aapl": {
+        "trigger": "Buy on pullback toward $190 support.",
+        "whyWatching": "Large installed base and services economics keep quality high.",
+        "monitor": {
+          "services": "Services growth and margin mix",
+          "iphone": "iPhone replacement cycle and AI features"
+        }
+      },
+      "googl": {
+        "trigger": "Buy under $165.",
+        "whyWatching": "Strong cash generation with search, cloud, and AI optionality.",
+        "monitor": {
+          "search": "Search share and ad pricing",
+          "cloud": "Cloud margin improvement"
+        }
+      },
+      "amzn": {
+        "trigger": "Buy near $175 support.",
+        "whyWatching": "AWS and retail efficiency can support long-term compounding.",
+        "monitor": {
+          "aws": "AWS growth and margin recovery",
+          "retail": "Retail operating leverage"
+        }
+      },
+      "tsla": {
+        "trigger": "Price too extended vs buy zone.",
+        "whyWatching": "High optionality, but current signals require more patience.",
+        "monitor": {
+          "margins": "Automotive gross margins",
+          "delivery": "Delivery growth and demand incentives"
+        }
+      },
+      "meta": {
+        "trigger": "Buy near $470.",
+        "whyWatching": "Strong ad platform and cash flow, with AI product optionality.",
+        "monitor": {
+          "ads": "Ad revenue momentum",
+          "capex": "AI capex discipline"
+        }
+      },
+      "amd": {
+        "trigger": "Await MI300 adoption and guidance.",
+        "whyWatching": "AI accelerator opportunity exists, but conviction needs more data.",
+        "monitor": {
+          "mi300": "MI300 adoption and customer concentration",
+          "guidance": "Forward guidance and margin outlook"
+        }
+      },
+      "default": {
+        "trigger": "Review when price enters your buy zone or the score changes meaningfully.",
+        "whyWatching": "Added manually — review fundamentals and update your trigger when ready."
+      }
+    }
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Market updates and insights for your portfolio",
+    "searchPlaceholder": "Search news…",
+    "refresh": "Refresh",
+    "lastUpdated": "Last updated",
+    "openArticle": "Open article",
+    "readMore": "Read more",
+    "filters": {
+      "label": "News filters",
+      "all": "All",
+      "portfolio": "My Portfolio",
+      "watchlist": "Watchlist",
+      "market": "Market",
+      "earnings": "Earnings",
+      "analysts": "Analysts",
+      "reports": "Reports"
+    },
+    "sort": {
+      "newest": "Newest",
+      "relevant": "Relevant"
+    },
+    "featured": {
+      "badge": "Top News"
+    },
+    "noResults": {
+      "title": "No news found",
+      "description": "Try adjusting your search or filters to find relevant stories.",
+      "clearFilters": "Clear filters"
+    },
+    "marketPulse": {
+      "title": "Market Pulse",
+      "viewMarket": "View market"
+    },
+    "portfolioNews": {
+      "title": "Relevant to Your Portfolio",
+      "viewAll": "View all"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "viewCalendar": "View full calendar"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "negative": "Negative"
+    },
+    "source": {
+      "mock": "Sample data",
+      "fmp": "FMP",
+      "finnhub": "Finnhub"
+    },
+    "modal": {
+      "title": "Article details",
+      "close": "Close"
+    }
+  },
+  "reports": {
+    "title": "Reports",
+    "subtitle": "Track your portfolio performance, allocation, and investment activity",
+    "exportReport": "Export Report",
+    "refresh": "Refresh",
+    "lastUpdated": "Last updated",
+    "tabs": {
+      "label": "Report sections",
+      "overview": "Overview",
+      "performance": "Performance",
+      "allocation": "Allocation",
+      "holdings": "Holdings",
+      "risk": "Risk",
+      "taxes": "Taxes",
+      "activity": "Activity",
+      "comingSoonTitle": "{tab} — coming soon",
+      "comingSoonDescription": "This report section will be available in a future update. Use Overview for the full portfolio summary today."
+    },
+    "period": {
+      "label": "Report period",
+      "all": "All",
+      "oneYear": "1Y",
+      "sixMonths": "6M",
+      "threeMonths": "3M",
+      "thirtyDays": "30D"
+    },
+    "metrics": {
+      "portfolioValue": "Portfolio Value",
+      "totalGainLoss": "Total Gain / Loss",
+      "annualReturn": "Annual Return",
+      "unrealizedGain": "Unrealized Gain",
+      "cashBalance": "Cash Balance",
+      "vsAllTime": "vs all time",
+      "vsLastYear": "vs last year",
+      "vsSixMonths": "vs last 6 months",
+      "vsThreeMonths": "vs last 3 months",
+      "vsThirtyDays": "vs last 30 days",
+      "fromOriginalInvestment": "from original investment",
+      "vsBenchmark": "vs {benchmark}",
+      "ofPortfolio": "of portfolio"
+    },
+    "performance": {
+      "title": "Portfolio Performance Over Time",
+      "portfolio": "Your Portfolio",
+      "benchmarkLabel": "Benchmark",
+      "benchmark": {
+        "sp500": "S&P 500",
+        "nasdaq": "NASDAQ",
+        "msciWorld": "MSCI World"
+      },
+      "benchmarkComparison": {
+        "title": "Benchmark Comparison",
+        "portfolioLabel": "Your Portfolio",
+        "benchmarkCol": "Benchmark",
+        "returnCol": "Return",
+        "vsPortfolioCol": "vs Portfolio",
+        "aheadBy": "+{delta} ahead",
+        "behindBy": "{delta} behind",
+        "matched": "On par"
+      }
+    },
+    "allocation": {
+      "title": "Asset Allocation",
+      "total": "Total",
+      "sectors": {
+        "technology": "US Stocks",
+        "consumerCyclical": "International Stocks",
+        "communication": "Communication",
+        "consumerDefensive": "Consumer Defensive",
+        "healthcare": "Healthcare",
+        "cash": "Cash"
+      },
+      "breakdown": {
+        "title": "Allocation Breakdown",
+        "valueCol": "Value",
+        "allocationCol": "Allocation",
+        "holdingsCol": "Holdings",
+        "noHoldings": "—"
+      }
+    },
+    "contributors": {
+      "title": "Top Contributors",
+      "viewAll": "View all",
+      "cash": "Cash"
+    },
+    "statistics": {
+      "title": "Key Statistics",
+      "bestHolding": "Best Holding",
+      "worstHolding": "Worst Holding",
+      "beta": "Portfolio Beta",
+      "sharpeRatio": "Sharpe Ratio",
+      "maxDrawdown": "Max Drawdown",
+      "dividendYield": "Dividend Yield"
+    },
+    "monthly": {
+      "title": "Monthly Summary",
+      "currentMonth": "May 2026",
+      "return": "Monthly Return",
+      "gainLoss": "Gain / Loss",
+      "transactions": "Transactions",
+      "fees": "Fees",
+      "dividends": "Dividends",
+      "netDeposits": "Net Deposits"
+    },
+    "available": {
+      "title": "Available Reports",
+      "viewAll": "View all reports",
+      "performanceReport": "Performance Report",
+      "allocationReport": "Allocation Report",
+      "riskReport": "Risk Report",
+      "taxReport": "Tax Report",
+      "holdingsReport": "Holdings Report",
+      "download": "Download"
+    },
+    "modal": {
+      "exportTitle": "Export report",
+      "downloadTitle": "Download report",
+      "placeholderDescription": "PDF and CSV export will be available soon. This is a preview action only.",
+      "close": "Close"
+    },
+    "empty": {
+      "title": "No holdings yet",
+      "description": "Add your first holding to see portfolio reports, performance, and allocation.",
+      "addHolding": "Add Holding"
+    },
+    "risk": {
+      "title": "Portfolio Risk Metrics",
+      "metrics": {
+        "beta": "Portfolio Beta",
+        "sharpeRatio": "Sharpe Ratio",
+        "sortinoRatio": "Sortino Ratio",
+        "maxDrawdown": "Max Drawdown",
+        "volatility": "Volatility (Annual)",
+        "valueAtRisk": "Value at Risk (95%)",
+        "correlationSP500": "Correlation to S&P 500",
+        "dividendYield": "Dividend Yield"
+      },
+      "disclaimer": {
+        "title": "Risk estimates",
+        "body": "These metrics are analytical estimates based on available data. They are not guarantees of future performance and should not be treated as financial advice."
+      },
+      "aiAnalyzer": {
+        "title": "AI Analyzer",
+        "primaryRisk": "Primary risk exposure",
+        "concentrationRisk": "Concentration risk",
+        "monitoringSuggestion": "Worth monitoring",
+        "riskFactorsTitle": "Key risk factors",
+        "confidence": "Confidence",
+        "disclaimer": "This AI-generated risk analysis is for decision support only and is not financial advice.",
+        "mock": {
+          "summary": "Based on current portfolio metrics, your risk profile appears moderately elevated with concentration in growth-oriented positions.",
+          "primaryRisk": "Portfolio beta above 1.0 may indicate higher sensitivity to broad market moves than a balanced benchmark.",
+          "concentrationRisk": "Technology and large-cap growth names represent a meaningful share of portfolio value, which may amplify sector-specific drawdowns.",
+          "monitoringSuggestion": "Consider reviewing position weights and lower-scoring holdings to confirm risk still fits your plan.",
+          "riskFactors": {
+            "sectorConcentration": "Sector concentration is elevated relative to a diversified baseline.",
+            "elevatedBeta": "Weighted portfolio beta suggests above-market volatility exposure.",
+            "drawdownExposure": "Recent max drawdown levels indicate potential for sharper short-term declines."
+          }
+        }
+      }
+    },
+    "taxes": {
+      "summaryTitle": "Tax Summary",
+      "lotsTitle": "Tax Lots",
+      "disclaimer": "Tax figures are estimates for decision support only. Unrealized gains are based on current holdings; realized gains, dividends, and tax estimates require a full transaction history.",
+      "summary": {
+        "realizedGains": "Realized Gains",
+        "unrealizedGains": "Unrealized Gains",
+        "dividendIncome": "Dividend Income",
+        "shortTermGains": "Short-Term Gains",
+        "longTermGains": "Long-Term Gains",
+        "estimatedTax": "Estimated Tax Liability"
+      },
+      "cols": {
+        "holding": "Holding",
+        "shares": "Shares",
+        "costBasis": "Cost Basis",
+        "currentValue": "Current Value",
+        "gainLoss": "Gain / Loss",
+        "term": "Term",
+        "acquired": "Acquired"
+      },
+      "term": {
+        "short": "Short",
+        "long": "Long"
+      }
+    },
+    "activity": {
+      "title": "Portfolio Activity",
+      "addedHolding": "{symbol} position added"
+    }
+  },
+  "alerts": {
+    "title": "Alerts Center",
+    "subtitle": "All important updates and alerts about your portfolio and watchlist",
+    "searchPlaceholder": "Search alerts…",
+    "alertSettings": "Alert Settings",
+    "metrics": {
+      "activeAlerts": "Active Alerts",
+      "priceAlerts": "Price Alerts",
+      "earningsAlerts": "Earnings Alerts",
+      "portfolioAlerts": "Portfolio Alerts",
+      "smartReplace": "Smart Replace",
+      "new": "{count} new",
+      "noNew": "No new"
+    },
+    "tabs": {
+      "label": "Alert filters",
+      "allAlerts": "All Alerts",
+      "active": "Active",
+      "triggered": "Triggered",
+      "snoozed": "Snoozed",
+      "dismissed": "Dismissed"
+    },
+    "sort": {
+      "sortBy": "Sort by:",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "priority": "Priority"
+    },
+    "list": {
+      "label": "Alerts list",
+      "view": "View",
+      "more": "More options",
+      "triggeredAgo": "Triggered {minutes} minutes ago",
+      "hoursAgo": "{hours} hours ago",
+      "dayAgo": "{days} day ago",
+      "inBuyZone": "In buy zone",
+      "scoreImprovement": "Score improvement",
+      "upgraded": "Upgraded",
+      "overweight": "Overweight",
+      "points": "pts",
+      "belowTarget": "Below target",
+      "scoreImproved": "Score improved",
+      "dismissed": "Dismissed",
+      "emptyTitle": "No alerts found",
+      "emptyDescription": "Try adjusting your filters or search query."
+    },
+    "types": {
+      "price": "Price Alert",
+      "earnings": "Earnings Alert",
+      "portfolio": "Portfolio Alert",
+      "buyZone": "Buy Zone Alert",
+      "score": "Score Alert",
+      "smartReplace": "Smart Replace",
+      "analyst": "Analyst Alert"
+    },
+    "priority": {
+      "high": "HIGH",
+      "medium": "MEDIUM",
+      "low": "LOW",
+      "info": "INFO"
+    },
+    "sidebar": {
+      "summaryTitle": "Alert Summary",
+      "quickFilters": "Quick Filters",
+      "highPriority": "High Priority",
+      "priceAlerts": "Price Alerts",
+      "earningsAlerts": "Earnings Alerts",
+      "buyZoneAlerts": "Buy Zone Alerts",
+      "scoreAlerts": "Score Alerts",
+      "portfolioRisks": "Portfolio Risks",
+      "clearFilters": "Clear Filters",
+      "snoozedAlerts": "Snoozed Alerts",
+      "snoozedDescription": "You have {count} snoozed alerts",
+      "viewSnoozed": "View Snoozed",
+      "breakdown": {
+        "price": "Price Alerts",
+        "earnings": "Earnings Alerts",
+        "portfolio": "Portfolio Alerts",
+        "smartReplace": "Smart Replace"
+      }
+    },
+    "actions": {
+      "view": "View",
+      "clear": "Clear",
+      "filter": "Filter alerts",
+      "search": "Search alerts",
+      "openSettings": "Open alert settings"
+    },
+    "userCreated": {
+      "title": "Custom alert for {symbol}",
+      "description": "Locally saved alert — decision-support only, not a trade order.",
+      "timestamp": "Created just now",
+      "noTarget": "No target value set"
+    },
+    "items": {
+      "tslaPriceTriggered": {
+        "title": "TSLA price alert triggered",
+        "description": "Tesla Inc. has dropped below your alert price of $175.00"
+      },
+      "nvdaEarnings": {
+        "title": "NVDA earnings in 2 days",
+        "description": "NVIDIA Corporation earnings release on May 22, 2026 after market"
+      },
+      "portfolioConcentration": {
+        "title": "High portfolio concentration",
+        "description": "Technology sector is 34.2% of your portfolio, above your 30% target"
+      },
+      "googlBuyZone": {
+        "title": "GOOGL entered buy zone",
+        "description": "Google LLC is now in your buy zone of $155.00 – $165.00"
+      },
+      "smartReplaceOpportunity": {
+        "title": "Smart Replace opportunity",
+        "description": "TSLA has a replacement opportunity with AVGO (+21 score improvement)"
+      },
+      "msftAnalystUpgrade": {
+        "title": "MSFT analyst rating upgrade",
+        "description": "Morgan Stanley upgraded Microsoft to Overweight"
+      },
+      "aaplPriceActive": {
+        "title": "AAPL price alert active",
+        "description": "Apple Inc. is approaching your alert price of $185.00"
+      },
+      "metaEarningsTriggered": {
+        "title": "META earnings alert triggered",
+        "description": "Meta Platforms earnings date is approaching on May 28, 2026"
+      },
+      "amznBuyZone": {
+        "title": "AMZN entered buy zone",
+        "description": "Amazon.com is now within your buy zone range"
+      },
+      "portfolioDividend": {
+        "title": "Portfolio dividend yield below target",
+        "description": "Your portfolio dividend yield is below your 2% target"
+      },
+      "avgoScore": {
+        "title": "AVGO score improved",
+        "description": "Broadcom score increased to 88 based on latest fundamentals"
+      },
+      "jpmSmartReplace": {
+        "title": "JPM Smart Replace opportunity",
+        "description": "Consider reviewing JPM for a potential replacement candidate"
+      },
+      "costEarnings": {
+        "title": "COST earnings reminder",
+        "description": "Costco Wholesale earnings on June 5, 2026"
+      },
+      "nvdaPriceTriggered": {
+        "title": "NVDA price alert triggered",
+        "description": "NVIDIA has dropped below your alert price threshold"
+      },
+      "aaplEarningsTriggered": {
+        "title": "AAPL earnings alert triggered",
+        "description": "Apple Inc. earnings report is scheduled for May 1, 2026"
+      },
+      "dismissed": {
+        "1": { "title": "Dismissed price alert", "description": "Previously dismissed price alert for monitoring" },
+        "2": { "title": "Dismissed earnings alert", "description": "Previously dismissed earnings reminder" },
+        "3": { "title": "Dismissed score alert", "description": "Previously dismissed score change notification" },
+        "4": { "title": "Dismissed buy zone alert", "description": "Previously dismissed buy zone entry" },
+        "5": { "title": "Dismissed portfolio alert", "description": "Previously dismissed portfolio risk alert" },
+        "6": { "title": "Dismissed analyst alert", "description": "Previously dismissed analyst rating change" },
+        "7": { "title": "Dismissed price alert", "description": "Previously dismissed price threshold alert" },
+        "8": { "title": "Dismissed earnings alert", "description": "Previously dismissed earnings date reminder" },
+        "9": { "title": "Dismissed score alert", "description": "Previously dismissed score update" },
+        "10": { "title": "Dismissed buy zone alert", "description": "Previously dismissed buy zone notification" },
+        "11": { "title": "Dismissed portfolio alert", "description": "Previously dismissed concentration warning" },
+        "12": { "title": "Dismissed analyst alert", "description": "Previously dismissed rating upgrade" },
+        "13": { "title": "Dismissed price alert", "description": "Previously dismissed price movement alert" },
+        "14": { "title": "Dismissed earnings alert", "description": "Previously dismissed earnings watch" },
+        "15": { "title": "Dismissed score alert", "description": "Previously dismissed score decline notice" },
+        "16": { "title": "Dismissed buy zone alert", "description": "Previously dismissed buy zone exit" },
+        "17": { "title": "Dismissed portfolio alert", "description": "Previously dismissed sector exposure alert" },
+        "18": { "title": "Dismissed analyst alert", "description": "Previously dismissed analyst downgrade" }
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize Equi to match your investment style and preferences",
+    "searchPlaceholder": "Search settings...",
+    "search": {
+      "noResults": "No settings match your search on this tab."
+    },
+    "placeholderModal": {
+      "description": "This feature will be available in a future update.",
+      "close": "Close"
+    },
+    "resetToDefaults": "Reset to Defaults",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "saved": "Saved",
+    "tabs": {
+      "label": "Settings sections",
+      "general": "General",
+      "appearance": "Appearance",
+      "portfolio": "Portfolio",
+      "scoringModel": "Scoring Model",
+      "alerts": "Alerts",
+      "aiPreferences": "AI Preferences",
+      "integrations": "Connections",
+      "comingSoonTitle": "Coming soon",
+      "comingSoonDescription": "This section will be available soon."
+    },
+    "general": {
+      "language": {
+        "title": "Language",
+        "description": "Choose your preferred language",
+        "english": "English",
+        "hebrew": "עברית"
+      },
+      "currency": {
+        "title": "Display Currency",
+        "description": "Select your default display currency",
+        "usd": "USD — US Dollar",
+        "ils": "ILS — Israeli Shekel",
+        "eur": "EUR — Euro",
+        "helper": "All values will be shown in {currency}"
+      },
+      "region": {
+        "title": "Region / Market",
+        "description": "Choose your primary market focus",
+        "unitedStates": "United States",
+        "israel": "Israel",
+        "europe": "Europe",
+        "global": "Global",
+        "helper": "This helps us tailor insights and data"
+      },
+      "dateFormat": {
+        "title": "Date Format",
+        "description": "Select your preferred date format",
+        "us": "May 22, 2026 (MM/DD/YYYY)",
+        "european": "22 May 2026 (DD/MM/YYYY)",
+        "iso": "2026-05-22 (YYYY-MM-DD)",
+        "helper": "This will be used across the platform"
+      },
+      "benchmark": {
+        "title": "Default Benchmark",
+        "description": "Select the benchmark used for performance comparison",
+        "sp500": "S&P 500",
+        "nasdaq100": "NASDAQ 100",
+        "dowJones": "Dow Jones",
+        "russell2000": "Russell 2000",
+        "custom": "Custom",
+        "standard": "Standard",
+        "growth": "Growth",
+        "industrial": "Industrial",
+        "smallCap": "Small Cap",
+        "chooseIndex": "Choose Index"
+      },
+      "privacy": {
+        "title": "Your data is private and secure",
+        "description": "Your settings are stored locally for now and are never shared."
+      }
+    },
+    "appearance": {
+      "theme": {
+        "title": "Theme",
+        "description": "Choose your preferred color scheme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      },
+      "backgroundGlow": {
+        "title": "Background Glow",
+        "description": "Adjust the ambient glow effect across the app"
+      },
+      "layoutDensity": {
+        "title": "Layout Density",
+        "description": "Choose how much content is visible on screen",
+        "comfortable": "Comfortable",
+        "comfortableDescription": "More spacing and padding",
+        "compact": "Compact",
+        "compactDescription": "Show more content"
+      },
+      "chartAnimations": {
+        "title": "Chart Animations",
+        "description": "Enable smooth animations for charts and data updates"
+      },
+      "cardRadius": {
+        "title": "Card Radius",
+        "description": "Set the corner radius for cards and components"
+      },
+      "motionPreference": {
+        "title": "Motion Preference",
+        "description": "Respect your system motion preferences",
+        "system": "System Default",
+        "reduce": "Reduce Motion",
+        "full": "Full Motion"
+      },
+      "preview": {
+        "title": "Preview",
+        "subtitle": "See how your settings look in Equi",
+        "livePreview": "Live Preview",
+        "portfolioOverview": "Portfolio Overview",
+        "accountValue": "Account Value",
+        "dailyChange": "+2.43% (1D)",
+        "topHolding": "Top Holding",
+        "holdingCategory": "Technology • Large Cap",
+        "holdingChange": "+1.28%",
+        "score": "Score",
+        "overallScore": "Overall Score",
+        "scoreLabel": "Good",
+        "riskProfile": "Risk Profile",
+        "chartAnimation": "Chart Animation Preview",
+        "moderate": "Moderate",
+        "timeRanges": {
+          "label": "Time range",
+          "1d": "1D",
+          "1w": "1W",
+          "1m": "1M",
+          "3m": "3M",
+          "1y": "1Y",
+          "all": "All"
+        }
+      }
+    },
+    "portfolio": {
+      "riskProfile": {
+        "title": "Risk Profile",
+        "description": "Choose your overall risk tolerance",
+        "conservative": "Conservative",
+        "moderate": "Moderate",
+        "aggressive": "Aggressive",
+        "info": {
+          "conservative": "Prioritizes capital preservation with lower volatility. Suitable for investors who prefer stability over high growth.",
+          "moderate": "A balanced approach between growth and capital preservation. Suitable for long-term investors seeking steady growth.",
+          "aggressive": "Focuses on higher growth potential with greater volatility. Suitable for investors with a long time horizon and higher risk tolerance."
+        }
+      },
+      "targetAllocation": {
+        "title": "Target Allocation",
+        "description": "Choose your target allocation strategy",
+        "automatic": {
+          "title": "Automatic",
+          "subtitle": "AI powered"
+        },
+        "manual": {
+          "title": "Manual",
+          "subtitle": "Set manually"
+        },
+        "custom": {
+          "title": "Custom",
+          "subtitle": "Advanced rules"
+        },
+        "info": {
+          "automatic": "Equi will suggest target allocation based on your risk profile and market conditions.",
+          "manual": "You set sector and asset targets yourself. Equi will track drift against your defined targets.",
+          "custom": "Define advanced allocation rules with custom thresholds and rebalancing triggers."
+        }
+      },
+      "benchmark": {
+        "title": "Default Benchmark",
+        "description": "Select the benchmark used for performance comparison",
+        "sp500": "S&P 500",
+        "nasdaq100": "NASDAQ 100",
+        "dowJones": "Dow Jones",
+        "russell2000": "Russell 2000",
+        "custom": "Custom",
+        "standard": "Standard",
+        "growth": "Growth",
+        "industrial": "Industrial",
+        "smallCap": "Small Cap",
+        "chooseIndex": "Choose Index",
+        "info": "Your benchmark is used to evaluate performance, risk-adjusted returns, and alpha."
+      },
+      "maxSectorExposure": {
+        "title": "Max Sector Exposure",
+        "description": "Set the maximum allowed weight for any single sector",
+        "valueLabel": "{value}%",
+        "helper": "Recommended: 25% – 35%"
+      },
+      "maxSingleStockExposure": {
+        "title": "Max Single Stock Exposure",
+        "description": "Set the maximum allowed weight for any single holding",
+        "valueLabel": "{value}%",
+        "helper": "Recommended: 5% – 15%"
+      },
+      "rebalancingThreshold": {
+        "title": "Rebalancing Threshold",
+        "description": "Set when Equi should flag allocation drift",
+        "valueLabel": "{value}%",
+        "helper": "Rebalance when allocation drifts by this percentage"
+      },
+      "summary": {
+        "title": "Your Portfolio Preferences",
+        "subtitle": "Overview of your current portfolio settings",
+        "percentValue": "{value}%",
+        "labels": {
+          "riskProfile": "Risk Profile",
+          "targetAllocation": "Target Allocation",
+          "benchmark": "Default Benchmark",
+          "maxSectorExposure": "Max Sector Exposure",
+          "maxSingleStockExposure": "Max Single Stock Exposure",
+          "rebalancingThreshold": "Rebalancing Threshold"
+        },
+        "values": {
+          "conservative": "Conservative",
+          "moderate": "Moderate",
+          "aggressive": "Aggressive",
+          "automatic": "Automatic (AI powered)",
+          "manual": "Manual",
+          "custom": "Custom (Advanced rules)"
+        }
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "resetPortfolioSettings": "Reset Portfolio Settings",
+        "manageTargetAllocation": "Manage Target Allocation",
+        "viewCurrentAllocation": "View Current Allocation",
+        "portfolioRiskAnalysis": "Portfolio Risk Analysis",
+        "resetSuccess": "Portfolio settings reset. Use Save Changes to keep these values."
+      },
+      "modals": {
+        "manageTargetAllocationTitle": "Manage Target Allocation",
+        "portfolioRiskAnalysisTitle": "Portfolio Risk Analysis",
+        "placeholderDescription": "Full allocation and risk analysis tools are coming soon."
+      }
+    },
+    "scoringModel": {
+      "title": "Scoring Model",
+      "description": "Customize how Equi evaluates stocks. Adjust the weights of each factor to match your investment style.",
+      "useRecommended": "Use Recommended",
+      "weightValue": "{value}%",
+      "weightInputLabel": "Weight for {factor}",
+      "saveDisabledInvalidTotal": "Total weight must equal 100% before you can save changes.",
+      "table": {
+        "factor": "Factor",
+        "description": "Description",
+        "weight": "Weight",
+        "impact": "Impact on Score"
+      },
+      "factors": {
+        "growth": {
+          "title": "Growth",
+          "description": "Revenue and earnings growth potential and consistency.",
+          "details": "Growth measures how quickly a company is expanding revenue and earnings. Equi considers historical trends, forward estimates, and consistency across quarters."
+        },
+        "profitability": {
+          "title": "Profitability",
+          "description": "Margins, ROE, ROIC and overall profitability efficiency.",
+          "details": "Profitability reflects how efficiently a company converts revenue into profit. Key signals include gross margin, operating margin, ROE, and ROIC versus peers."
+        },
+        "valuation": {
+          "title": "Valuation",
+          "description": "Valuation ratios and upside potential vs. intrinsic value.",
+          "details": "Valuation compares current price to fundamentals such as earnings, cash flow, and growth. This helps assess whether a stock may be priced attractively relative to its prospects."
+        },
+        "financialHealth": {
+          "title": "Financial Health",
+          "description": "Balance sheet strength, debt levels and cash flow quality.",
+          "details": "Financial health evaluates balance sheet resilience, leverage, liquidity, and cash flow stability. Stronger fundamentals may indicate lower structural risk."
+        },
+        "momentum": {
+          "title": "Momentum",
+          "description": "Price momentum and relative strength.",
+          "details": "Momentum tracks recent price trends and relative strength versus the market or sector. It may highlight stocks with sustained positive or negative price action."
+        },
+        "analystSentiment": {
+          "title": "Analyst Sentiment",
+          "description": "Analyst ratings, revisions and sentiment trends.",
+          "details": "Analyst sentiment aggregates rating changes, estimate revisions, and consensus views. It is one input among many and may lag market developments."
+        }
+      },
+      "impact": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "totalWeight": {
+        "title": "Total Weight",
+        "hint": "Total weight must equal 100%. Higher weight factors have more influence on the overall score.",
+        "valid": "Balanced",
+        "invalid": "Adjust weights to reach 100%"
+      },
+      "about": {
+        "title": "About Equi Scoring",
+        "description": "Equi's scoring model evaluates stocks based on 6 key factors. The overall score ranges from 0 to 100. Scores are analytical helpers, not buy or sell orders.",
+        "rangeDescription": "Score ranges help you interpret results at a glance.",
+        "bands": {
+          "veryStrong": "80–100: Very Strong",
+          "strong": "60–79: Strong",
+          "average": "40–59: Average",
+          "weak": "20–39: Weak",
+          "veryWeak": "0–19: Very Weak"
+        }
+      },
+      "summary": {
+        "title": "Your Scoring Summary",
+        "subtitle": "Overview of your current scoring model",
+        "needsBalancing": "Adjust factor weights so the total equals 100%.",
+        "scoreBase": "/ 100",
+        "modelHealth": {
+          "veryStrong": "Very Strong Model",
+          "strong": "Strong Model",
+          "good": "Balanced Model",
+          "watch": "Needs Review",
+          "weak": "High Deviation"
+        },
+        "legend": {
+          "growth": "Growth",
+          "profitability": "Profitability",
+          "valuation": "Valuation",
+          "financialHealth": "Financial Health",
+          "momentum": "Momentum",
+          "analystSentiment": "Analyst Sentiment"
+        }
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "compareRecommended": "Compare with Recommended",
+        "resetRecommended": "Reset to Recommended",
+        "saveCustomModel": "Save as Custom Model",
+        "howScoringWorks": "How Scoring Works",
+        "viewFactorDefinitions": "View Factor Definitions",
+        "savedCustomModel": "Custom model saved locally. Use Save Changes to keep these weights."
+      },
+      "modals": {
+        "compare": {
+          "title": "Compare with Recommended",
+          "description": "See how your current weights differ from Equi's recommended model.",
+          "factor": "Factor",
+          "current": "Current",
+          "recommended": "Recommended",
+          "difference": "Difference",
+          "close": "Close"
+        },
+        "definitions": {
+          "title": "Factor Definitions",
+          "description": "What each scoring factor measures in Equi's model.",
+          "close": "Close"
+        }
+      }
+    },
+    "alerts": {
+      "saveDisabledNoPriority": "Enable at least one alert priority before you can save changes.",
+      "header": {
+        "title": "Alerts Settings",
+        "description": "Choose which alerts you want to receive and how you want to be notified.",
+        "testNotifications": "Test Notifications",
+        "testNotificationSuccess": "Test notification sent. This is a preview only — no real alerts were triggered."
+      },
+      "types": {
+        "title": "Alert Types",
+        "description": "Enable or disable specific types of alerts",
+        "configure": "Configure",
+        "price": {
+          "title": "Price Alerts",
+          "description": "Get notified when a stock hits your price target"
+        },
+        "buyZone": {
+          "title": "Buy Zone Alerts",
+          "description": "Get notified when a stock enters your buy zone"
+        },
+        "earnings": {
+          "title": "Earnings Alerts",
+          "description": "Get notified before earnings announcements"
+        },
+        "score": {
+          "title": "Score Change Alerts",
+          "description": "Get notified when a stock score changes"
+        },
+        "smartReplace": {
+          "title": "Smart Replace Alerts",
+          "description": "Get notified about replacement opportunities"
+        },
+        "portfolio": {
+          "title": "Portfolio Risk Alerts",
+          "description": "Get notified about portfolio risks and limits"
+        }
+      },
+      "channels": {
+        "title": "Notification Channels",
+        "description": "Choose how you want to receive alerts",
+        "inApp": {
+          "title": "In-App Notifications",
+          "description": "Instant notifications in Equi"
+        },
+        "email": {
+          "title": "Email",
+          "description": "Receive updates via email"
+        },
+        "browserPush": {
+          "title": "Browser Push",
+          "description": "Get push notifications"
+        },
+        "weeklyDigest": {
+          "title": "Weekly Digest",
+          "description": "Summary of alerts weekly"
+        }
+      },
+      "quietHours": {
+        "title": "Quiet Hours",
+        "description": "Pause non-urgent alerts during these hours",
+        "scheduleLabel": "Quiet hours schedule",
+        "optionDefault": "10:00 PM - 8:00 AM",
+        "optionLate": "11:00 PM - 7:00 AM",
+        "disabled": "Disabled",
+        "custom": "Custom",
+        "customPlaceholder": "Custom quiet hours will be available in a future update.",
+        "helper": "You will still receive urgent alerts."
+      },
+      "priority": {
+        "title": "Alert Priority",
+        "description": "Choose which priority levels you want to receive",
+        "warning": "Enable at least one priority level to receive alerts.",
+        "high": {
+          "title": "High Priority",
+          "description": "Important alerts that need your attention"
+        },
+        "medium": {
+          "title": "Medium Priority",
+          "description": "Alerts that are important but not urgent"
+        },
+        "low": {
+          "title": "Low Priority",
+          "description": "Informational alerts and updates"
+        },
+        "info": {
+          "title": "Info Only",
+          "description": "General updates and insights"
+        }
+      },
+      "summary": {
+        "title": "Your Alerts Summary",
+        "subtitle": "Overview of your alert preferences",
+        "activeLabel": "Active",
+        "priceAlerts": "Price Alerts",
+        "earningsAlerts": "Earnings Alerts",
+        "portfolioAlerts": "Portfolio Alerts",
+        "buyZoneAlerts": "Buy Zone Alerts",
+        "scoreAlerts": "Score Alerts",
+        "smartReplace": "Smart Replace"
+      },
+      "rulesOverview": {
+        "title": "Alert Rules Overview",
+        "totalRules": "Total Alert Rules",
+        "activeRules": "Active Rules",
+        "snoozedRules": "Snoozed Rules",
+        "disabledRules": "Disabled Rules",
+        "manageAll": "Manage All Rules"
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "createNewAlert": "Create New Alert",
+        "manageRules": "Manage Alert Rules",
+        "snoozedAlerts": "Snoozed Alerts",
+        "notificationHistory": "Notification History"
+      },
+      "alertsCenterBanner": {
+        "message": "You can manage individual alert rules and conditions from the Alerts Center.",
+        "link": "Go to Alerts Center"
+      },
+      "modals": {
+        "configureTitle": "Configure {type}",
+        "createAlertTitle": "Create New Alert",
+        "notificationHistoryTitle": "Notification History",
+        "placeholderDescription": "Full rule management will be available in Alerts Center soon.",
+        "close": "Close",
+        "save": "Save",
+        "priority": "Priority",
+        "frequency": "Frequency",
+        "channels": "Channels",
+        "threshold": "Threshold",
+        "frequencyDaily": "Daily",
+        "frequencyImmediate": "Immediate",
+        "frequencyWeekly": "Weekly",
+        "thresholdDefault": "Default for this alert type"
+      }
+    },
+    "aiPreferences": {
+      "header": {
+        "title": "AI Preferences",
+        "description": "Customize how Equi explains insights, risks, and suggested actions.",
+        "previewAiResponse": "Preview AI Response"
+      },
+      "detail": {
+        "title": "Insight Detail Level",
+        "description": "Choose how detailed AI explanations should be.",
+        "concise": "Concise",
+        "conciseSubtitle": "Short summaries with only the key point",
+        "balanced": "Balanced",
+        "balancedSubtitle": "Practical explanation with positives, risks, and next step",
+        "detailed": "Detailed",
+        "detailedSubtitle": "Deeper analysis with more context and reasoning",
+        "info": {
+          "concise": "Concise insights focus on key takeaways with minimal explanation.",
+          "balanced": "Balanced gives practical context with risks and a suggested next step.",
+          "detailed": "Detailed insights include fuller context, supporting data, and nuanced reasoning."
+        }
+      },
+      "tone": {
+        "title": "AI Tone",
+        "description": "Choose the tone Equi should use when explaining decisions.",
+        "conservative": "Conservative",
+        "conservativeSubtitle": "More cautious and risk-focused",
+        "balanced": "Balanced",
+        "balancedSubtitle": "Balanced between opportunity and risk",
+        "growthOriented": "Growth-Oriented",
+        "growthOrientedSubtitle": "More focused on upside and growth potential",
+        "info": {
+          "conservative": "Conservative tone emphasizes risks, uncertainty, and downside scenarios.",
+          "balanced": "Balanced tone provides neutral, data-driven decision support.",
+          "growthOriented": "Growth-oriented tone highlights upside potential while still noting relevant risks."
+        }
+      },
+      "risk": {
+        "title": "Risk Visibility",
+        "description": "Control how strongly Equi highlights risks.",
+        "showRiskWarnings": {
+          "title": "Show risk warnings",
+          "description": "Surface explicit risk callouts in AI insights."
+        },
+        "showDownsideScenarios": {
+          "title": "Show downside scenarios",
+          "description": "Include what could weaken the thesis if conditions change."
+        },
+        "showConfidenceLevel": {
+          "title": "Show data confidence",
+          "description": "Display confidence level when data quality supports it."
+        },
+        "showMissingDataWarnings": {
+          "title": "Show missing data warnings",
+          "description": "Flag when important inputs are missing or stale."
+        }
+      },
+      "structure": {
+        "title": "Explanation Structure",
+        "description": "Choose which sections appear in AI insights.",
+        "summary": "Summary",
+        "strengths": "What's Strong",
+        "risks": "Risks to Watch",
+        "whatChanged": "What Changed",
+        "suggestedNextStep": "Suggested Next Step",
+        "confidence": "Confidence Level",
+        "dataFreshness": "Data Freshness Note",
+        "summaryRequiredWarning": "Summary is required and cannot be turned off."
+      },
+      "behavior": {
+        "title": "AI Behavior",
+        "description": "Fine-tune how Equi uses AI across the app.",
+        "prioritizePortfolioContext": {
+          "title": "Prioritize portfolio context",
+          "description": "Weight insights based on your current holdings and allocation."
+        },
+        "compareAgainstSectorPeers": {
+          "title": "Compare against sector peers",
+          "description": "Add relative context from similar companies in the same sector."
+        },
+        "considerWatchlistOpportunities": {
+          "title": "Consider watchlist opportunities",
+          "description": "Reference stocks you follow when relevant to the insight."
+        },
+        "includeEarningsContext": {
+          "title": "Include upcoming earnings context",
+          "description": "Mention earnings timing when it may affect the view."
+        },
+        "conservativeFallback": {
+          "title": "Use conservative fallback when data is missing",
+          "description": "Default to cautious language when inputs are incomplete."
+        }
+      },
+      "safety": {
+        "title": "AI Safety",
+        "description": "Equi is a decision-support tool. AI insights are not financial advice and should be reviewed with your own judgment."
+      },
+      "summary": {
+        "title": "AI Preferences Summary",
+        "subtitle": "Overview of your current AI behavior",
+        "labels": {
+          "detailLevel": "Detail Level",
+          "tone": "Tone",
+          "riskWarnings": "Risk Warnings",
+          "confidenceLevel": "Confidence Level",
+          "portfolioContext": "Portfolio Context",
+          "dataFreshness": "Data Freshness"
+        },
+        "values": {
+          "concise": "Concise",
+          "balanced": "Balanced",
+          "detailed": "Detailed",
+          "conservative": "Conservative",
+          "growthOriented": "Growth-Oriented",
+          "enabled": "Enabled",
+          "disabled": "Disabled"
+        }
+      },
+      "preview": {
+        "title": "AI Response Preview",
+        "subtitle": "Sample insight based on your current preferences",
+        "currentPreferences": "Current preferences",
+        "symbol": "NVDA",
+        "mock": {
+          "concise_conservative": {
+            "text": "NVDA looks strong, but valuation and earnings timing add risk. Consider monitoring before increasing exposure."
+          },
+          "concise_balanced": {
+            "text": "NVDA remains strong on growth and momentum. Valuation is elevated—monitor earnings and margins before adding aggressively."
+          },
+          "concise_growthOriented": {
+            "text": "NVDA shows strong growth and momentum. Upside may continue, though valuation warrants monitoring near earnings."
+          },
+          "balanced_conservative": {
+            "text": "NVDA remains strong based on growth, margins, and momentum. Valuation is elevated, so consider monitoring earnings and margin stability before adding aggressively. Downside scenarios include multiple compression if growth slows."
+          },
+          "balanced_balanced": {
+            "text": "NVDA remains strong based on growth, margins, and momentum. Valuation is elevated, so consider monitoring earnings and margin stability before adding aggressively."
+          },
+          "balanced_growthOriented": {
+            "text": "NVDA remains strong based on growth, margins, and momentum. Growth trends support the thesis, though elevated valuation suggests monitoring earnings and margin stability."
+          },
+          "detailed_conservative": {
+            "intro": "NVDA shows solid fundamentals, but risk factors deserve emphasis before acting.",
+            "bullet1": "Growth and margins remain supportive, yet valuation leaves less room for disappointment.",
+            "bullet2": "Earnings timing and macro sensitivity could increase volatility.",
+            "bullet3": "Suggested next step: monitor results and reassess position sizing."
+          },
+          "detailed_balanced": {
+            "intro": "NVDA remains strong based on growth, margins, and momentum with balanced risk context.",
+            "bullet1": "What's strong: revenue growth, margin profile, and market leadership.",
+            "bullet2": "Risks to watch: elevated valuation and sensitivity to earnings revisions.",
+            "bullet3": "Suggested next step: monitor earnings and margin stability before adding aggressively."
+          },
+          "detailed_growthOriented": {
+            "intro": "NVDA's growth profile remains a key driver, with upside potential still in view.",
+            "bullet1": "Growth and momentum trends support continued interest.",
+            "bullet2": "Valuation is elevated—monitor earnings for confirmation.",
+            "bullet3": "Suggested next step: track results while watching risk around multiples."
+          }
+        },
+        "preferenceLabels": {
+          "detailLevel": "Detail level",
+          "tone": "Tone",
+          "riskWarnings": "Risk warnings",
+          "confidence": "Confidence",
+          "downside": "Downside scenarios"
+        }
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "resetAiPreferences": "Reset AI Preferences",
+        "previewAiResponse": "Preview AI Response",
+        "viewAiSafetyRules": "View AI Safety Rules",
+        "explainConfidenceScores": "Explain Confidence Scores"
+      },
+      "modals": {
+        "previewTitle": "AI Response Preview",
+        "safetyRulesTitle": "AI Safety Rules",
+        "confidenceScoresTitle": "Confidence Scores",
+        "close": "Close",
+        "stockLabel": "Sample insight",
+        "activePreferences": "Active preferences"
+      },
+      "safetyRules": {
+        "noGuaranteedReturns": "Equi does not guarantee returns or outcomes.",
+        "noTrades": "Equi does not place trades on your behalf.",
+        "decisionSupportOnly": "AI insights are decision-support only—not financial advice.",
+        "reviewRisks": "Always review risks, assumptions, and data freshness before acting.",
+        "missingDataLowersConfidence": "Missing or stale data should lower confidence in any insight."
+      },
+      "confidence": {
+        "high": "High confidence",
+        "medium": "Medium confidence",
+        "low": "Low confidence",
+        "highDescription": "Enough recent data with consistent signals across key factors.",
+        "mediumDescription": "Mixed signals or partial data—interpret with extra context.",
+        "lowDescription": "Missing data or conflicting signals—treat as preliminary only."
+      },
+      "saved": "AI preferences saved."
+    },
+    "summary": {
+      "title": "Your Settings Summary",
+      "subtitle": "Overview of your current preferences",
+      "riskProfile": "Risk Profile",
+      "targetAllocation": "Target Allocation",
+      "scoringModel": "Scoring Model",
+      "alerts": "Alerts",
+      "aiInsights": "AI Insights",
+      "moderate": "Moderate",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "custom": "Custom",
+      "recommended": "Recommended",
+      "balanced": "Balanced"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "exportSettings": "Export Settings",
+      "importSettings": "Import Settings",
+      "howScoringWorks": "How Scoring Works",
+      "helpSupport": "Help & Support",
+      "exportSuccess": "Settings exported successfully as equi-settings.json.",
+      "importSuccess": "Settings imported successfully. Your preferences have been updated.",
+      "importErrors": {
+        "invalidJson": "This file could not be read. Please choose a valid JSON file.",
+        "invalidFormat": "This file does not look like Equi settings. Please check the file and try again.",
+        "unsupportedVersion": "This settings file version is not supported yet."
+      },
+      "howScoringWorksModal": {
+        "title": "How Scoring Works",
+        "intro": "Equi scores stocks from 0 to 100 using a weighted blend of six analytical factors. Scores are decision-support signals — not buy or sell orders.",
+        "disclaimer": "Scores may help you compare and prioritize ideas, but they do not guarantee outcomes. Always consider your goals, timeline, and risk tolerance.",
+        "customizeHint": "You can adjust factor weights in the Scoring Model tab to better match your investment style.",
+        "goToScoringModel": "Open Scoring Model",
+        "close": "Close"
+      },
+      "helpSupportModal": {
+        "title": "Help & Support",
+        "comingSoonTitle": "Coming soon",
+        "comingSoonDescription": "Help and support options are on the way. For now, you can preview what will be available.",
+        "close": "Close",
+        "options": {
+          "documentation": "Documentation",
+          "contactSupport": "Contact support",
+          "reportIssue": "Report an issue"
+        }
+      }
+    }
+  },
+  "states": {
+    "empty": {
+      "title": "Nothing here yet",
+      "description": "There is no data to show in this section right now.",
+      "addStock": "Add stock",
+      "addToWatchlist": "Add to watchlist",
+      "createAlert": "Create alert"
+    },
+    "loading": {
+      "title": "Loading data",
+      "description": "Please wait while we prepare this section.",
+      "portfolio": "Loading portfolio…",
+      "chart": "Loading chart…",
+      "table": "Loading table…",
+      "insights": "Loading insights…"
+    },
+    "error": {
+      "title": "Unable to load data",
+      "description": "Something went wrong while loading this section. You can try again.",
+      "retry": "Try again",
+      "goBack": "Go back",
+      "refresh": "Refresh"
+    },
+    "noResults": {
+      "title": "No results found",
+      "description": "Try adjusting your search or filters to find what you are looking for.",
+      "clearSearch": "Clear search",
+      "clearFilters": "Clear filters"
+    },
+    "stale": {
+      "title": "Data may be outdated",
+      "description": "This information might not reflect the latest market data.",
+      "lastUpdated": "Last updated",
+      "refresh": "Refresh"
+    },
+    "freshness": {
+      "loading": "Updating",
+      "live": "Live",
+      "recent": "Recent",
+      "stale": "Stale",
+      "mock": "Sample data",
+      "unavailable": "Unavailable"
+    },
+    "dataSource": {
+      "fmpLive": "Market data from FMP",
+      "finnhubFallback": "Some data from Finnhub fallback",
+      "partialFallback": "Some sections use fallback or cached data",
+      "mockFallback": "Showing sample data — live provider unavailable",
+      "rateLimited": "Provider rate limited — using cached or sample data",
+      "missingKey": "API key missing — showing sample data",
+      "providerError": "Provider error — showing cached or sample data"
+    }
+  },
+  "actions": {
+    "setPriceAlert": "Set Price Alert",
+    "addNote": "Add Note",
+    "compareToCompetitors": "Compare to Competitors",
+    "viewSecFilings": "View SEC Filings",
+    "optionsChain": "Options Chain",
+    "addToWatchlist": "Add to Watchlist",
+    "addToPortfolio": "Add to Portfolio",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "remove": "Remove",
+    "viewStock": "View Stock",
+    "dismiss": "Dismiss",
+    "snooze": "Snooze",
+    "alreadyInWatchlist": "In Watchlist",
+    "alreadyInWatchlistTitle": "Already in watchlist",
+    "alreadyInWatchlistDescription": "{symbol} is already on your watchlist.",
+    "addedToWatchlistTitle": "Added to watchlist",
+    "addedToWatchlistDescription": "{symbol} was added to your watchlist for this session.",
+    "removeFromWatchlist": "Remove from Watchlist",
+    "removedFromWatchlist": "Removed from watchlist"
+  },
+  "placeholders": {
+    "compare": {
+      "title": "Stock compare is coming soon",
+      "description": "Side-by-side compare is not available yet. Suggested peers are listed below."
+    },
+    "secFilings": {
+      "title": "SEC filings integration is coming soon",
+      "description": "We could not open SEC filings for this symbol in a new tab."
+    },
+    "optionsChain": {
+      "title": "Options chain will be available later",
+      "description": "This feature will require an options data provider."
+    }
+  },
+  "notes": {
+    "modal": {
+      "title": "Add Note",
+      "thesisTitle": "Edit thesis / notes",
+      "thesisTitleWithSymbol": "Thesis for {symbol}",
+      "thesisDescription": "Capture why you own it, what to watch, and when you would reduce.",
+      "category": "Category",
+      "titleField": "Title",
+      "note": "Note",
+      "whyIOwnIt": "Why I own it",
+      "whyIOwnItPlaceholder": "Your ownership rationale…",
+      "whatToWatch": "What to watch",
+      "whatToWatchPlaceholder": "Signals or events to monitor…",
+      "sellIf": "Sell if",
+      "sellIfPlaceholder": "Conditions that would make you reduce…",
+      "save": "Save",
+      "cancel": "Cancel",
+      "success": "Note saved locally"
+    }
+  },
+  "confirm": {
+    "removeHolding": {
+      "title": "Remove holding?",
+      "description": "Remove {symbol} from your portfolio for this session?",
+      "confirm": "Remove"
+    },
+    "removeWatchlist": {
+      "title": "Remove from watchlist?",
+      "description": "Remove {symbol} from your watchlist for this session?",
+      "confirm": "Remove",
+      "cancel": "Cancel",
+      "success": "Removed from watchlist"
+    }
+  },
+  "interactions": {
+    "placeholder": {
+      "description": "This feature will be available in a future update.",
+      "close": "Close"
+    },
+    "rowActions": {
+      "menu": "More actions",
+      "close": "Close",
+      "viewDetails": "View Details",
+      "setAlert": "Set Alert",
+      "addNote": "Add Note",
+      "snooze": "Snooze",
+      "dismiss": "Dismiss",
+      "remove": "Remove",
+      "compare": "Compare"
+    },
+    "setAlert": {
+      "title": "Set Alert",
+      "titleWithSymbol": "Set Alert for {symbol}",
+      "description": "Create a mock alert to monitor this position. Alerts are decision-support signals, not trade orders.",
+      "close": "Close",
+      "cancel": "Cancel",
+      "save": "Save Alert",
+      "fields": {
+        "symbol": "Stock",
+        "alertType": "Alert type",
+        "targetValue": "Target value",
+        "targetPlaceholder": "Enter a target value",
+        "priority": "Priority",
+        "note": "Note (optional)",
+        "notePlaceholder": "Add context for this alert…"
+      },
+      "types": {
+        "price": "Price",
+        "buyZone": "Buy Zone",
+        "scoreChange": "Score Change",
+        "earnings": "Earnings"
+      },
+      "priorities": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "success": {
+        "title": "Alert saved",
+        "message": "Your alert preference was saved locally for this session.",
+        "messageWithSymbol": "Your alert for {symbol} was saved locally for this session.",
+        "done": "Done"
+      }
+    },
+    "stockNote": {
+      "title": "Add Note",
+      "titleWithSymbol": "Note for {symbol}",
+      "description": "Capture your thesis, risks, or watch items. Notes stay on this device for now.",
+      "close": "Close",
+      "cancel": "Cancel",
+      "save": "Save Note",
+      "fields": {
+        "title": "Title",
+        "titlePlaceholder": "Short title",
+        "category": "Category",
+        "note": "Note",
+        "notePlaceholder": "Write your note here…"
+      },
+      "categories": {
+        "thesis": "Thesis",
+        "watch": "Watch",
+        "risk": "Risk",
+        "general": "General"
+      },
+      "success": {
+        "title": "Note saved",
+        "message": "Your note was saved locally for this session.",
+        "messageWithSymbol": "Your note for {symbol} was saved locally for this session.",
+        "done": "Done"
+      }
+    },
+    "compare": {
+      "comingSoonTitle": "Compare",
+      "comingSoonDescription": "Stock compare will be available soon. You can explore Smart Replace in the meantime."
+    },
+    "globalSearch": {
+      "noResultsTitle": "No results",
+      "noResultsDescription": "Try a ticker like NVDA or AAPL, or search for portfolio, alerts, or settings.",
+      "navigateHint": "Press Enter to go to {label}",
+      "routes": {
+        "stock": "Stock",
+        "portfolio": "Portfolio",
+        "watchlist": "Watchlist",
+        "alerts": "Alerts Center",
+        "settings": "Settings",
+        "dashboard": "Dashboard",
+        "smartReplace": "Smart Replace",
+        "nextMoves": "Next Moves"
+      }
+    },
+    "refresh": {
+      "success": "Display data refreshed."
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Account and profile settings will be available when sign-in is added."
+    },
+    "disabled": {
+      "comingSoon": "Coming soon",
+      "authRequired": "Sign-in required"
+    },
+    "undo": {
+      "dismissed": "Alert dismissed.",
+      "snoozed": "Alert snoozed.",
+      "moveDismissed": "Action dismissed."
+    },
+    "portfolio": {
+      "addTransactionTitle": "Add Transaction",
+      "addTransactionDescription": "Manual transaction entry will be available in a future update.",
+      "exportTitle": "Export",
+      "exportDescription": "Portfolio export will be available in a future update.",
+      "columnsTitle": "Columns",
+      "columnsDescription": "Column customization will be available in a future update."
+    },
+    "features": {
+      "secFilingsTitle": "SEC Filings",
+      "secFilingsDescription": "SEC filings will be available in a future update.",
+      "optionsChainTitle": "Options Chain",
+      "optionsChainDescription": "Options chain data will be available in a future update.",
+      "viewMoreMetricsTitle": "More metrics",
+      "viewMoreMetricsDescription": "Expanded valuation metrics will be available in a future update.",
+      "removeTitle": "Remove",
+      "removeDescription": "Remove from list will be available in a future update.",
+      "aiAnalysisTitle": "AI Analysis",
+      "aiAnalysisDescription": "Full AI analysis will be available in a future update.",
+      "rankingTitle": "Full ranking",
+      "rankingDescription": "Full watchlist ranking will be available in a future update.",
+      "buyZoneTitle": "Buy zones",
+      "buyZoneDescription": "All buy-zone opportunities will be available in a future update.",
+      "activityTitle": "Activity",
+      "activityDescription": "Full activity history will be available in a future update.",
+      "moversTitle": "Top movers",
+      "moversDescription": "Full movers list will be available in a future update.",
+      "riskFactorsTitle": "Risk factors",
+      "riskFactorsDescription": "Full risk factor breakdown will be available in a future update."
+    }
+  }
+}
