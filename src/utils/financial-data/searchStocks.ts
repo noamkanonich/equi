@@ -21,7 +21,7 @@ import { filterMockStockSearchCatalog } from "@/utils/add-stock/filterStockSearc
 import { mapMockSearchEntryToResultItem } from "@/utils/stocks/mapMockSearchEntryToResultItem";
 
 const SEARCH_TTL_MS = 10 * 60 * 1000;
-const SEARCH_CACHE_VERSION = "v4";
+const SEARCH_CACHE_VERSION = "v7";
 const SEARCH_RESULT_LIMIT = 20;
 const MIN_QUERY_LENGTH = 2;
 
@@ -31,6 +31,9 @@ type SearchCacheEntry = {
 };
 
 const searchCache = new Map<string, SearchCacheEntry>();
+const REAL_SEARCH_PROVIDER_IDS = ["fmp", "finnhub"] as const;
+
+type RealSearchProviderId = (typeof REAL_SEARCH_PROVIDER_IDS)[number];
 
 type FmpSearchRow = {
   symbol: string;
@@ -39,9 +42,15 @@ type FmpSearchRow = {
   exchangeShortName?: string;
 };
 
+const SUPPORTED_FMP_EXCHANGES = new Set(["AMEX", "NASDAQ", "NYSE", "NYSE ARCA"]);
+
 const mapFmpSearchResults = (rows: FmpSearchRow[]): StockSearchResultItem[] =>
   rows
-    .filter((row) => row.symbol && row.name)
+    .filter((row) => {
+      const exchange = (row.exchangeShortName ?? row.exchange ?? "").trim().toUpperCase();
+
+      return row.symbol && row.name && SUPPORTED_FMP_EXCHANGES.has(exchange);
+    })
     .slice(0, SEARCH_RESULT_LIMIT)
     .map((row) => ({
       symbol: normalizeProviderSymbol(row.symbol),
@@ -63,11 +72,17 @@ const searchViaFmp = async (query: string): Promise<StockSearchResultItem[] | nu
   }
 
   try {
-    const data = await fetchFmp<unknown>(fmpEndpoints.searchSymbol(query));
-    if (!isFmpArrayResponse<FmpSearchRow>(data)) {
-      return null;
-    }
-    return mapFmpSearchResults(data);
+    const [symbolData, nameData] = await Promise.all([
+      fetchFmp<unknown>(fmpEndpoints.searchSymbol(query)).catch(() => null),
+      fetchFmp<unknown>(fmpEndpoints.searchName(query)).catch(() => null),
+    ]);
+
+    const rows = [
+      ...(isFmpArrayResponse<FmpSearchRow>(symbolData) ? symbolData : []),
+      ...(isFmpArrayResponse<FmpSearchRow>(nameData) ? nameData : []),
+    ];
+
+    return rows.length > 0 ? mapFmpSearchResults(rows) : null;
   } catch {
     return null;
   }
@@ -93,6 +108,37 @@ const searchViaMock = (query: string): StockSearchResultItem[] =>
   filterMockStockSearchCatalog(mockStockSearchCatalog, query)
     .slice(0, SEARCH_RESULT_LIMIT)
     .map(mapMockSearchEntryToResultItem);
+
+const getConfiguredSearchProviders = (): RealSearchProviderId[] => {
+  if (financialDataConfig.provider === "finnhub") {
+    return ["finnhub", "fmp"];
+  }
+
+  return ["fmp", "finnhub"];
+};
+
+const searchViaProvider = async (
+  providerId: RealSearchProviderId,
+  query: string,
+): Promise<StockSearchResultItem[] | null> => {
+  if (providerId === "finnhub") {
+    const finnhubResults = await searchViaFinnhub(query);
+
+    return finnhubResults?.map((result) => ({
+      ...result,
+      displaySymbol: result.symbol,
+      currency: "USD",
+      market: "US",
+      assetType: "stock",
+      provider: "finnhub",
+      providerSymbol: result.symbol,
+      hasLivePrice: true,
+      isMock: false,
+    })) ?? null;
+  }
+
+  return searchViaFmp(query);
+};
 
 const dedupeSearchResults = (results: StockSearchResultItem[]): StockSearchResultItem[] => {
   const seen = new Set<string>();
@@ -173,46 +219,37 @@ const searchUsAssets = async (
     };
   }
 
-  const fmpResults = await searchViaFmp(query);
-  if (fmpResults && fmpResults.length > 0) {
-    logFinancialDataDebug("search.provider", {
-      query,
-      source: "fmp",
-      count: fmpResults.length,
-    });
-    return {
-      assets: fmpResults.map((result) => mapStockSearchResultToAsset(result, "fmp")),
-      source: "fmp",
-      isFallback: false,
-    };
+  const providerIds = getConfiguredSearchProviders();
+
+  for (const providerId of providerIds) {
+    const providerResults = await searchViaProvider(providerId, query);
+    if (providerResults && providerResults.length > 0) {
+      logFinancialDataDebug("search.provider", {
+        query,
+        source: providerId,
+        count: providerResults.length,
+      });
+      return {
+        assets: providerResults.map((result) =>
+          mapStockSearchResultToAsset(result, providerId),
+        ),
+        source: providerId,
+        isFallback: providerId !== providerIds[0],
+      };
+    }
   }
 
-  const finnhubResults = await searchViaFinnhub(query);
-  if (finnhubResults && finnhubResults.length > 0) {
+  if (!financialDataConfig.allowMockStockSearchFallback) {
     logFinancialDataDebug("search.provider", {
       query,
-      source: "finnhub",
-      count: finnhubResults.length,
+      source: providerIds[0],
+      count: 0,
+      mockFallback: false,
     });
     return {
-      assets: finnhubResults.map((result) =>
-        mapStockSearchResultToAsset(
-          {
-            ...result,
-            displaySymbol: result.symbol,
-            currency: "USD",
-            market: "US",
-            assetType: "stock",
-            provider: "finnhub",
-            providerSymbol: result.symbol,
-            hasLivePrice: true,
-            isMock: false,
-          },
-          "finnhub",
-        ),
-      ),
-      source: "finnhub",
-      isFallback: true,
+      assets: [],
+      source: providerIds[0],
+      isFallback: false,
     };
   }
 

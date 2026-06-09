@@ -31,7 +31,10 @@ const resolveProviderId = (): FinancialDataProviderId => {
   if (configured === "mock") {
     return "mock";
   }
-  return "fmp";
+  if (configured === "fmp") {
+    return "fmp";
+  }
+  return "finnhub";
 };
 
 /** FMP when keyed, else Finnhub when keyed, else null (mock-only). */

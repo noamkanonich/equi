@@ -62,6 +62,8 @@ export const fmpEndpoints = {
   searchSymbol: (query: string) =>
     buildStableUrl("search-symbol", { query, limit: 20 }),
 
+  searchName: (query: string) => buildStableUrl("search-name", { query, limit: 20 }),
+
   gradesConsensus: (symbol: string) => buildStableUrl("grades-consensus", { symbol }),
 
   priceTargetConsensus: (symbol: string) =>
