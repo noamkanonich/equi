@@ -1165,6 +1165,8 @@
       "buy": "Buy",
       "hold": "Hold",
       "sell": "Sell",
+      "unavailableTitle": "Target prices unavailable",
+      "unavailableDescription": "No connected provider returned real analyst target prices for this stock.",
       "viewDetails": "View analyst details",
       "detailsTitle": "Analyst target details",
       "close": "Close"

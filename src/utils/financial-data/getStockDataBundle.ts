@@ -28,6 +28,11 @@ import { logFinancialDataDebug } from "@/lib/financial-data/devFinancialDataLog"
 import { getFallbackQuote } from "@/lib/financial-data/quotes/fallbackQuoteProvider";
 import { mapQuoteToStockProviderQuote } from "@/lib/financial-data/quotes/mapQuoteToStockProviderQuote";
 import {
+  getYahooFinanceChartFallbackIntradayHistory,
+  getYahooFinanceChartFallbackPriceHistory,
+} from "@/lib/financial-data/quotes/scrapers/yahooFinanceChartScraper";
+import { getNasdaqHistoricalPriceHistory } from "@/lib/financial-data/quotes/scrapers/nasdaqHistoricalScraper";
+import {
   getActiveProviderId,
   resolveStockProviders,
 } from "@/lib/financial-data/providers";
@@ -188,7 +193,7 @@ const fetchSectionWithCache = async <T>({
       section,
       value: cached.value,
       fromProvider: !cached.isFallback,
-      sectionSource: cached.isFallback ? "mock" : primary?.id ?? fallback?.id,
+      sectionSource: cached.sectionSource ?? (cached.isFallback ? "mock" : primary?.id ?? fallback?.id),
       fallbackReason: cached.fallbackReason,
     };
   }
@@ -197,11 +202,12 @@ const fetchSectionWithCache = async <T>({
     batchTracker.hadCacheMiss = true;
   }
 
-  const useMockFallback = (reason: FinancialDataFallbackReason): SectionResult<T> => {
+  const buildMockFallbackResult = (reason: FinancialDataFallbackReason): SectionResult<T> => {
     const fallbackValue = mockFallback();
     setCachedSection(symbol, section, fallbackValue, {
       isFallback: true,
       fallbackReason: reason,
+      sectionSource: "mock",
     });
     if (batchTracker) {
       recordFallback(symbol, reason);
@@ -216,7 +222,7 @@ const fetchSectionWithCache = async <T>({
   };
 
   if (isRateLimitCooldownActive() && !fallback) {
-    return useMockFallback("rateLimited");
+    return buildMockFallbackResult("rateLimited");
   }
 
   const providerResult = await fetchFromProviders({
@@ -230,7 +236,9 @@ const fetchSectionWithCache = async <T>({
   });
 
   if (providerResult.value !== null && providerResult.source) {
-    setCachedSection(symbol, section, providerResult.value);
+    setCachedSection(symbol, section, providerResult.value, {
+      sectionSource: providerResult.source,
+    });
     return {
       section,
       value: providerResult.value,
@@ -243,7 +251,9 @@ const fetchSectionWithCache = async <T>({
     const liveResult = await liveFallback();
 
     if (liveResult !== null) {
-      setCachedSection(symbol, section, liveResult.value);
+      setCachedSection(symbol, section, liveResult.value, {
+        sectionSource: liveResult.sectionSource,
+      });
       return {
         section,
         value: liveResult.value,
@@ -254,10 +264,10 @@ const fetchSectionWithCache = async <T>({
   }
 
   if (isRateLimitCooldownActive()) {
-    return useMockFallback("rateLimited");
+    return buildMockFallbackResult("rateLimited");
   }
 
-  return useMockFallback("providerError");
+  return buildMockFallbackResult("providerError");
 };
 
 const buildBundleFromSectionResults = (
@@ -484,6 +494,26 @@ const fetchSectionsForSymbol = async (
         fallback,
         primaryFetcher: (p) => p.fetchPriceHistory(normalized),
         mockFallback: () => mockPriceHistory(normalized),
+        liveFallback: async () => {
+          const asset = await findAssetBySymbol(normalized);
+
+          if (!asset) {
+            return null;
+          }
+
+          const nasdaqHistory = await getNasdaqHistoricalPriceHistory(asset);
+          const value =
+            nasdaqHistory ?? (await getYahooFinanceChartFallbackPriceHistory(asset));
+
+          if (!value || value.points.length === 0) {
+            return null;
+          }
+
+          return {
+            value,
+            sectionSource: nasdaqHistory ? "nasdaq" : "yahoo_chart",
+          };
+        },
         isEmpty: (value) => value === null || (value?.points?.length ?? 0) === 0,
         batchTracker,
       })
@@ -504,6 +534,24 @@ const fetchSectionsForSymbol = async (
             ? p.fetchIntradayHistory(normalized)
             : Promise.resolve(null),
         mockFallback: () => mockIntradayHistory(normalized),
+        liveFallback: async () => {
+          const asset = await findAssetBySymbol(normalized);
+
+          if (!asset) {
+            return null;
+          }
+
+          const value = await getYahooFinanceChartFallbackIntradayHistory(asset);
+
+          if (!value || value.points.length === 0) {
+            return null;
+          }
+
+          return {
+            value,
+            sectionSource: "yahoo_chart",
+          };
+        },
         isEmpty: (value) => value === null || (value?.points?.length ?? 0) === 0,
         batchTracker,
       })
@@ -664,4 +712,3 @@ export const getStockDataBundleForBatch = async (
 
   return bundle;
 };
-

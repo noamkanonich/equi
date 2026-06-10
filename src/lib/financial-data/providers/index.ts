@@ -37,7 +37,7 @@ const resolveProviderId = (): FinancialDataProviderId => {
   return "finnhub";
 };
 
-/** FMP when keyed, else Finnhub when keyed, else null (mock-only). */
+/** Use the configured provider first, then another configured real provider before mock fallback. */
 export const resolveStockProviders = (): ResolvedStockProviders => {
   const configuredProvider = resolveProviderId();
 
@@ -49,7 +49,7 @@ export const resolveStockProviders = (): ResolvedStockProviders => {
   const finnhub = getFinnhubStockProvider();
 
   if (configuredProvider === "finnhub") {
-    return { primary: finnhub, fallback: null };
+    return { primary: finnhub, fallback: fmp };
   }
 
   if (fmp) {

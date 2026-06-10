@@ -345,6 +345,12 @@ const mapAnalystConsensusKey = (
   }
 };
 
+const hasRealAnalystTarget = (bundle: StockProviderDataBundle): boolean => {
+  const source = bundle.meta.sectionProviders?.analystTarget;
+
+  return Boolean(source && source !== "mock");
+};
+
 export const enrichStockAnalysisWithBundle = (
   base: StockAnalysisData,
   bundle: StockProviderDataBundle,
@@ -423,7 +429,7 @@ export const enrichStockAnalysisWithBundle = (
     };
   }
 
-  if (bundle.analystTarget) {
+  if (bundle.analystTarget && hasRealAnalystTarget(bundle)) {
     const target = bundle.analystTarget;
     enriched = {
       ...enriched,
@@ -435,6 +441,15 @@ export const enrichStockAnalysisWithBundle = (
         consensusKey: mapAnalystConsensusKey(target),
         analystCount: target.analystCount ?? enriched.analystTarget.analystCount,
         distribution: target.distribution ?? enriched.analystTarget.distribution,
+        isFallback: false,
+      },
+    };
+  } else {
+    enriched = {
+      ...enriched,
+      analystTarget: {
+        ...enriched.analystTarget,
+        isFallback: true,
       },
     };
   }

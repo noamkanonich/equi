@@ -21,6 +21,7 @@ export const StockAnalystTargetCard = ({
 }: StockAnalystTargetCardProps) => {
   const t = useTranslations("stockAnalysis");
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const isUnavailable = analystTarget.isFallback === true;
   const total =
     analystTarget.distribution.buy +
     analystTarget.distribution.hold +
@@ -35,6 +36,13 @@ export const StockAnalystTargetCard = ({
     <Card>
       <Title>{t("analystTarget.title")}</Title>
 
+      {isUnavailable ? (
+        <UnavailableState>
+          <UnavailableTitle>{t("analystTarget.unavailableTitle")}</UnavailableTitle>
+          <UnavailableText>{t("analystTarget.unavailableDescription")}</UnavailableText>
+        </UnavailableState>
+      ) : (
+        <>
       <TargetRow>
         <TargetBlock>
           <TargetLabel>{t("analystTarget.averageTarget")}</TargetLabel>
@@ -91,15 +99,19 @@ export const StockAnalystTargetCard = ({
       <ViewDetails type="button" onClick={() => setIsDetailsOpen(true)}>
         {t("analystTarget.viewDetails")}
       </ViewDetails>
+        </>
+      )}
     </Card>
 
-    <StockAnalystDetailsModal
-      isOpen={isDetailsOpen}
-      onClose={() => setIsDetailsOpen(false)}
-      analystTarget={analystTarget}
-      currency={currency}
-      locale={locale}
-    />
+    {!isUnavailable ? (
+      <StockAnalystDetailsModal
+        isOpen={isDetailsOpen}
+        onClose={() => setIsDetailsOpen(false)}
+        analystTarget={analystTarget}
+        currency={currency}
+        locale={locale}
+      />
+    ) : null}
     </>
   );
 };
@@ -118,6 +130,28 @@ const Title = styled.h2`
   font-weight: ${({ theme }) => theme.typography.preset.cardTitle.fontWeight};
   line-height: ${({ theme }) => theme.typography.preset.cardTitle.lineHeight};
   margin-block-end: ${({ theme }) => theme.spacing.md};
+`;
+
+const UnavailableState = styled.div`
+  padding: ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.colors.background.soft};
+  border: 1px solid ${({ theme }) => theme.colors.border.subtle};
+  border-radius: ${({ theme }) => theme.radius.md};
+`;
+
+const UnavailableTitle = styled.strong`
+  display: block;
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => theme.typography.preset.body.fontSize};
+  font-weight: ${({ theme }) => theme.typography.weight.semibold};
+  margin-block-end: ${({ theme }) => theme.spacing.xs};
+`;
+
+const UnavailableText = styled.p`
+  color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: ${({ theme }) => theme.typography.preset.caption.fontSize};
+  line-height: ${({ theme }) => theme.typography.preset.caption.lineHeight};
+  margin: 0;
 `;
 
 const TargetRow = styled.div`

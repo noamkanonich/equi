@@ -69,6 +69,7 @@ export type StockAnalystTarget = {
   consensusKey: "strongBuy" | "buy" | "hold" | "sell";
   analystCount: number;
   distribution: AnalystRatingDistribution;
+  isFallback?: boolean;
 };
 
 export type StockUserPosition = {

@@ -3,6 +3,7 @@ import "server-only";
 import type {
   FinancialDataFallbackReason,
   FinancialDataSection,
+  FinancialDataSource,
 } from "@/data/financial-data/financial-data.types";
 import { logFinancialDataDebug } from "@/lib/financial-data/devFinancialDataLog";
 
@@ -11,6 +12,7 @@ type CacheEntry<T> = {
   expiresAt: number;
   isFallback: boolean;
   fallbackReason?: FinancialDataFallbackReason;
+  sectionSource?: FinancialDataSource;
 };
 
 const SECTION_TTL_MS: Record<FinancialDataSection, number> = {
@@ -52,6 +54,7 @@ export type CachedSectionResult<T> = {
   value: T;
   isFallback: boolean;
   fallbackReason?: FinancialDataFallbackReason;
+  sectionSource?: FinancialDataSource;
 };
 
 export const getCachedSection = <T>(
@@ -72,6 +75,7 @@ export const getCachedSection = <T>(
     value: entry.value as T,
     isFallback: entry.isFallback,
     fallbackReason: entry.fallbackReason,
+    sectionSource: entry.sectionSource,
   };
 };
 
@@ -82,6 +86,7 @@ export const setCachedSection = <T>(
   options?: {
     isFallback?: boolean;
     fallbackReason?: FinancialDataFallbackReason;
+    sectionSource?: FinancialDataSource;
     ttlMs?: number;
   },
 ): void => {
@@ -94,6 +99,7 @@ export const setCachedSection = <T>(
     expiresAt: Date.now() + ttlMs,
     isFallback,
     fallbackReason: options?.fallbackReason,
+    sectionSource: options?.sectionSource,
   });
 };
 

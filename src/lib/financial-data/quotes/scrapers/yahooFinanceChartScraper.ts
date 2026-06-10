@@ -2,6 +2,11 @@ import "server-only";
 
 import type { Quote } from "@/data/market/quote.types";
 import type { Asset } from "@/data/market/market.types";
+import type {
+  StockProviderIntradayHistory,
+  StockProviderPriceHistory,
+  StockProviderPricePoint,
+} from "@/data/financial-data/financial-data.types";
 import { logFinancialDataDebug } from "@/lib/financial-data/devFinancialDataLog";
 import { buildYahooFinanceSymbols } from "@/lib/financial-data/quotes/buildExternalSymbols";
 import { fetchJson } from "@/lib/financial-data/quotes/scrapers/scrapeFetch";
@@ -18,6 +23,16 @@ type YahooChartResponse = {
   chart?: {
     result?: Array<{
       meta?: YahooChartMeta;
+      timestamp?: number[];
+      indicators?: {
+        quote?: Array<{
+          open?: Array<number | null>;
+          high?: Array<number | null>;
+          low?: Array<number | null>;
+          close?: Array<number | null>;
+          volume?: Array<number | null>;
+        }>;
+      };
     }> | null;
     error?: {
       code?: string;
@@ -50,11 +65,17 @@ const resolveQuoteCurrency = (
 
 const YAHOO_CHART_HOSTS = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"];
 
-const buildYahooChartUrls = (symbol: string): string[] =>
+const buildYahooChartUrls = (
+  symbol: string,
+  query = "interval=1d&range=1d",
+): string[] =>
   YAHOO_CHART_HOSTS.map(
     (host) =>
-      `https://${host}/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1d`,
+      `https://${host}/v8/finance/chart/${encodeURIComponent(symbol)}?${query}`,
   );
+
+const isFiniteNumber = (value: unknown): value is number =>
+  typeof value === "number" && Number.isFinite(value);
 
 const mapChartMetaToQuote = (asset: Asset, meta: YahooChartMeta, symbol: string): Quote | null => {
   const price = toFiniteNumber(meta.regularMarketPrice);
@@ -152,6 +173,131 @@ const scrapeYahooChartSymbol = async (
   return null;
 };
 
+const fetchYahooChartPayload = async (
+  symbol: string,
+  query: string,
+): Promise<YahooChartResponse | null> => {
+  for (const url of buildYahooChartUrls(symbol, query)) {
+    const payload = await fetchJson<YahooChartResponse>(url);
+    const chartError = payload?.chart?.error;
+
+    if (chartError) {
+      logFinancialDataDebug("scraper.yahooChart.error", {
+        symbol,
+        code: chartError.code,
+        description: chartError.description,
+      });
+      continue;
+    }
+
+    if (payload?.chart?.result?.[0]) {
+      return payload;
+    }
+  }
+
+  return null;
+};
+
+const mapYahooChartToPriceHistory = (
+  asset: Asset,
+  symbol: string,
+  payload: YahooChartResponse,
+): StockProviderPriceHistory | null => {
+  const result = payload.chart?.result?.[0];
+  const timestamps = result?.timestamp ?? [];
+  const quote = result?.indicators?.quote?.[0];
+
+  if (!quote || timestamps.length === 0) {
+    return null;
+  }
+
+  const points: StockProviderPricePoint[] = timestamps.flatMap((timestamp, index) => {
+    const open = quote.open?.[index];
+    const high = quote.high?.[index];
+    const low = quote.low?.[index];
+    const close = quote.close?.[index];
+
+    if (
+      !isFiniteNumber(open) ||
+      !isFiniteNumber(high) ||
+      !isFiniteNumber(low) ||
+      !isFiniteNumber(close)
+    ) {
+      return [];
+    }
+
+    const volume = quote.volume?.[index];
+
+    return {
+      date: new Date(timestamp * 1000).toISOString().slice(0, 10),
+      open,
+      high,
+      low,
+      close,
+      volume: isFiniteNumber(volume) ? volume : 0,
+    };
+  });
+
+  if (points.length === 0) {
+    return null;
+  }
+
+  logFinancialDataDebug("scraper.yahooChart.history.success", {
+    assetId: asset.id,
+    symbol,
+    points: points.length,
+  });
+
+  return {
+    symbol: asset.symbol,
+    currency: resolveQuoteCurrency(result?.meta?.currency, asset),
+    points,
+  };
+};
+
+const mapYahooChartToIntradayHistory = (
+  asset: Asset,
+  symbol: string,
+  payload: YahooChartResponse,
+): StockProviderIntradayHistory | null => {
+  const result = payload.chart?.result?.[0];
+  const timestamps = result?.timestamp ?? [];
+  const closePrices = result?.indicators?.quote?.[0]?.close ?? [];
+
+  if (timestamps.length === 0 || closePrices.length === 0) {
+    return null;
+  }
+
+  const points = timestamps.flatMap((timestamp, index) => {
+    const price = closePrices[index];
+
+    if (!isFiniteNumber(price)) {
+      return [];
+    }
+
+    return {
+      time: new Date(timestamp * 1000).toISOString().slice(11, 16),
+      price,
+    };
+  });
+
+  if (points.length === 0) {
+    return null;
+  }
+
+  logFinancialDataDebug("scraper.yahooChart.intraday.success", {
+    assetId: asset.id,
+    symbol,
+    points: points.length,
+  });
+
+  return {
+    symbol: asset.symbol,
+    currency: resolveQuoteCurrency(result?.meta?.currency, asset),
+    points,
+  };
+};
+
 export const getYahooFinanceChartFallbackQuote = async (asset: Asset): Promise<Quote | null> => {
   const symbols = buildYahooFinanceSymbols(asset);
 
@@ -168,6 +314,50 @@ export const getYahooFinanceChartFallbackQuote = async (asset: Asset): Promise<Q
 
     if (quote) {
       return quote;
+    }
+  }
+
+  return null;
+};
+
+export const getYahooFinanceChartFallbackPriceHistory = async (
+  asset: Asset,
+): Promise<StockProviderPriceHistory | null> => {
+  const symbols = buildYahooFinanceSymbols(asset);
+
+  for (const symbol of symbols) {
+    const payload = await fetchYahooChartPayload(symbol, "interval=1d&range=1y");
+
+    if (!payload) {
+      continue;
+    }
+
+    const history = mapYahooChartToPriceHistory(asset, symbol, payload);
+
+    if (history) {
+      return history;
+    }
+  }
+
+  return null;
+};
+
+export const getYahooFinanceChartFallbackIntradayHistory = async (
+  asset: Asset,
+): Promise<StockProviderIntradayHistory | null> => {
+  const symbols = buildYahooFinanceSymbols(asset);
+
+  for (const symbol of symbols) {
+    const payload = await fetchYahooChartPayload(symbol, "interval=5m&range=1d");
+
+    if (!payload) {
+      continue;
+    }
+
+    const history = mapYahooChartToIntradayHistory(asset, symbol, payload);
+
+    if (history) {
+      return history;
     }
   }
 

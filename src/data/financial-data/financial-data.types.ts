@@ -10,6 +10,7 @@ export type FinancialDataSource =
   | "mixed"
   | "yahoo_scraper"
   | "yahoo_chart"
+  | "nasdaq"
   | "google_scraper"
   | "scraper_cache";
 
