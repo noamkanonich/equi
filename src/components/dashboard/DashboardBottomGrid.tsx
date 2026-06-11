@@ -8,19 +8,41 @@ import { RecentActivityCard } from "./RecentActivityCard";
 import { ScoreDistributionCard } from "./ScoreDistributionCard";
 import { SectorExposureCard } from "./SectorExposureCard";
 import type { DashboardData } from "@/data/dashboard/dashboard.types";
+import type { DataState } from "@/data/ui/ui-state.types";
+import { SkeletonCard } from "@/components/ui/states/SkeletonCard";
+import { resolveDataState } from "@/data/ui/mappers";
 
 type DashboardBottomGridProps = {
   dashboardData: DashboardData;
   locale: string;
   startIndex?: number;
+  dataState?: DataState;
 };
 
 export const DashboardBottomGrid = ({
   dashboardData,
   locale,
   startIndex = 0,
+  dataState,
 }: DashboardBottomGridProps) => {
   const prefersReducedMotion = useReducedMotion();
+  const effectiveState = resolveDataState({
+    explicitState: dataState,
+    isLoading: false,
+    isEmpty: false,
+  });
+
+  if (effectiveState === "loading") {
+    return (
+      <Grid>
+        {Array.from({ length: 4 }).map((_, index) => (
+          <MotionCell key={`bottom-skeleton-${index}`}>
+            <SkeletonCard $bodyLines={3} />
+          </MotionCell>
+        ))}
+      </Grid>
+    );
+  }
 
   const cards = [
     <AssetAllocationCard

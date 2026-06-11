@@ -78,6 +78,7 @@ export const PortfolioHoldingFormModal = ({
   useEffect(() => {
     const trimmed = debouncedQuery.trim();
     if (trimmed.length < 2) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setApiSearchResults([]);
       setIsSearchFetching(false);
       setHasSearchError(false);
@@ -116,6 +117,7 @@ export const PortfolioHoldingFormModal = ({
     if (!isOpen) return;
 
     if (mode === "edit" && holding) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm(mapHoldingToFormInput(holding));
       setSelectedStock(null);
       setQuery("");

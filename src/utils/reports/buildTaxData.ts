@@ -121,11 +121,19 @@ export const buildTaxData = (
   holdings: EnrichedPortfolioHolding[],
   currency: CurrencyCode,
   hasHoldings: boolean,
+  isUsingDemoPortfolio = false,
 ): BuildTaxDataResult => {
   if (!hasHoldings || holdings.length === 0) {
+    if (isUsingDemoPortfolio) {
+      return {
+        taxSummary: reportsMockTaxSummary,
+        taxLots: reportsMockTaxLots,
+      };
+    }
+
     return {
-      taxSummary: reportsMockTaxSummary,
-      taxLots: reportsMockTaxLots,
+      taxSummary: buildTaxSummaryFromLots([], currency),
+      taxLots: [],
     };
   }
 

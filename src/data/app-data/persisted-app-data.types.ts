@@ -17,4 +17,5 @@ export type PersistedAppDataV1 = {
   stockThesisBySymbol: Record<string, StockThesisContent>;
   stockGeneralNotesBySymbol: Record<string, StockGeneralNote[]>;
   userCreatedAlerts: UserCreatedAlert[];
+  dismissedNextMoveIds: string[];
 };

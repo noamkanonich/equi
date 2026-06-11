@@ -9,8 +9,8 @@ import {
   PageContent,
   PageMainGrid,
 } from "@/components/layout/PageContent";
+import { EmptyState } from "@/components/ui/states/EmptyState";
 import { StaleDataNotice } from "@/components/ui/states/StaleDataNotice";
-import { smartReplaceMockData } from "@/data/smart-replace/smart-replace.mock";
 import type { StockProviderDataBundle } from "@/data/financial-data/financial-data.types";
 import type {
   ReplacementCandidate,
@@ -18,6 +18,7 @@ import type {
   WeakPosition,
 } from "@/data/smart-replace/smart-replace.types";
 import { usePageStockBundles } from "@/hooks/usePageStockBundles";
+import { useAppData } from "@/providers/useAppData";
 import {
   fadeUpVariants,
   getCardRevealTransition,
@@ -29,6 +30,7 @@ import {
 } from "@/utils/financial-data/mergeStockProfileIntoStockItem";
 import { mergeStockQuoteIntoHolding } from "@/utils/financial-data/mergeStockQuoteIntoHolding";
 import { calculateSwapImpact } from "@/utils/smart-replace/calculateSwapImpact";
+import { buildSmartReplacePageData } from "@/utils/smart-replace/buildSmartReplacePageData";
 import { SmartReplaceCandidatesTable } from "./SmartReplaceCandidatesTable";
 import { SmartReplaceHeader } from "./SmartReplaceHeader";
 import { SmartReplaceMainComparison } from "./SmartReplaceMainComparison";
@@ -57,34 +59,80 @@ const enrichReplacementCandidate = (
 
 export const SmartReplacePage = () => {
   const locale = useLocale();
+  const t = useTranslations("watchlist");
   const tStates = useTranslations("states");
   const tConfirm = useTranslations("smartReplace.confirm");
   const prefersReducedMotion = useReducedMotion();
-  const [selectedWeakPositionId, setSelectedWeakPositionId] = useState(
-    smartReplaceMockData.defaultWeakPositionId,
+  const {
+    enrichedPortfolioHoldings,
+    enrichedWatchlistItems,
+    isUsingDemoPortfolio,
+    isUserDataPending,
+  } = useAppData();
+
+  const pageData = useMemo(
+    () =>
+      buildSmartReplacePageData({
+        enrichedPortfolioHoldings,
+        enrichedWatchlistItems,
+        isUsingDemoPortfolio,
+      }),
+    [enrichedPortfolioHoldings, enrichedWatchlistItems, isUsingDemoPortfolio],
   );
-  const [selectedCandidateId, setSelectedCandidateId] = useState(
-    smartReplaceMockData.defaultReplacementCandidateId,
+
+  const [selectedWeakPositionId, setSelectedWeakPositionId] = useState<string | null>(
+    null,
+  );
+  const [selectedCandidateId, setSelectedCandidateId] = useState<string | null>(
+    null,
   );
   const [isPreviewActive, setIsPreviewActive] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [isApplyConfirmOpen, setIsApplyConfirmOpen] = useState(false);
 
+  const resolvedWeakPositionId = useMemo(() => {
+    const validIds = new Set([
+      ...pageData.weakPositions.map((position) => position.id),
+      ...pageData.otherWeakPositions.map((position) => position.id),
+    ]);
+
+    if (selectedWeakPositionId && validIds.has(selectedWeakPositionId)) {
+      return selectedWeakPositionId;
+    }
+
+    return pageData.defaultWeakPositionId;
+  }, [
+    pageData.defaultWeakPositionId,
+    pageData.otherWeakPositions,
+    pageData.weakPositions,
+    selectedWeakPositionId,
+  ]);
+
+  const resolvedCandidateId = useMemo(() => {
+    const validIds = new Set(
+      pageData.replacementCandidates.map((candidate) => candidate.id),
+    );
+
+    if (selectedCandidateId && validIds.has(selectedCandidateId)) {
+      return selectedCandidateId;
+    }
+
+    return pageData.defaultReplacementCandidateId;
+  }, [
+    pageData.defaultReplacementCandidateId,
+    pageData.replacementCandidates,
+    selectedCandidateId,
+  ]);
+
   const symbols = useMemo(
     () =>
       collectUniqueSymbols([
-        ...smartReplaceMockData.weakPositions.map((position) => position.symbol),
-        ...smartReplaceMockData.otherWeakPositions.map(
-          (position) => position.symbol,
-        ),
-        ...smartReplaceMockData.replacementCandidates.map(
-          (candidate) => candidate.symbol,
-        ),
-        ...smartReplaceMockData.upgradeDowngradeSignals.map(
-          (signal) => signal.symbol,
-        ),
+        ...pageData.weakPositions.map((position) => position.symbol),
+        ...pageData.otherWeakPositions.map((position) => position.symbol),
+        ...pageData.replacementCandidates.map((candidate) => candidate.symbol),
+        ...pageData.upgradeDowngradeSignals.map((signal) => signal.symbol),
       ]),
-    [],
+    [pageData],
   );
 
   const { bundles, freshnessStatus, isLoading } = usePageStockBundles(symbols);
@@ -92,36 +140,36 @@ export const SmartReplacePage = () => {
   const weakPositions = useMemo(
     () =>
       isLoading
-        ? smartReplaceMockData.weakPositions
-        : smartReplaceMockData.weakPositions.map((position) =>
+        ? pageData.weakPositions
+        : pageData.weakPositions.map((position) =>
             enrichWeakPosition(position, bundles),
           ),
-    [bundles, isLoading],
+    [bundles, isLoading, pageData.weakPositions],
   );
 
   const otherWeakPositions = useMemo(
     () =>
       isLoading
-        ? smartReplaceMockData.otherWeakPositions
-        : smartReplaceMockData.otherWeakPositions.map((position) =>
+        ? pageData.otherWeakPositions
+        : pageData.otherWeakPositions.map((position) =>
             enrichWeakPosition(position, bundles),
           ),
-    [bundles, isLoading],
+    [bundles, isLoading, pageData.otherWeakPositions],
   );
 
   const replacementCandidates = useMemo(
     () =>
       isLoading
-        ? smartReplaceMockData.replacementCandidates
-        : smartReplaceMockData.replacementCandidates.map((candidate) =>
+        ? pageData.replacementCandidates
+        : pageData.replacementCandidates.map((candidate) =>
             enrichReplacementCandidate(candidate, bundles),
           ),
-    [bundles, isLoading],
+    [bundles, isLoading, pageData.replacementCandidates],
   );
 
   const upgradeDowngradeSignals = useMemo(
     (): UpgradeDowngradeSignal[] =>
-      smartReplaceMockData.upgradeDowngradeSignals.map((signal) => {
+      pageData.upgradeDowngradeSignals.map((signal) => {
         const profile = mergeStockProfileIntoStockItem(
           {
             symbol: signal.symbol,
@@ -136,7 +184,7 @@ export const SmartReplacePage = () => {
           companyName: profile.companyName,
         };
       }),
-    [bundles],
+    [bundles, pageData.upgradeDowngradeSignals],
   );
 
   const allWeakPositions = useMemo(
@@ -144,17 +192,19 @@ export const SmartReplacePage = () => {
     [otherWeakPositions, weakPositions],
   );
 
-  const selectedWeakPosition =
-    allWeakPositions.find((position) => position.id === selectedWeakPositionId) ??
-    allWeakPositions[0];
+  const selectedWeakPosition = allWeakPositions.find(
+    (position) => position.id === resolvedWeakPositionId,
+  );
 
-  const selectedCandidate =
-    replacementCandidates.find(
-      (candidate) => candidate.id === selectedCandidateId,
-    ) ?? replacementCandidates[0];
+  const selectedCandidate = replacementCandidates.find(
+    (candidate) => candidate.id === resolvedCandidateId,
+  );
 
   const simulation = useMemo(
-    () => calculateSwapImpact(selectedCandidate),
+    () =>
+      selectedCandidate
+        ? calculateSwapImpact(selectedCandidate)
+        : { candidateId: "", metrics: [] },
     [selectedCandidate],
   );
 
@@ -183,6 +233,42 @@ export const SmartReplacePage = () => {
     setAnimationKey((key) => key + 1);
   };
 
+  if (isUserDataPending) {
+    return (
+      <PageContent>
+        <SmartReplaceHeader />
+        <EmptyState
+          title={tStates("loading.title")}
+          description={tStates("loading.description")}
+        />
+      </PageContent>
+    );
+  }
+
+  if (pageData.isEmpty) {
+    return (
+      <PageContent>
+        <SmartReplaceHeader />
+        <EmptyState
+          title={tStates("empty.title")}
+          description={t("replaceHolding.empty")}
+        />
+      </PageContent>
+    );
+  }
+
+  if (!selectedWeakPosition || !selectedCandidate) {
+    return (
+      <PageContent>
+        <SmartReplaceHeader />
+        <EmptyState
+          title={tStates("empty.title")}
+          description={t("replaceHolding.empty")}
+        />
+      </PageContent>
+    );
+  }
+
   return (
     <PageContent>
       <MotionSection {...reveal(0)}>
@@ -198,7 +284,7 @@ export const SmartReplacePage = () => {
       </MotionSection>
 
       <SmartReplaceSummaryGrid
-        metrics={smartReplaceMockData.summaryMetrics}
+        metrics={pageData.summaryMetrics}
         locale={locale}
         replayKey={animationKey}
       />
@@ -247,9 +333,9 @@ export const SmartReplacePage = () => {
 
         <MotionSection {...reveal(9)}>
           <SmartReplaceSidebar
-            reasons={smartReplaceMockData.recommendationReasons}
+            reasons={pageData.recommendationReasons}
             impactMetrics={simulation.metrics}
-            aiNote={smartReplaceMockData.aiNote}
+            aiNote={pageData.aiNote}
             locale={locale}
             isPreviewActive={isPreviewActive}
             replayKey={animationKey}

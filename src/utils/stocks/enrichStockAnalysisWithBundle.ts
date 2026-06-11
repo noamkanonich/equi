@@ -1,6 +1,8 @@
 import type { CurrencyCode } from "@/data/currencies/currency.types";
 import { buildChartData } from "@/data/stocks/stock-analysis.builders.mock";
 import type {
+  FinancialDataSection,
+  FinancialDataSource,
   StockProviderDataBundle,
   StockProviderFinancialStatement,
   StockProviderIntradayHistory,
@@ -280,6 +282,41 @@ const buildOneDayFromIntraday = (
 const buildOneDayFromQuote = (quote: StockProviderQuote): StockChartPoint[] =>
   buildChartData(quote.price, quote.previousClose).oneDay;
 
+const isLiveFinancialDataSource = (
+  source: FinancialDataSource | undefined,
+): boolean => Boolean(source && source !== "mock");
+
+const hasLiveSection = (
+  bundle: StockProviderDataBundle,
+  section: FinancialDataSection,
+): boolean => isLiveFinancialDataSource(bundle.meta.sectionProviders?.[section]);
+
+const getLatestChartPrice = (
+  points: Array<StockProviderPricePoint | StockProviderIntradayPoint>,
+): number | null => {
+  const latest = points.at(-1);
+
+  if (!latest) {
+    return null;
+  }
+
+  return "close" in latest ? latest.close : latest.price;
+};
+
+const isChartSeriesConsistentWithQuote = (
+  latestPrice: number | null,
+  quote: StockProviderQuote | null,
+): boolean => {
+  if (!quote || latestPrice === null || latestPrice <= 0 || quote.price <= 0) {
+    return true;
+  }
+
+  const anchorLow = Math.min(quote.price, quote.previousClose);
+  const anchorHigh = Math.max(quote.price, quote.previousClose);
+
+  return latestPrice >= anchorLow / 3 && latestPrice <= anchorHigh * 3;
+};
+
 const buildChartDataFromHistory = (
   points: StockProviderPricePoint[],
   baseChartData: Record<StockChartRange, StockChartPoint[]>,
@@ -348,7 +385,7 @@ const mapAnalystConsensusKey = (
 const hasRealAnalystTarget = (bundle: StockProviderDataBundle): boolean => {
   const source = bundle.meta.sectionProviders?.analystTarget;
 
-  return Boolean(source && source !== "mock");
+  return isLiveFinancialDataSource(source);
 };
 
 export const enrichStockAnalysisWithBundle = (
@@ -383,18 +420,39 @@ export const enrichStockAnalysisWithBundle = (
     };
   }
 
-  if (
-    bundle.priceHistory?.points.length ||
-    bundle.intraday?.points.length ||
-    quote
-  ) {
+  const hasLiveQuote = hasLiveSection(bundle, "quote");
+  const quoteForChart = hasLiveQuote ? quote : null;
+  const chartBaseData =
+    quoteForChart && quoteForChart.price > 0
+      ? buildChartData(quoteForChart.price, quoteForChart.previousClose)
+      : enriched.chartData;
+  const livePriceHistory =
+    hasLiveSection(bundle, "priceHistory") &&
+    bundle.priceHistory?.points.length &&
+    isChartSeriesConsistentWithQuote(
+      getLatestChartPrice(bundle.priceHistory.points),
+      quoteForChart,
+    )
+      ? bundle.priceHistory.points
+      : [];
+  const liveIntraday =
+    hasLiveSection(bundle, "intraday") &&
+    bundle.intraday?.points.length &&
+    isChartSeriesConsistentWithQuote(
+      getLatestChartPrice(bundle.intraday.points),
+      quoteForChart,
+    )
+      ? bundle.intraday
+      : null;
+
+  if (livePriceHistory.length || liveIntraday?.points.length || quoteForChart) {
     enriched = {
       ...enriched,
       chartData: buildChartDataFromHistory(
-        bundle.priceHistory?.points ?? [],
-        enriched.chartData,
-        bundle.intraday,
-        quote ?? null,
+        livePriceHistory,
+        chartBaseData,
+        liveIntraday,
+        quoteForChart,
       ),
     };
   }

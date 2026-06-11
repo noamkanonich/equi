@@ -33,6 +33,7 @@ export const PortfolioHoldingNoteModal = ({
 
   useEffect(() => {
     if (isOpen && holding) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNotes(holding.notes ?? "");
       setIsSuccess(false);
     }

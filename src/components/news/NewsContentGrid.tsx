@@ -48,7 +48,6 @@ export const NewsContentGrid = ({
   onClearFilters,
 }: NewsContentGridProps) => {
   const t = useTranslations("news");
-  const tStates = useTranslations("states");
   const prefersReducedMotion = useReducedMotion();
 
   const renderMainContent = () => {

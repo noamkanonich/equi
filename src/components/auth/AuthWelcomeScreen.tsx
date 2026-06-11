@@ -3,8 +3,6 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import styled from "styled-components";
-import { authPageBackground } from "@/components/auth/authBackground";
-import { authPageFadeIn } from "@/components/auth/authMotion";
 import { AuthFormCard } from "@/components/auth/AuthFormCard";
 import { AuthHeroPanel } from "@/components/auth/AuthHeroPanel";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";

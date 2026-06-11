@@ -118,7 +118,7 @@ export const SettingsSummaryCard = ({
       return t(valueKey as "enabled");
     }
 
-    return tAi(valueKey as "concise");
+    return tAi(`values.${valueKey}` as "values.balanced");
   };
 
   return (

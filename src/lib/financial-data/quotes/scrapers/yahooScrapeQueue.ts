@@ -1,7 +1,5 @@
 import "server-only";
 
-import { logFinancialDataDebug } from "@/lib/financial-data/devFinancialDataLog";
-
 const MIN_YAHOO_REQUEST_INTERVAL_MS = 1_500;
 
 let lastYahooRequestAt = 0;

@@ -6,7 +6,6 @@ import { useMemo, useState } from "react";
 import styled from "styled-components";
 import { PageContent, PageSplitWideGrid } from "@/components/layout/PageContent";
 import { StaleDataNotice } from "@/components/ui/states/StaleDataNotice";
-import { portfolioMockData } from "@/data/portfolio/portfolio.mock";
 import { useLivePortfolioData } from "@/hooks/useLivePortfolioData";
 import { useAppData } from "@/providers/useAppData";
 import {
@@ -30,28 +29,17 @@ export const PortfolioPage = () => {
   const prefersReducedMotion = useReducedMotion();
   const [isAddHoldingOpen, setIsAddHoldingOpen] = useState(false);
 
-  const { isUsingDemoPortfolio, isAuthenticatedDataLoading } = useAppData();
-
-  const demoExtraSymbols = useMemo(
-    () =>
-      isUsingDemoPortfolio
-        ? [
-            ...portfolioMockData.upcomingEarnings.map((earning) => earning.symbol),
-            ...portfolioMockData.recentActivity.map((activity) => activity.symbol),
-          ]
-        : [],
-    [isUsingDemoPortfolio],
-  );
+  const { isUsingDemoPortfolio, isUserDataPending } = useAppData();
 
   const { bundles, freshnessStatus, isLoading, isPortfolioQuotesLoading, enrichedHoldings, summary, userHoldings } =
-    useLivePortfolioData({
-      extraSymbols: demoExtraSymbols,
-    });
+    useLivePortfolioData();
 
   const holdingsDataState = resolvePortfolioHoldingsDataState(
     userHoldings.length,
-    isAuthenticatedDataLoading || isPortfolioQuotesLoading,
+    isUserDataPending || isPortfolioQuotesLoading,
   );
+
+  const pageDataState = isUserDataPending ? "loading" : undefined;
 
   const portfolioData = useMemo(
     () =>
@@ -59,13 +47,13 @@ export const PortfolioPage = () => {
         enrichedHoldings,
         summary,
         bundles,
-        isLoading: isAuthenticatedDataLoading || isLoading,
+        isLoading: isUserDataPending || isLoading,
         isUsingDemoPortfolio,
       }),
     [
       bundles,
       enrichedHoldings,
-      isAuthenticatedDataLoading,
+      isUserDataPending,
       isLoading,
       isUsingDemoPortfolio,
       summary,
@@ -109,6 +97,7 @@ export const PortfolioPage = () => {
           holdingsCount={portfolioData.holdings.length}
           locale={locale}
           startIndex={1}
+          dataState={pageDataState}
         />
 
         <PageSplitWideGrid>
@@ -118,6 +107,7 @@ export const PortfolioPage = () => {
               totalReturnPercent={portfolioData.summary.totalReturnPercent}
               locale={locale}
               freshnessStatus={freshnessStatus}
+              dataState={pageDataState}
             />
           </MotionSection>
           <MotionSection {...reveal(8)}>
@@ -126,6 +116,7 @@ export const PortfolioPage = () => {
               totalValue={portfolioData.summary.totalValue}
               currency={portfolioData.summary.currency}
               locale={locale}
+              dataState={pageDataState}
             />
           </MotionSection>
         </PageSplitWideGrid>
@@ -144,6 +135,7 @@ export const PortfolioPage = () => {
           portfolioData={portfolioData}
           locale={locale}
           startIndex={10}
+          dataState={pageDataState}
         />
       </PageContent>
       <PortfolioHoldingFormModal

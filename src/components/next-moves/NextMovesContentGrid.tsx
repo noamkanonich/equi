@@ -21,6 +21,7 @@ type NextMovesContentGridProps = {
   nextMovesData: NextMovesData;
   locale: string;
   emptyVariant?: ListEmptyVariant;
+  showGuidanceEmpty?: boolean;
   dataState?: DataState;
   onDismissMove?: (moveId: string) => void;
   onClearFilters?: () => void;
@@ -32,6 +33,7 @@ export const NextMovesContentGrid = ({
   nextMovesData,
   locale,
   emptyVariant: emptyVariantProp,
+  showGuidanceEmpty = false,
   dataState,
   onDismissMove,
   onClearFilters,
@@ -122,8 +124,10 @@ export const NextMovesContentGrid = ({
         }
       >
         <EmptyState
-          title={t("empty.title")}
-          description={t("empty.description")}
+          title={t(showGuidanceEmpty ? "guidanceEmpty.title" : "empty.title")}
+          description={
+            showGuidanceEmpty ? t("guidanceEmpty.summary") : t("empty.description")
+          }
         />
       </EmptyPanel>
     );

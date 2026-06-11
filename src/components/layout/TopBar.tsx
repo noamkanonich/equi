@@ -71,6 +71,7 @@ export const TopBar = ({ onMenuClick, showMenuButton = false }: TopBarProps) => 
   useEffect(() => {
     const trimmed = debouncedQuery.trim();
     if (trimmed.length < MIN_SEARCH_QUERY_LENGTH) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSearchResults([]);
       setIsSearchLoading(false);
       return;

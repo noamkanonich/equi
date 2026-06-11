@@ -49,6 +49,10 @@ const normalizePersistedPayload = (
     return null;
   }
 
+  const dismissedNextMoveIds = isArray(persisted.dismissedNextMoveIds)
+    ? (persisted.dismissedNextMoveIds as string[])
+    : [];
+
   return {
     version: "1",
     portfolioHoldings: persisted.portfolioHoldings as PersistedAppDataV1["portfolioHoldings"],
@@ -63,6 +67,7 @@ const normalizePersistedPayload = (
       {},
     ),
     userCreatedAlerts: persisted.userCreatedAlerts as PersistedAppDataV1["userCreatedAlerts"],
+    dismissedNextMoveIds,
   };
 };
 
@@ -76,6 +81,7 @@ export const partializeAppDataState = (
   stockThesisBySymbol: state.stockThesisBySymbol,
   stockGeneralNotesBySymbol: state.stockGeneralNotesBySymbol,
   userCreatedAlerts: state.userCreatedAlerts,
+  dismissedNextMoveIds: state.dismissedNextMoveIds,
 });
 
 export const mergePersistedAppData = (
@@ -96,6 +102,7 @@ export const mergePersistedAppData = (
     stockThesisBySymbol: normalized.stockThesisBySymbol,
     stockGeneralNotesBySymbol: normalized.stockGeneralNotesBySymbol,
     userCreatedAlerts: normalized.userCreatedAlerts,
+    dismissedNextMoveIds: normalized.dismissedNextMoveIds,
     stockDataBySymbol: {},
     stockDataLoadingBySymbol: {},
     stockDataErrorBySymbol: {},
@@ -114,6 +121,7 @@ export const getDefaultPersistedAppData = (): PersistedAppDataV1 => ({
   stockThesisBySymbol: {},
   stockGeneralNotesBySymbol: {},
   userCreatedAlerts: [],
+  dismissedNextMoveIds: [],
 });
 
 type PersistCapableStore = {

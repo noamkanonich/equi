@@ -14,7 +14,11 @@ const getSublabelKey = (kind: string, period: ReportPeriodKey): string =>
   reportsPeriodMetricSublabelKeys[kind]?.oneYear ??
   "vsLastYear";
 
-const getMetricTrend = (kind: string): number[] => {
+const getMetricTrend = (kind: string, useMockTrend: boolean): number[] => {
+  if (!useMockTrend) {
+    return [];
+  }
+
   const mockMetric = portfolioMockData.metrics.find((metric) => {
     if (kind === "portfolioValue") return metric.kind === "totalValue";
     if (kind === "totalGainLoss") return metric.kind === "totalReturn";
@@ -61,6 +65,7 @@ export const calculateReportMetrics = (
       : (summary.cashAvailable / summary.totalValue) * 100;
 
   const annualReturnPercent = summary.totalReturnPercent * 0.68;
+  const useMockTrend = isUsingDemoPortfolio;
 
   return [
     {
@@ -70,7 +75,7 @@ export const calculateReportMetrics = (
       secondaryValue: summary.totalReturnPercent,
       secondaryKind: "percent",
       sublabelKey: getSublabelKey("portfolioValue", period),
-      trend: getMetricTrend("portfolioValue"),
+      trend: getMetricTrend("portfolioValue", useMockTrend),
       tone: summary.totalReturnPercent >= 0 ? "positive" : "negative",
     },
     {
@@ -80,7 +85,7 @@ export const calculateReportMetrics = (
       secondaryValue: summary.totalReturnPercent,
       secondaryKind: "percent",
       sublabelKey: getSublabelKey("totalGainLoss", period),
-      trend: getMetricTrend("totalGainLoss"),
+      trend: getMetricTrend("totalGainLoss", useMockTrend),
       tone: summary.totalReturn >= 0 ? "positive" : "negative",
     },
     {
@@ -91,7 +96,9 @@ export const calculateReportMetrics = (
       secondaryKind: "percent",
       sublabelKey: "vsBenchmark",
       sublabelParams: { benchmark: "S&P 500" },
-      trend: reportsMockMetrics.find((m) => m.kind === "annualReturn")?.trend ?? [],
+      trend: useMockTrend
+        ? (reportsMockMetrics.find((m) => m.kind === "annualReturn")?.trend ?? [])
+        : [],
       tone: annualReturnPercent >= 0 ? "positive" : "negative",
     },
     {
@@ -101,7 +108,9 @@ export const calculateReportMetrics = (
       secondaryValue: unrealizedPercent,
       secondaryKind: "percent",
       sublabelKey: "fromOriginalInvestment",
-      trend: reportsMockMetrics.find((m) => m.kind === "unrealizedGain")?.trend ?? [],
+      trend: useMockTrend
+        ? (reportsMockMetrics.find((m) => m.kind === "unrealizedGain")?.trend ?? [])
+        : [],
       tone: unrealizedGain >= 0 ? "positive" : "negative",
     },
     {
@@ -111,7 +120,9 @@ export const calculateReportMetrics = (
       secondaryValue: cashPercent,
       secondaryKind: "percent",
       sublabelKey: "ofPortfolio",
-      trend: reportsMockMetrics.find((m) => m.kind === "cashBalance")?.trend ?? [],
+      trend: useMockTrend
+        ? (reportsMockMetrics.find((m) => m.kind === "cashBalance")?.trend ?? [])
+        : [],
       tone: "neutral",
     },
   ];

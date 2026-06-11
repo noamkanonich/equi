@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { PageContent, PageMainGrid } from "@/components/layout/PageContent";
 import { AddStockModal } from "@/components/add-stock/AddStockModal";
@@ -29,6 +29,7 @@ import {
 import { collectUniqueSymbols } from "@/utils/financial-data/collectUniqueSymbols";
 import { deriveDataSourceSummary } from "@/utils/financial-data/deriveDataSourceSummary";
 import { mergeStockProfileIntoStockItem } from "@/utils/financial-data/mergeStockProfileIntoStockItem";
+import { logWatchlistSource } from "@/utils/app-data/devAppDataLog";
 import { filterWatchlistItems } from "@/utils/watchlist/filterWatchlistItems";
 import { WatchlistFilterModal } from "./WatchlistFilterModal";
 import { WatchlistHeader } from "./WatchlistHeader";
@@ -64,8 +65,14 @@ export const WatchlistPage = ({ title, subtitle }: WatchlistPageProps) => {
     enrichedWatchlistItems,
     stockDataBySymbol,
     isUsingDemoPortfolio,
-    isAuthenticatedDataLoading,
+    isUserDataPending,
   } = useAppData();
+
+  useEffect(() => {
+    logWatchlistSource(
+      isUserDataPending ? "loading" : watchlistItems.length === 0 ? "empty" : "app-data",
+    );
+  }, [isUserDataPending, watchlistItems.length]);
 
   const watchlistMetrics = isUsingDemoPortfolio
     ? watchlistSummaryMetrics
@@ -215,7 +222,7 @@ export const WatchlistPage = ({ title, subtitle }: WatchlistPageProps) => {
               totalItems={enrichedWatchlistItems.length}
               locale={locale}
               dataState={
-                isAuthenticatedDataLoading || isLoading ? "loading" : undefined
+                isUserDataPending || isLoading ? "loading" : undefined
               }
               onAddStockClick={() => setIsAddStockOpen(true)}
               onClearFilters={() => setFilters(defaultWatchlistFilters)}

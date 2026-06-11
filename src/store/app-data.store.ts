@@ -178,23 +178,25 @@ const markSymbolsError = (
 export const useAppDataStore = create<AppDataStore>()(
   persist(
     (set, get) => ({
-  portfolioHoldings: initialPortfolioHoldings,
-  cashBalance: initialPortfolioCashBalance,
-  watchlistItems: initialWatchlistItems,
+  portfolioHoldings: emptyPortfolioHoldings,
+  cashBalance: emptyCashBalance,
+  watchlistItems: emptyWatchlistItems,
   stockDataBySymbol: {},
   stockDataLoadingBySymbol: {},
   stockDataErrorBySymbol: {},
   lastFetchedAtBySymbol: {},
   lastFetchedSectionsBySymbol: {},
-  stockThesisBySymbol: {},
-  stockGeneralNotesBySymbol: {},
-  userCreatedAlerts: [],
+  stockThesisBySymbol: emptyStockThesisBySymbol,
+  stockGeneralNotesBySymbol: emptyStockGeneralNotesBySymbol,
+  userCreatedAlerts: emptyUserAlerts,
   alertStatusOverrides: {},
+  dismissedNextMoveIds: [],
   userDataSyncError: null,
   authMode: "local",
   portfolioDataSource: "localMock",
-  isUserDataLoaded: true,
-  isUsingDemoPortfolio: true,
+  isUserDataLoaded: false,
+  isUsingDemoPortfolio: false,
+  isAppDataInitialized: false,
 
   setAppDataMode: (mode) => {
     set(mode);
@@ -214,6 +216,7 @@ export const useAppDataStore = create<AppDataStore>()(
       stockGeneralNotesBySymbol: emptyStockGeneralNotesBySymbol,
       userCreatedAlerts: emptyUserAlerts,
       alertStatusOverrides: {},
+      dismissedNextMoveIds: [],
       userDataSyncError: null,
       portfolioDataSource: "supabase",
       isUsingDemoPortfolio: false,
@@ -362,6 +365,14 @@ export const useAppDataStore = create<AppDataStore>()(
     return get().alertStatusOverrides[id] ?? fallbackStatus;
   },
 
+  dismissNextMove: (moveId) => {
+    set((state) => ({
+      dismissedNextMoveIds: state.dismissedNextMoveIds.includes(moveId)
+        ? state.dismissedNextMoveIds
+        : [...state.dismissedNextMoveIds, moveId],
+    }));
+  },
+
   addStockGeneralNote: (symbol, note) => {
     const normalized = symbol.trim().toUpperCase();
     const entry = {
@@ -501,11 +512,13 @@ export const useAppDataStore = create<AppDataStore>()(
       stockGeneralNotesBySymbol: {},
       userCreatedAlerts: [],
       alertStatusOverrides: {},
+      dismissedNextMoveIds: [],
       userDataSyncError: null,
       authMode: "local",
       portfolioDataSource: "localMock",
       isUserDataLoaded: true,
       isUsingDemoPortfolio: true,
+      isAppDataInitialized: true,
     });
     void useAppDataStore.persist.clearStorage();
   },

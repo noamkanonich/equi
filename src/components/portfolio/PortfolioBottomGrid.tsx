@@ -3,6 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import styled from "styled-components";
 import type { PortfolioData } from "@/data/portfolio/portfolio.types";
+import type { DataState } from "@/data/ui/ui-state.types";
+import { SkeletonCard } from "@/components/ui/states/SkeletonCard";
+import { resolveDataState } from "@/data/ui/mappers";
 import {
   fadeUpVariants,
   getCardRevealTransition,
@@ -16,14 +19,34 @@ type PortfolioBottomGridProps = {
   portfolioData: PortfolioData;
   locale: string;
   startIndex?: number;
+  dataState?: DataState;
 };
 
 export const PortfolioBottomGrid = ({
   portfolioData,
   locale,
   startIndex = 0,
+  dataState,
 }: PortfolioBottomGridProps) => {
   const prefersReducedMotion = useReducedMotion();
+  const effectiveState = resolveDataState({
+    explicitState: dataState,
+    isLoading: false,
+    isEmpty: false,
+  });
+
+  if (effectiveState === "loading") {
+    return (
+      <Grid>
+        {Array.from({ length: 4 }).map((_, index) => (
+          <MotionCell key={`portfolio-bottom-skeleton-${index}`}>
+            <SkeletonCard $bodyLines={3} />
+          </MotionCell>
+        ))}
+      </Grid>
+    );
+  }
+
   const cards = [
     <PortfolioTopMoversCard
       key="top-movers"

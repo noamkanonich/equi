@@ -9,6 +9,7 @@ import { setLeavingPathname } from "@/utils/motion/pathnameNavigation";
 import { overlayFadeTransition, softTransition } from "@/utils/motion/transitions";
 import { useSidebarLayoutStore } from "@/store/sidebar-layout.store";
 import { CurrencyRatesBootstrap } from "./CurrencyRatesBootstrap";
+import { PaywallModal } from "@/components/paywall/PaywallModal";
 import { Sidebar } from "./Sidebar";
 import { TopBar } from "./TopBar";
 
@@ -57,6 +58,7 @@ export const AppShell = ({ children }: AppShellProps) => {
   return (
     <Shell>
       <CurrencyRatesBootstrap />
+      <PaywallModal />
       <AnimatePresence>
         {isMobile && mobileNavOpen ? (
           <Overlay

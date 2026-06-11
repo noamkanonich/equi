@@ -924,6 +924,10 @@
       "suggestedReview": "Suggested next review",
       "confidence": "Confidence",
       "disclaimer": "This is decision-support information only and is not financial advice.",
+      "emptyPortfolio": {
+        "title": "Not enough portfolio data yet",
+        "description": "Add your first holding to unlock portfolio insights based on your actual positions."
+      },
       "mock": {
         "keyPositive": "Technology leaders are contributing most of today's gains and keeping the portfolio above its benchmark trend.",
         "potentialConcern": "Technology concentration is elevated, so a single sector pullback may have an outsized impact.",
@@ -1060,6 +1064,25 @@
     "empty": {
       "title": "No moves in this view",
       "description": "Try another filter to see active portfolio actions."
+    },
+    "guidanceEmpty": {
+      "title": "No actions yet",
+      "subtitle": "Add holdings to generate portfolio health insights.",
+      "summary": "Add holdings to your portfolio to see personalized next steps based on scores and allocation."
+    },
+    "derived": {
+      "review": {
+        "title": "Review this position",
+        "description": "This holding has a lower score and may need attention based on current data."
+      },
+      "monitor": {
+        "title": "Monitor this holding",
+        "description": "Keep tracking score and fundamentals for this position."
+      },
+      "rebalance": {
+        "title": "Rebalance sector exposure",
+        "description": "One sector may be overweight relative to a balanced portfolio target."
+      }
     },
     "accessibility": {
       "portfolioScore": "Portfolio health score {score} out of {max}"
@@ -1997,6 +2020,12 @@
             "elevatedBeta": "Weighted portfolio beta suggests above-market volatility exposure.",
             "drawdownExposure": "Recent max drawdown levels indicate potential for sharper short-term declines."
           }
+        },
+        "empty": {
+          "summary": "Add holdings to see risk analysis based on your portfolio.",
+          "primaryRisk": "No primary risk exposure calculated yet.",
+          "concentrationRisk": "Concentration risk will appear once you hold multiple positions.",
+          "monitoringSuggestion": "Add holdings to receive monitoring suggestions."
         }
       }
     },
@@ -3216,6 +3245,62 @@
       "moversDescription": "Full movers list will be available in a future update.",
       "riskFactorsTitle": "Risk factors",
       "riskFactorsDescription": "Full risk factor breakdown will be available in a future update."
+    }
+  },
+  "paywall": {
+    "ariaLabel": "Upgrade to Pro",
+    "title": "Upgrade to Equi Pro",
+    "subtitle": "Unlock the full power of AI-driven portfolio management.",
+    "premiumBadge": "Premium",
+    "close": "Close",
+    "billing": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "yearlySavings": "Save 17%",
+      "perMonth": "mo",
+      "perMonthYearly": "mo, billed yearly"
+    },
+    "plans": {
+      "popularBadge": "Most Popular",
+      "cta": "Get Started",
+      "ctaTrial": "Start 7-Day Free Trial",
+      "ctaHighlighted": "Start",
+      "free": {
+        "name": "Free Trial",
+        "price": "₪0",
+        "trialBadge": "7-Day Trial",
+        "trialDays": "7 Days Free",
+        "trialThen": "then {currency}{price}/mo",
+        "description": "Try every Pro feature free for 7 days. No credit card required."
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "AI insights and smart alerts for serious investors."
+      },
+      "proPlus": {
+        "name": "Pro+",
+        "description": "Everything in Pro plus advanced reports and priority support."
+      }
+    },
+    "features": {
+      "portfolioTracking": "Portfolio tracking",
+      "basicAlerts": "Basic alerts",
+      "newsDigest": "News digest",
+      "aiInsights": "AI insights",
+      "smartReplace": "Smart replace",
+      "advancedReports": "Advanced reports"
+    },
+    "featureStrip": {
+      "portfolioTracking": "Portfolio tracking",
+      "aiInsights": "AI insights",
+      "smartAlerts": "Smart alerts",
+      "smartReplace": "Smart replace",
+      "reports": "Advanced reports"
+    },
+    "trust": {
+      "secure": "Secure payments",
+      "cancel": "Cancel anytime",
+      "support": "Priority support"
     }
   }
 }

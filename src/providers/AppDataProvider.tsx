@@ -10,6 +10,7 @@ import { collectUniqueSymbols } from "@/utils/financial-data/collectUniqueSymbol
 import {
   logAppDataAuthMode,
   logAppDataLoadedPortfolioHoldings,
+  logAppDataSnapshot,
   logAppDataStartupSymbols,
   logAppDataUsingDemoPortfolio,
 } from "@/utils/app-data/devAppDataLog";
@@ -63,6 +64,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
           isUserDataLoaded: true,
           portfolioDataSource: "supabase",
           isUsingDemoPortfolio: false,
+          isAppDataInitialized: true,
         });
 
         logAppDataLoadedPortfolioHoldings(stateAfterHydrate.portfolioHoldings.length);
@@ -80,6 +82,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
           portfolioDataSource: "localMock",
           isUserDataLoaded: true,
           isUsingDemoPortfolio: false,
+          isAppDataInitialized: true,
         });
 
         logAppDataAuthMode("local");
@@ -89,6 +92,22 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       prevUserIdRef.current = currentUserId;
 
       const state = useAppDataStore.getState();
+      const notesCount = Object.values(state.stockGeneralNotesBySymbol).reduce(
+        (sum, notes) => sum + notes.length,
+        0,
+      );
+
+      logAppDataSnapshot({
+        authMode: state.authMode,
+        isUserDataLoaded: state.isUserDataLoaded,
+        isAppDataReady: true,
+        portfolioHoldingsCount: state.portfolioHoldings.length,
+        watchlistItemsCount: state.watchlistItems.length,
+        alertsCount: state.userCreatedAlerts.length,
+        notesCount,
+        isUsingDemoPortfolio: state.isUsingDemoPortfolio,
+      });
+
       const symbols = collectUniqueSymbols(
         state.portfolioHoldings.map((holding) => holding.symbol),
       );

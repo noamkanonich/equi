@@ -13,7 +13,11 @@
       "Bash(npm run build 2>&1 | tail -30)",
       "Bash(npm run build 2>&1 | head -20)",
       "Bash(npm run build 2>&1 | grep -E \"✓|✗|error TS|compiled|TypeScript|Failed\")",
-      "Bash(npm run build 2>&1 | tail -20)"
+      "Bash(npm run build 2>&1 | tail -20)",
+      "Bash(npx eslint src --ext .ts,.tsx --max-warnings 0 2>&1 | head -100)",
+      "Bash(npx eslint src --ext .ts,.tsx --max-warnings 0 2>&1 | tail -100)",
+      "Bash(cat /Users/noam/Desktop/Noam/Development/Equi/equi/.eslintrc.* 2>/dev/null || cat /Users/noam/Desktop/Noam/Development/Equi/equi/eslint.config.* 2>/dev/null || echo \"no eslint config found\")",
+      "Bash(npx eslint src --ext .ts,.tsx --max-warnings 0 2>&1)"
     ]
   }
 }

@@ -105,7 +105,10 @@ const extractNewsFromBundles = (
     }
   }
 
-  const items = mergeNewsItems(newsPageMockData.items, providerItems);
+  const items =
+    providerItems.length > 0
+      ? providerItems
+      : mergeNewsItems(newsPageMockData.items, providerItems);
 
   return {
     items,

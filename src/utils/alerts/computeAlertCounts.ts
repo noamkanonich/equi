@@ -1,29 +1,24 @@
-import { alerts } from "@/data/alerts/alerts.mock";
-import type { AlertItem, AlertStatus } from "@/data/alerts/alerts.types";
+import type { AlertStatus } from "@/data/alerts/alerts.types";
 import type { UserCreatedAlert } from "@/data/app-data/user-alert.types";
+import type { AlertSettingsState } from "@/data/settings/settings.types";
 import { getAlertTabCount } from "@/data/alerts/mappers";
-import { mapUserAlertToAlertItem } from "@/utils/alerts/mapUserAlertToAlertItem";
-
-export const buildMergedAlertsWithStatus = (
-  userCreatedAlerts: UserCreatedAlert[],
-  alertStatusOverrides: Record<string, AlertStatus>,
-): AlertItem[] => {
-  const merged = [
-    ...userCreatedAlerts.map(mapUserAlertToAlertItem),
-    ...alerts,
-  ];
-
-  return merged.map((alert) => ({
-    ...alert,
-    status: alertStatusOverrides[alert.id] ?? alert.status,
-  }));
-};
+import { applyAlertSettingsToAlerts } from "@/utils/alerts/applyAlertSettingsToAlerts";
+import { buildMergedAlerts } from "@/utils/alerts/buildMergedAlerts";
 
 export const computeAlertCounts = (
   userCreatedAlerts: UserCreatedAlert[],
   alertStatusOverrides: Record<string, AlertStatus>,
+  alertSettings: AlertSettingsState,
+  includeDemoAlerts = false,
 ): { activeAlertsCount: number; snoozedAlertsCount: number } => {
-  const items = buildMergedAlertsWithStatus(userCreatedAlerts, alertStatusOverrides);
+  const items = applyAlertSettingsToAlerts(
+    buildMergedAlerts({
+      userCreatedAlerts,
+      alertStatusOverrides,
+      includeDemoAlerts,
+    }),
+    alertSettings,
+  );
 
   return {
     activeAlertsCount: getAlertTabCount(items, "active"),

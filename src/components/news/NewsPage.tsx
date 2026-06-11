@@ -16,6 +16,10 @@ import { filterNewsItems } from "@/utils/news/filterNewsItems";
 import { getFeaturedNewsItem } from "@/utils/news/getFeaturedNewsItem";
 import { getNewsPageSymbols } from "@/utils/news/getNewsPageSymbols";
 import { getPortfolioRelatedNews } from "@/utils/news/getPortfolioRelatedNews";
+import {
+  buildMarketPulseFromNews,
+  buildUpcomingNewsEventsFromBundles,
+} from "@/utils/news/buildNewsSidebarData";
 import { sortNewsItems } from "@/utils/news/sortNewsItems";
 import { fadeUpVariants, getCardRevealTransition } from "@/utils/motion/transitions";
 import { NewsArticleModal } from "./NewsArticleModal";
@@ -100,6 +104,7 @@ export const NewsPage = ({ title, subtitle }: NewsPageProps) => {
   );
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     void fetchNewsFromApi(newsSymbols, isUsingDemoPortfolio);
   }, [newsSymbols, fetchNewsFromApi, isUsingDemoPortfolio]);
 
@@ -177,12 +182,22 @@ export const NewsPage = ({ title, subtitle }: NewsPageProps) => {
   }, [featuredItem, filteredItems]);
 
   const portfolioNews = useMemo(() => {
-    const livePortfolioNews = getPortfolioRelatedNews(allNewsItems, filterContext, 3);
-    if (livePortfolioNews.length > 0) {
-      return livePortfolioNews;
+    return getPortfolioRelatedNews(allNewsItems, filterContext, 3);
+  }, [allNewsItems, filterContext]);
+
+  const marketPulse = useMemo(() => {
+    if (isUsingDemoPortfolio) {
+      return newsPageMockData.marketPulse;
     }
-    return isUsingDemoPortfolio ? newsPageMockData.portfolioNews : [];
-  }, [allNewsItems, filterContext, isUsingDemoPortfolio]);
+    return buildMarketPulseFromNews(allNewsItems);
+  }, [allNewsItems, isUsingDemoPortfolio]);
+
+  const upcomingEvents = useMemo(() => {
+    if (isUsingDemoPortfolio) {
+      return newsPageMockData.upcomingEvents;
+    }
+    return buildUpcomingNewsEventsFromBundles(portfolioSymbols, stockDataBySymbol);
+  }, [isUsingDemoPortfolio, portfolioSymbols, stockDataBySymbol]);
 
   const handleOpenArticle = useCallback((item: NewsItem) => {
     if (item.url) {
@@ -279,9 +294,9 @@ export const NewsPage = ({ title, subtitle }: NewsPageProps) => {
         <NewsContentGrid
           featuredItem={featuredItem}
           listItems={listItems}
-          marketPulse={newsPageMockData.marketPulse}
+          marketPulse={marketPulse}
           portfolioNews={portfolioNews}
-          upcomingEvents={newsPageMockData.upcomingEvents}
+          upcomingEvents={upcomingEvents}
           locale={locale}
           newsById={newsById}
           isLoading={isLoading}

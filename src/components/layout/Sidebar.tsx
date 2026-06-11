@@ -11,6 +11,7 @@ import {
   getSidebarLayoutBounds,
   useSidebarLayoutStore,
 } from "@/store/sidebar-layout.store";
+import { usePaywallStore } from "@/store/paywall.store";
 import styled, { css } from "styled-components";
 
 const { minPx, maxPx } = getSidebarLayoutBounds();
@@ -34,6 +35,7 @@ export const Sidebar = ({
   const widthPx = useSidebarLayoutStore((state) => state.widthPx);
   const setWidthPx = useSidebarLayoutStore((state) => state.setWidthPx);
   const resetWidthPx = useSidebarLayoutStore((state) => state.resetWidthPx);
+  const openPaywall = usePaywallStore((state) => state.open);
   const useCustomWidth = $resizable && !$compact;
 
   return (
@@ -61,7 +63,7 @@ export const Sidebar = ({
               </UpgradeIconWrap>
               <UpgradeTitle>{tShell("upgradeCard.title")}</UpgradeTitle>
               <UpgradeCopy>{tShell("upgradeCard.description")}</UpgradeCopy>
-              <UpgradeButton type="button">
+              <UpgradeButton type="button" onClick={openPaywall}>
                 {tShell("upgradeCard.cta")}
               </UpgradeButton>
             </UpgradeCard>

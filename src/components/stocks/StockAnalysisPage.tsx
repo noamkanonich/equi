@@ -37,7 +37,7 @@ export const StockAnalysisPage = ({
 }: StockAnalysisPageProps) => {
   const tStates = useTranslations("states");
   const prefersReducedMotion = useReducedMotion();
-  const { hydrateStockData, enrichedPortfolioHoldings, isUsingDemoPortfolio } = useAppData();
+  const { hydrateStockData, enrichedPortfolioHoldings } = useAppData();
   const normalizedSymbol = useMemo(() => normalizeStockSymbol(symbol), [symbol]);
 
   useEffect(() => {
@@ -48,10 +48,9 @@ export const StockAnalysisPage = ({
     const holding = enrichedPortfolioHoldings.find(
       (item) => item.symbol === normalizedSymbol,
     );
-    const userPosition =
-      isUsingDemoPortfolio || holding
-        ? mapEnrichedHoldingToUserPosition(holding)
-        : null;
+    const userPosition = holding
+      ? mapEnrichedHoldingToUserPosition(holding)
+      : null;
 
     return enrichStockAnalysisWithBundle(
       {
@@ -60,7 +59,7 @@ export const StockAnalysisPage = ({
       },
       initialBundle,
     );
-  }, [enrichedPortfolioHoldings, isUsingDemoPortfolio, normalizedSymbol, symbol, initialBundle]);
+  }, [enrichedPortfolioHoldings, normalizedSymbol, symbol, initialBundle]);
   const dataSourceSummary = useMemo(
     () => deriveDataSourceSummaryFromBundle(initialBundle),
     [initialBundle],

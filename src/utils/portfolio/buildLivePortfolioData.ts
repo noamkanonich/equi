@@ -45,17 +45,23 @@ export const buildLivePortfolioData = ({
 
   const holdingViews = mapHoldingsToView(enrichedHoldings, summary.totalValue);
   const scoreDistribution = mapHoldingsToScoreDistribution(enrichedHoldings);
-  const metricTrends = {
-    totalValue:
-      portfolioMockData.metrics.find((metric) => metric.kind === "totalValue")
-        ?.trend ?? [],
-    todayChange:
-      portfolioMockData.metrics.find((metric) => metric.kind === "todayChange")
-        ?.trend ?? [],
-    totalReturn:
-      portfolioMockData.metrics.find((metric) => metric.kind === "totalReturn")
-        ?.trend ?? [],
-  };
+  const metricTrends = isUsingDemoPortfolio
+    ? {
+        totalValue:
+          portfolioMockData.metrics.find((metric) => metric.kind === "totalValue")
+            ?.trend ?? [],
+        todayChange:
+          portfolioMockData.metrics.find((metric) => metric.kind === "todayChange")
+            ?.trend ?? [],
+        totalReturn:
+          portfolioMockData.metrics.find((metric) => metric.kind === "totalReturn")
+            ?.trend ?? [],
+      }
+    : {
+        totalValue: [],
+        todayChange: [],
+        totalReturn: [],
+      };
 
   const baseMetrics = buildPortfolioMetrics(summary, metricTrends, scoreDistribution);
   const metrics =

@@ -44,6 +44,7 @@ export const SetAlertModal = ({
 
   useEffect(() => {
     if (!isOpen) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setForm(buildSetAlertFormState(initialType));
     setIsSuccess(false);
   }, [isOpen, initialType, symbol]);

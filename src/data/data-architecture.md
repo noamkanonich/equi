@@ -345,15 +345,60 @@ Dev client logs (`[app-data]`): requested/unique symbols, sections, fresh skippe
 
 ### Known limitations
 
-- No persistence — store is in-memory; refresh loses user edits (Supabase planned)
-- 30-symbol cap per batch (silent truncation logs in dev)
 - News articles are page-local state, not in `stockDataBySymbol`
-- Smart Replace / Next Moves remain mock-first for business logic
+- Smart Replace / Next Moves derive from portfolio scoring — sparse for small portfolios
+- Dismissed next moves persist in localStorage only (Supabase TODO)
 - Settings isolated from financial bundles
+
+---
+
+## Global Data Source Status
+
+Per-screen mapping after the global data cleanup pass. See also [`data-coverage.md`](./data-coverage.md).
+
+| Screen | User data source | Market data source | Calculated source | Mock allowed | Sync status |
+|--------|------------------|--------------------|-------------------|--------------|-------------|
+| Dashboard | `useAppData()` → `enrichedPortfolioHoldings`, `portfolioSummary` | `stockDataBySymbol` via `useLivePortfolioData` | `buildLiveDashboardData` | Demo-only cards when `isUsingDemoPortfolio` | Synced |
+| Portfolio | `useAppData()` → holdings, summary, cash | `stockDataBySymbol` | `buildLivePortfolioData` | Demo sections when `isUsingDemoPortfolio` | Synced |
+| Watchlist | `useAppData()` → `watchlistItems`, `enrichedWatchlistItems` | `usePageStockBundles` + store cache | Watchlist enrich utils | Demo sidebar when `isUsingDemoPortfolio` | Synced |
+| Reports | `useAppData()` via `useLivePortfolioData` | `stockDataBySymbol` bundles | `buildReportsPageData`, `calculateReportMetrics` | Demo fallback when `isUsingDemoPortfolio && !hasHoldings` | Synced |
+| Stock Analysis | `useAppData()` position, notes, watchlist | SSR `initialBundle` + `hydrateStockData` | `enrichStockAnalysisWithBundle` | Analysis body seed (`stock-analysis.mock`); API fallback | Synced (position) |
+| Alerts Center | `useAppData()` → `userCreatedAlerts` | `usePageStockBundles` | `buildMergedAlerts`, `computeAlertCounts` | Demo alerts only when `isUsingDemoPortfolio` | Synced |
+| News | `portfolioHoldings`, `watchlistItems` for symbol filters | `/api/news` + store quote cache | `filterNewsItems`, sidebar builders | API error fallback only | Synced |
+| Smart Replace | `enrichedPortfolioHoldings`, `enrichedWatchlistItems` | `usePageStockBundles` | `buildSmartReplacePageData` | Full mock when `isUsingDemoPortfolio` | Synced |
+| Next Moves | portfolio, watchlist, alerts, dismissed IDs | bundles for earnings enrichment | `buildNextMovesPageData` | Full mock when `isUsingDemoPortfolio` | Synced |
+| Settings | Settings stores | — | Summary utils | Default option metadata (`settings.mock`) | Allowed |
+
+### Data mode guards (`useAppData`)
+
+| Flag | Purpose |
+|------|---------|
+| `isAuthenticated` | Re-export from `useAuth()` |
+| `isAppDataReady` | Provider finished init (`isAppDataInitialized && !isAuthLoading`) |
+| `isAuthenticatedDataLoading` | Supabase hydrate in progress |
+| `isUserDataPending` | Show loading — never flash demo user data |
+| `isUsingDemoPortfolio` | Gate demo portfolio/watchlist/alerts (dev `resetToMock()` only in normal flow) |
+| `isUsingDemoData` | Alias of `isUsingDemoPortfolio` |
+| `isUsingDemoWatchlist` | Demo watchlist seed detection |
+
+### Intentional mock fallback (do not remove)
+
+- `financial-data.mock.ts` — provider/API error fallback
+- `stock-analysis.mock.ts` — analysis content seed
+- `settings.mock.ts` — defaults and UI option metadata
+- `/api/stocks` error fallback
+- `/api/news` error-only fallback when provider returns zero items
+
+### Remaining TODOs
+
+- Persist dismissed next moves to Supabase
+- Performance chart history (dashboard/portfolio)
+- AI insights from real provider
+- Fundamental analysis full provider mapping
 
 ### Next recommended tasks
 
-- Persist holdings/watchlist/cache to Supabase
+- Persist holdings/watchlist/cache to Supabase (partial — user CRUD sync exists)
 - Move news into global store or bundle `news` section
 - Audit Fundamental Analysis page when implemented
 - Surface `sectionProviders` in dev tools panel (optional)

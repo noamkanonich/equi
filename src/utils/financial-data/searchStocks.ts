@@ -31,9 +31,7 @@ type SearchCacheEntry = {
 };
 
 const searchCache = new Map<string, SearchCacheEntry>();
-const REAL_SEARCH_PROVIDER_IDS = ["fmp", "finnhub"] as const;
-
-type RealSearchProviderId = (typeof REAL_SEARCH_PROVIDER_IDS)[number];
+type RealSearchProviderId = "fmp" | "finnhub";
 
 type FmpSearchRow = {
   symbol: string;

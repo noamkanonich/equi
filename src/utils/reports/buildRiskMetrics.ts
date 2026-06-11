@@ -3,15 +3,12 @@ import type { RiskMetricItem } from "@/data/reports/reports.types";
 import type { StockProviderDataBundle } from "@/data/financial-data/financial-data.types";
 import type { EnrichedPortfolioHolding } from "@/data/portfolio/portfolio.types";
 
-const MOCK_METRIC_KEYS = new Set([
-  "sharpeRatio",
-  "sortinoRatio",
-  "maxDrawdown",
-  "volatility",
-  "valueAtRisk",
-  "correlationSP500",
-  "dividendYield",
-]);
+const buildEmptyRiskMetrics = (): RiskMetricItem[] =>
+  reportsMockRiskMetrics.map((metric) => ({
+    key: metric.key,
+    value: metric.key === "beta" ? "—" : "0",
+    tone: "neutral" as const,
+  }));
 
 const computeWeightedBeta = (
   holdings: EnrichedPortfolioHolding[],
@@ -37,18 +34,20 @@ export const buildRiskMetrics = (
   holdings: EnrichedPortfolioHolding[],
   bundles: Record<string, StockProviderDataBundle> = {},
   hasHoldings: boolean,
+  isUsingDemoPortfolio = false,
 ): RiskMetricItem[] => {
   if (!hasHoldings || holdings.length === 0) {
-    return reportsMockRiskMetrics;
+    return isUsingDemoPortfolio ? reportsMockRiskMetrics : buildEmptyRiskMetrics();
   }
 
   const weightedBeta = computeWeightedBeta(holdings, bundles);
-  const mockByKey = Object.fromEntries(
-    reportsMockRiskMetrics.map((metric) => [metric.key, metric]),
+  const emptyMetrics = buildEmptyRiskMetrics();
+  const emptyByKey = Object.fromEntries(
+    emptyMetrics.map((metric) => [metric.key, metric]),
   );
 
-  return reportsMockRiskMetrics.map((mockMetric) => {
-    if (mockMetric.key === "beta" && weightedBeta !== null) {
+  return emptyMetrics.map((emptyMetric) => {
+    if (emptyMetric.key === "beta" && weightedBeta !== null) {
       return {
         key: "beta",
         value: weightedBeta.toFixed(2),
@@ -56,10 +55,13 @@ export const buildRiskMetrics = (
       };
     }
 
-    if (MOCK_METRIC_KEYS.has(mockMetric.key)) {
-      return mockByKey[mockMetric.key] ?? mockMetric;
+    if (isUsingDemoPortfolio) {
+      const mockMetric = reportsMockRiskMetrics.find(
+        (metric) => metric.key === emptyMetric.key,
+      );
+      return mockMetric ?? emptyMetric;
     }
 
-    return mockMetric;
+    return emptyByKey[emptyMetric.key] ?? emptyMetric;
   });
 };

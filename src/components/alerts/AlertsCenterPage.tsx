@@ -8,9 +8,6 @@ import { PageContent, PageMainGrid } from "@/components/layout/PageContent";
 import { StaleDataNotice } from "@/components/ui/states/StaleDataNotice";
 import {
   alertQuickFilters,
-  alertSummaryBreakdown,
-  alertSummaryMetrics,
-  alerts,
   defaultAlertFilters,
 } from "@/data/alerts/alerts.mock";
 import type {
@@ -22,12 +19,19 @@ import type {
 import { getAlertTabCounts } from "@/data/alerts/mappers";
 import { usePageStockBundles } from "@/hooks/usePageStockBundles";
 import { useAppData } from "@/providers/useAppData";
+import { useAlertSettingsStore } from "@/store/alert-settings.store";
+import { applyAlertSettingsToAlerts } from "@/utils/alerts/applyAlertSettingsToAlerts";
+import {
+  buildAlertQuickFilters,
+  buildAlertSummaryBreakdown,
+  buildAlertSummaryMetrics,
+} from "@/utils/alerts/buildAlertDashboardData";
 import { filterAlerts } from "@/utils/alerts/filterAlerts";
 import { sortAlerts } from "@/utils/alerts/sortAlerts";
 import { collectUniqueSymbols } from "@/utils/financial-data/collectUniqueSymbols";
 import { deriveDataSourceSummary } from "@/utils/financial-data/deriveDataSourceSummary";
 import { enrichAlertWithBundle } from "@/utils/financial-data/enrichAlertWithBundle";
-import { mapUserAlertToAlertItem } from "@/utils/alerts/mapUserAlertToAlertItem";
+import { buildMergedAlerts } from "@/utils/alerts/buildMergedAlerts";
 import {
   fadeUpVariants,
   getCardRevealTransition,
@@ -47,6 +51,7 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
   const t = useTranslations("alerts");
   const tStates = useTranslations("states");
   const prefersReducedMotion = useReducedMotion();
+  const alertSettings = useAlertSettingsStore((state) => state.alertSettings);
 
   const [activeTab, setActiveTab] = useState<AlertTab>(defaultAlertFilters.tab);
   const [sort, setSort] = useState<AlertSortOption>(defaultAlertFilters.sort);
@@ -55,41 +60,52 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
     defaultAlertFilters.quickFilterKey,
   );
 
-  const { userCreatedAlerts, alertStatusOverrides, setAlertStatus, snoozedAlertsCount } =
-    useAppData();
+  const {
+    userCreatedAlerts,
+    alertStatusOverrides,
+    setAlertStatus,
+    snoozedAlertsCount,
+    isUsingDemoPortfolio,
+    isUserDataPending,
+  } = useAppData();
+
+  const baseAlertItems = useMemo(
+    () =>
+      buildMergedAlerts({
+        userCreatedAlerts,
+        alertStatusOverrides,
+        includeDemoAlerts: isUsingDemoPortfolio,
+      }),
+    [alertStatusOverrides, isUsingDemoPortfolio, userCreatedAlerts],
+  );
+
+  const settingsFilteredBaseAlertItems = useMemo(
+    () => applyAlertSettingsToAlerts(baseAlertItems, alertSettings),
+    [alertSettings, baseAlertItems],
+  );
 
   const symbols = useMemo(
     () =>
       collectUniqueSymbols([
-        ...alerts.map((alert) => alert.symbol),
-        ...userCreatedAlerts.map((alert) => alert.symbol),
+        ...settingsFilteredBaseAlertItems.map((alert) => alert.symbol),
       ]),
-    [userCreatedAlerts],
+    [settingsFilteredBaseAlertItems],
   );
 
   const { bundles, freshnessStatus, isLoading } = usePageStockBundles(symbols);
 
   const alertItems = useMemo(() => {
-    const mergedAlerts = [
-      ...userCreatedAlerts.map(mapUserAlertToAlertItem),
-      ...alerts,
-    ];
-
-    return mergedAlerts.map((alert) => {
+    return settingsFilteredBaseAlertItems.map((alert) => {
       const enriched = isLoading
         ? alert
         : enrichAlertWithBundle(
             alert,
             alert.symbol ? bundles[alert.symbol] : undefined,
           );
-      const status = alertStatusOverrides[alert.id] ?? enriched.status;
 
-      return {
-        ...enriched,
-        status,
-      };
+      return enriched;
     });
-  }, [alertStatusOverrides, bundles, isLoading, userCreatedAlerts]);
+  }, [bundles, isLoading, settingsFilteredBaseAlertItems]);
 
   const searchKeys = useMemo(() => {
     const keys: Record<string, string> = {};
@@ -101,6 +117,18 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
   }, [alertItems, t]);
 
   const tabCounts = useMemo(() => getAlertTabCounts(alertItems), [alertItems]);
+  const summaryMetrics = useMemo(
+    () => buildAlertSummaryMetrics(alertItems),
+    [alertItems],
+  );
+  const summaryBreakdown = useMemo(
+    () => buildAlertSummaryBreakdown(alertItems),
+    [alertItems],
+  );
+  const quickFilters = useMemo(
+    () => buildAlertQuickFilters(alertItems, alertQuickFilters),
+    [alertItems],
+  );
 
   const filteredAlerts = useMemo(() => {
     const filtered = filterAlerts(
@@ -111,11 +139,11 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
         tab: activeTab,
         sort,
       },
-      alertQuickFilters,
+      quickFilters,
       searchKeys,
     );
     return sortAlerts(filtered, sort);
-  }, [activeQuickFilter, activeTab, alertItems, searchKeys, searchQuery, sort]);
+  }, [activeQuickFilter, activeTab, alertItems, quickFilters, searchKeys, searchQuery, sort]);
 
   const handleAlertStatusChange = useCallback(
     (alertId: string, status: AlertStatus) => {
@@ -197,7 +225,7 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
       </MotionSection>
 
       <AlertsSummaryGrid
-        metrics={alertSummaryMetrics}
+        metrics={summaryMetrics}
         locale={locale}
         startIndex={1}
       />
@@ -211,6 +239,7 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
             activeTab={activeTab}
             sort={sort}
             locale={locale}
+            dataState={isUserDataPending ? "loading" : undefined}
             onTabChange={handleTabChange}
             onSortChange={setSort}
             onAlertStatusChange={handleAlertStatusChange}
@@ -219,8 +248,8 @@ export const AlertsCenterPage = ({ title, subtitle }: AlertsCenterPageProps) => 
         </MotionSection>
         <MotionSection {...reveal(8)}>
           <AlertsRightSidebar
-            breakdown={alertSummaryBreakdown}
-            quickFilters={alertQuickFilters}
+            breakdown={summaryBreakdown}
+            quickFilters={quickFilters}
             snoozedSummary={snoozedSummary}
             activeFilterKey={activeQuickFilter}
             locale={locale}

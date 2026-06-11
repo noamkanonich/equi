@@ -9,7 +9,6 @@ import { AddStockModal } from "@/components/add-stock/AddStockModal";
 import { PortfolioHoldingFormModal } from "@/components/portfolio/PortfolioHoldingFormModal";
 import type { AddStockSearchResult } from "@/data/add-stock/add-stock.types";
 import { StaleDataNotice } from "@/components/ui/states/StaleDataNotice";
-import { dashboardMockData } from "@/data/dashboard/dashboard.mock";
 import { useDashboardMetricsReplayKey } from "@/hooks/useDashboardMetricsReplayKey";
 import { useLivePortfolioData } from "@/hooks/useLivePortfolioData";
 import { useAppData } from "@/providers/useAppData";
@@ -20,7 +19,10 @@ import {
 import { buildLiveDashboardData } from "@/utils/dashboard/buildLiveDashboardData";
 import { deriveDataSourceSummary } from "@/utils/financial-data/deriveDataSourceSummary";
 import { resolvePortfolioHoldingsDataState } from "@/utils/portfolio/resolvePortfolioHoldingsDataState";
-import { logDashboardPortfolioHoldingsCount } from "@/utils/app-data/devAppDataLog";
+import {
+  logDashboardPortfolioHoldingsCount,
+  logDashboardPortfolioSource,
+} from "@/utils/app-data/devAppDataLog";
 import { DashboardBottomGrid } from "./DashboardBottomGrid";
 import { DashboardHeader } from "./DashboardHeader";
 import { DashboardHoldingsTable } from "./DashboardHoldingsTable";
@@ -34,18 +36,7 @@ export const DashboardPage = () => {
   const [isAddStockOpen, setIsAddStockOpen] = useState(false);
   const [portfolioFormStock, setPortfolioFormStock] = useState<AddStockSearchResult | null>(null);
 
-  const { isUsingDemoPortfolio, isAuthenticatedDataLoading } = useAppData();
-
-  const demoExtraSymbols = useMemo(
-    () =>
-      isUsingDemoPortfolio
-        ? [
-            ...dashboardMockData.recentActivities.map((activity) => activity.symbol),
-            ...dashboardMockData.upcomingEarnings.map((earning) => earning.symbol),
-          ]
-        : [],
-    [isUsingDemoPortfolio],
-  );
+  const { isUsingDemoPortfolio, isUserDataPending } = useAppData();
 
   const {
     bundles,
@@ -55,19 +46,20 @@ export const DashboardPage = () => {
     enrichedHoldings,
     summary,
     userHoldings,
-  } = useLivePortfolioData({
-    extraSymbols: demoExtraSymbols,
-  });
+  } = useLivePortfolioData();
 
   useEffect(() => {
     logDashboardPortfolioHoldingsCount(userHoldings.length);
-  }, [userHoldings.length]);
+    logDashboardPortfolioSource(
+      isUserDataPending ? "loading" : userHoldings.length === 0 ? "empty" : "app-data",
+    );
+  }, [isUserDataPending, userHoldings.length]);
 
   const metricsReplayKey = useDashboardMetricsReplayKey(userHoldings.length);
 
   const holdingsDataState = resolvePortfolioHoldingsDataState(
     userHoldings.length,
-    isAuthenticatedDataLoading || isPortfolioQuotesLoading,
+    isUserDataPending || isPortfolioQuotesLoading,
   );
 
   const dashboardData = useMemo(
@@ -76,13 +68,13 @@ export const DashboardPage = () => {
         enrichedHoldings,
         summary,
         bundles,
-        isLoading: isAuthenticatedDataLoading || isLoading,
+        isLoading: isUserDataPending || isLoading,
         isUsingDemoPortfolio,
       }),
     [
       bundles,
       enrichedHoldings,
-      isAuthenticatedDataLoading,
+      isUserDataPending,
       isLoading,
       isUsingDemoPortfolio,
       summary,
@@ -98,7 +90,7 @@ export const DashboardPage = () => {
     userHoldings.length > 0 &&
     (freshnessStatus === "mock" || freshnessStatus === "stale");
 
-  const insightsDataState = isAuthenticatedDataLoading ? "loading" : undefined;
+  const pageDataState = isUserDataPending ? "loading" : undefined;
 
   const metricsStart = 1;
   const holdingsIndex = metricsStart + dashboardData.metrics.length;
@@ -132,6 +124,7 @@ export const DashboardPage = () => {
           locale={locale}
           startIndex={metricsStart}
           replayKey={metricsReplayKey}
+          dataState={pageDataState}
         />
         <MotionSection {...reveal(holdingsIndex)}>
           <DashboardHoldingsTable
@@ -146,12 +139,13 @@ export const DashboardPage = () => {
           locale={locale}
           freshnessStatus={freshnessStatus}
           startIndex={insightsStart}
-          dataState={insightsDataState}
+          dataState={pageDataState}
         />
         <DashboardBottomGrid
           dashboardData={dashboardData}
           locale={locale}
           startIndex={bottomStart}
+          dataState={pageDataState}
         />
       </PageContent>
       <AddStockModal

@@ -3,6 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import styled from "styled-components";
 import type { PortfolioMetric } from "@/data/portfolio/portfolio.types";
+import type { DataState } from "@/data/ui/ui-state.types";
+import { SkeletonCard } from "@/components/ui/states/SkeletonCard";
+import { resolveDataState } from "@/data/ui/mappers";
 import {
   fadeUpVariants,
   getCardRevealTransition,
@@ -14,6 +17,7 @@ type PortfolioMetricsGridProps = {
   holdingsCount: number;
   locale: string;
   startIndex?: number;
+  dataState?: DataState;
 };
 
 export const PortfolioMetricsGrid = ({
@@ -21,8 +25,26 @@ export const PortfolioMetricsGrid = ({
   holdingsCount,
   locale,
   startIndex = 0,
+  dataState,
 }: PortfolioMetricsGridProps) => {
   const prefersReducedMotion = useReducedMotion();
+  const effectiveState = resolveDataState({
+    explicitState: dataState,
+    isLoading: false,
+    isEmpty: metrics.length === 0,
+  });
+
+  if (effectiveState === "loading") {
+    return (
+      <Grid>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <MotionCell key={`portfolio-metric-skeleton-${index}`}>
+            <SkeletonCard $bodyLines={2} />
+          </MotionCell>
+        ))}
+      </Grid>
+    );
+  }
 
   return (
     <Grid>

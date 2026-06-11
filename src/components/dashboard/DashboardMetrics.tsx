@@ -4,6 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import styled from "styled-components";
 import { DashboardMetricCard } from "./DashboardMetricCard";
 import type { DashboardMetric } from "@/data/dashboard/dashboard.types";
+import type { DataState } from "@/data/ui/ui-state.types";
+import { SkeletonCard } from "@/components/ui/states/SkeletonCard";
+import { resolveDataState } from "@/data/ui/mappers";
 import { fadeUpVariants, getCardRevealTransition } from "@/utils/motion/transitions";
 
 type DashboardMetricsProps = {
@@ -11,6 +14,7 @@ type DashboardMetricsProps = {
   locale: string;
   startIndex?: number;
   replayKey?: number;
+  dataState?: DataState;
 };
 
 export const DashboardMetrics = ({
@@ -18,8 +22,26 @@ export const DashboardMetrics = ({
   locale,
   startIndex = 0,
   replayKey = 0,
+  dataState,
 }: DashboardMetricsProps) => {
   const prefersReducedMotion = useReducedMotion();
+  const effectiveState = resolveDataState({
+    explicitState: dataState,
+    isLoading: false,
+    isEmpty: metrics.length === 0,
+  });
+
+  if (effectiveState === "loading") {
+    return (
+      <Grid>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <MotionCell key={`metric-skeleton-${index}`}>
+            <SkeletonCard $bodyLines={2} />
+          </MotionCell>
+        ))}
+      </Grid>
+    );
+  }
 
   return (
     <Grid>

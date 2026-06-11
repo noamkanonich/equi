@@ -25,6 +25,12 @@ import { buildTaxData } from "./buildTaxData";
 import { buildTopContributors } from "./buildTopContributors";
 import { calculateReportMetrics } from "./calculateReportMetrics";
 
+const emptyPerformanceByBenchmark: ReportsPageData["performanceByBenchmark"] = {
+  sp500: [],
+  nasdaq: [],
+  msciWorld: [],
+};
+
 type BuildReportsPageDataInput = {
   holdings: EnrichedPortfolioHolding[];
   summary: PortfolioSummary;
@@ -120,22 +126,39 @@ export const buildReportsPageData = ({
     holdings,
     effectiveSummary.currency,
     hasHoldings,
+    isUsingDemoPortfolio,
   );
 
   return {
     metrics,
-    performanceByBenchmark: reportsPerformanceByBenchmark,
+    performanceByBenchmark: isUsingDemoPortfolio
+      ? reportsPerformanceByBenchmark
+      : emptyPerformanceByBenchmark,
     portfolioEndPercent,
     allocation: effectiveAllocation,
     allocationSectorDetails,
     benchmarkComparisons: effectiveBenchmarkComparisons,
     contributors,
     keyStatistics,
-    monthlySummary: reportsMockMonthlySummary,
+    monthlySummary: isUsingDemoPortfolio ? reportsMockMonthlySummary : [],
     availableReports: reportsAvailableReports,
     activities: buildReportActivities(holdings, hasHoldings, isUsingDemoPortfolio),
-    riskMetrics: buildRiskMetrics(holdings, bundles, hasHoldings),
-    riskAiInsight: reportsMockRiskAiInsight,
+    riskMetrics: buildRiskMetrics(
+      holdings,
+      bundles,
+      hasHoldings,
+      isUsingDemoPortfolio,
+    ),
+    riskAiInsight: isUsingDemoPortfolio
+      ? reportsMockRiskAiInsight
+      : {
+          confidencePercent: 0,
+          summaryKey: "empty.summary",
+          primaryRiskKey: "empty.primaryRisk",
+          concentrationRiskKey: "empty.concentrationRisk",
+          monitoringSuggestionKey: "empty.monitoringSuggestion",
+          riskFactorKeys: [],
+        },
     taxSummary,
     taxLots,
     totalValue: effectiveSummary.totalValue,

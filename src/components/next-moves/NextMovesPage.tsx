@@ -6,12 +6,12 @@ import { useCallback, useMemo, useState } from "react";
 import styled from "styled-components";
 import { PageContent } from "@/components/layout/PageContent";
 import { StaleDataNotice } from "@/components/ui/states/StaleDataNotice";
-import { nextMovesMockData } from "@/data/next-moves/next-moves.mock";
 import { getNextMoveTabCounts } from "@/data/next-moves/mappers";
-import type { NextMoveItem, NextMovesTab } from "@/data/next-moves/next-moves.types";
+import type { NextMovesTab } from "@/data/next-moves/next-moves.types";
 import { usePageStockBundles } from "@/hooks/usePageStockBundles";
+import { useAppData } from "@/providers/useAppData";
+import { buildNextMovesPageData } from "@/utils/next-moves/buildNextMovesPageData";
 import { filterNextMoves } from "@/utils/next-moves/filterNextMoves";
-import { updateNextMoveStatus } from "@/utils/next-moves/updateNextMoveStatus";
 import { collectUniqueSymbols } from "@/utils/financial-data/collectUniqueSymbols";
 import {
   enrichNextMoveWithBundle,
@@ -27,34 +27,63 @@ export const NextMovesPage = () => {
   const tStates = useTranslations("states");
   const prefersReducedMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState<NextMovesTab>("allActions");
-  const [moves, setMoves] = useState<NextMoveItem[]>(() => nextMovesMockData.moves);
   const [highPriorityOnly, setHighPriorityOnly] = useState(false);
+
+  const {
+    enrichedPortfolioHoldings,
+    portfolioSummary,
+    stockDataBySymbol,
+    dismissedNextMoveIds,
+    dismissNextMove,
+    isUsingDemoPortfolio,
+    isUserDataPending,
+  } = useAppData();
+
+  const nextMovesData = useMemo(
+    () =>
+      buildNextMovesPageData({
+        enrichedPortfolioHoldings,
+        portfolioSummary,
+        stockDataBySymbol,
+        dismissedNextMoveIds,
+        isUsingDemoPortfolio,
+      }),
+    [
+      dismissedNextMoveIds,
+      enrichedPortfolioHoldings,
+      isUsingDemoPortfolio,
+      portfolioSummary,
+      stockDataBySymbol,
+    ],
+  );
 
   const symbols = useMemo(
     () =>
       collectUniqueSymbols([
-        ...nextMovesMockData.moves.map((move) => move.symbol),
-        ...nextMovesMockData.upcomingEvents.map((event) => event.symbol),
+        ...nextMovesData.moves.map((move) => move.symbol),
+        ...nextMovesData.upcomingEvents.map((event) => event.symbol),
       ]),
-    [],
+    [nextMovesData.moves, nextMovesData.upcomingEvents],
   );
 
   const { bundles, freshnessStatus } = usePageStockBundles(symbols);
 
   const enrichedMoves = useMemo(
     () =>
-      moves.map((move) => enrichNextMoveWithBundle(move, bundles[move.symbol ?? ""])),
-    [bundles, moves],
+      nextMovesData.moves.map((move) =>
+        enrichNextMoveWithBundle(move, bundles[move.symbol ?? ""]),
+      ),
+    [bundles, nextMovesData.moves],
   );
 
-  const nextMovesData = useMemo(
+  const enrichedNextMovesData = useMemo(
     () => ({
-      ...nextMovesMockData,
-      upcomingEvents: nextMovesMockData.upcomingEvents.map((event) =>
+      ...nextMovesData,
+      upcomingEvents: nextMovesData.upcomingEvents.map((event) =>
         enrichUpcomingEventWithBundle(event, bundles[event.symbol]),
       ),
     }),
-    [bundles],
+    [bundles, nextMovesData],
   );
 
   const tabCounts = useMemo(() => getNextMoveTabCounts(enrichedMoves), [enrichedMoves]);
@@ -66,9 +95,12 @@ export const NextMovesPage = () => {
     return filterNextMoves(priorityFiltered, activeTab);
   }, [activeTab, enrichedMoves, highPriorityOnly]);
 
-  const handleDismissMove = useCallback((moveId: string) => {
-    setMoves((items) => updateNextMoveStatus(items, moveId, "dismissed"));
-  }, []);
+  const handleDismissMove = useCallback(
+    (moveId: string) => {
+      dismissNextMove(moveId);
+    },
+    [dismissNextMove],
+  );
 
   const showStaleNotice =
     freshnessStatus === "mock" || freshnessStatus === "stale";
@@ -105,8 +137,10 @@ export const NextMovesPage = () => {
       <NextMovesContentGrid
         moves={filteredMoves}
         totalMoves={enrichedMoves.length}
-        nextMovesData={nextMovesData}
+        nextMovesData={enrichedNextMovesData}
         locale={locale}
+        dataState={isUserDataPending ? "loading" : undefined}
+        showGuidanceEmpty={enrichedPortfolioHoldings.length === 0}
         onDismissMove={handleDismissMove}
         onClearFilters={() => {
           setHighPriorityOnly(false);

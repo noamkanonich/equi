@@ -30,6 +30,7 @@ export type AppDataMode = {
   portfolioDataSource: PortfolioDataSource;
   isUserDataLoaded: boolean;
   isUsingDemoPortfolio: boolean;
+  isAppDataInitialized: boolean;
 };
 
 export type StockDataScope = "display" | "full";
@@ -61,6 +62,7 @@ export type AppDataState = {
   stockGeneralNotesBySymbol: Record<string, StockGeneralNote[]>;
   userCreatedAlerts: UserCreatedAlert[];
   alertStatusOverrides: Record<string, AlertStatus>;
+  dismissedNextMoveIds: string[];
   userDataSyncError: string | null;
 } & AppDataMode;
 
@@ -86,6 +88,7 @@ export type AppDataActions = {
   removeAlert: (id: string) => void;
   setAlertStatus: (id: string, status: AlertStatus) => void;
   getAlertStatus: (id: string, fallbackStatus: AlertStatus) => AlertStatus;
+  dismissNextMove: (moveId: string) => void;
   addStockGeneralNote: (symbol: string, note: StockNoteFormState) => void;
   getStockGeneralNotes: (symbol: string) => StockGeneralNote[];
   isInWatchlist: (symbol: string) => boolean;
@@ -125,5 +128,10 @@ export type UseAppDataReturn = AppDataState &
   AppDataActions &
   AppDataSelectors & {
     getWatchlistItemBase: (id: string) => WatchlistItemBase | undefined;
+    isAuthenticated: boolean;
+    isAppDataReady: boolean;
     isAuthenticatedDataLoading: boolean;
+    isUserDataPending: boolean;
+    isUsingDemoData: boolean;
+    isUsingDemoWatchlist: boolean;
   };

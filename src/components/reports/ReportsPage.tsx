@@ -15,7 +15,7 @@ import { useLivePortfolioData } from "@/hooks/useLivePortfolioData";
 import { useAppData } from "@/providers/useAppData";
 import { deriveDataSourceSummary } from "@/utils/financial-data/deriveDataSourceSummary";
 import { buildReportsPageData } from "@/utils/reports/buildReportsPageData";
-import { logReportsPortfolioHoldingsCount } from "@/utils/app-data/devAppDataLog";
+import { logReportsPortfolioHoldingsCount, logReportsPortfolioSource } from "@/utils/app-data/devAppDataLog";
 import {
   buildPerformanceSeries,
   getPerformancePointsForBenchmark,
@@ -61,17 +61,20 @@ export const ReportsPage = ({ title, subtitle }: ReportsPageProps) => {
   };
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const { refreshStockDataForSymbols, isUsingDemoPortfolio, isAuthenticatedDataLoading } =
+  const { refreshStockDataForSymbols, isUsingDemoPortfolio, isUserDataPending } =
     useAppData();
   const { enrichedHoldings, summary, freshnessStatus, isPortfolioQuotesLoading, userHoldings, bundles } =
     useLivePortfolioData();
 
   useEffect(() => {
     logReportsPortfolioHoldingsCount(userHoldings.length);
-  }, [userHoldings.length]);
+    logReportsPortfolioSource(
+      isUserDataPending ? "loading" : userHoldings.length === 0 ? "empty" : "app-data",
+    );
+  }, [isUserDataPending, userHoldings.length]);
 
   const hasHoldings = userHoldings.length > 0;
-  const dataState = isRefreshing || isAuthenticatedDataLoading ? "loading" : undefined;
+  const dataState = isRefreshing || isUserDataPending ? "loading" : undefined;
 
   const pageData = useMemo(
     () =>
@@ -133,7 +136,7 @@ export const ReportsPage = ({ title, subtitle }: ReportsPageProps) => {
   });
 
   if (!hasHoldings) {
-    if (isAuthenticatedDataLoading) {
+    if (isUserDataPending) {
       return (
         <PageContent>
           <MotionSection {...reveal(0)}>
